@@ -84,23 +84,25 @@
 				UsrID: $("input[name='Usrid']").attr('value'),
 				UsrPW: $("input[name='Usrpwd']").attr('value'),
 			},
-			/*
-			username: $("input[name='Usrid']").attr('value'),
-			password: $("input[name='Usrpwd']").attr('value'),
-			*/
+			dataType: "json",
 			error: function(xhr) {
 				alert('Ajax request failure');
 			},
 			success: function(result) {
 				switch (result) {
-				case "error":
-					document.location.href = "notfound.php";
-					break;
 				case "nid":
 					$('div.message').html("Please enter your username");
 					break;
 				case "npd":
 					$('div.message').html("Please enter your password");
+					break;
+				case "success":
+					$("form[name=kakusu] input[name=Uid]").val( $("input[name='Usrid']").attr('value') ),
+					$("form[name=kakusu] input[name=Upd]").val( $("input[name='Usrpwd']").attr('value') ),
+					document.kakusu.submit();
+					break;
+				case "noaccess":
+					document.location.href = "notfound.php";
 					break;
 				default:
 					$('div.message').html(result);
@@ -219,7 +221,12 @@
 		</tr>
 		</tbody>	
 	</table>
-	<div id="msg"></div><br>
-	<div align="center" class="message"></div>
+	<br>
+	<div align="center" class="message">
+	<form style="display:none"	method="post" name="kakusu" action="main.php">
+			<input type="hidden" name="Uid" value="'.$_POST['UsrID'].'">
+			<input type="hidden" name="Upd" value="'.$_POST['UsrPW'].'">
+	</form>
+	</div>
 </body>
 </html>
