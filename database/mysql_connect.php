@@ -1,7 +1,7 @@
 <?php
 $db_server = "140.117.182.16";
-$db_user = "";
-$db_passwd = "";
+$db_user = "CRMS_ADMIN";
+$db_passwd = "crms";
 
 $db_name = "crms_db";
 $db_shadow = "shadow";
