@@ -1,6 +1,6 @@
 <?php
 
-	function fFuncLogin($user){
+	function funcLogin($user){
 		include("mysql_connect.php");
 
 		if( isset($user['username']) && isset($user['password']) && $user['username']!="" && $user['password']!="" ){
