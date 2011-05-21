@@ -10,7 +10,7 @@
 	else
 	{
 		include("../database/fLogin.php");
-		$return = funcLogin(array($_POST['UsrID'], $_POST['UsrPW']));
+		$return = funcLogin(array("username" => $_POST['UsrID'],"password" =>  $_POST['UsrPW']));
 		if($return['success'])
 		{
 			echo '<form method="post" name="kakusu" action="main.php">';
