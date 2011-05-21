@@ -80,23 +80,19 @@
 		$.ajax({
 			url: 'login.php',
 			type: 'POST',
+			data: {
+				UsrID: $("input[name='Usrid']").attr('value'),
+				UsrPW: $("input[name='Usrpwd']").attr('value'),
+			},
+			/*
 			username: $("input[name='Usrid']").attr('value'),
 			password: $("input[name='Usrpwd']").attr('value'),
-			statusCode: {
-				404: function() {
-					alert('Page not found');
-					document.location.href = "index.html";
-				},
-				401: function() {
-					alert('Can not access');
-				},
-			},
+			*/
 			error: function(xhr) {
 				alert('Ajax request failure');
 			},
 			success: function(result) {
 				switch (result) {
-				/*
 				case "error":
 					document.location.href = "notfound.php";
 					break;
@@ -106,7 +102,7 @@
 				case "npd":
 					$('div.message').html("Please enter your password");
 					break;
-				*/
+			
 				default:
 					$('div.message').html(result);
 					break;
