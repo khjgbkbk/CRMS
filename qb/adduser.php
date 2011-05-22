@@ -49,7 +49,7 @@
 					break;
 				case "success":
 					alert('Successed !!');
-					document.location.href="./";
+					document.location.href = "./";
 					break;
 				case "fail":
 					alert('Failed !!');
@@ -102,7 +102,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			<table style="position:absolute; right:13px; top:13px; z-index:0; overflow:hidden; border: 3px dotted rgb(109, 2, 107);">
 				<tbody>
 				<td>
-					<a href='./logout.php'>Log out</a>
+					<a STYLE="text-decoration: none" href='./logout.php'>Log out</a>
 				</td>
 				</tbody>
 			</table>
