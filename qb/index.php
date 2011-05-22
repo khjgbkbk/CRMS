@@ -195,7 +195,7 @@
 	});
 </script>
 <title>CRMS</title>
-<link rel="shortcut icon" href="image/qb.png">
+<link rel="shortcut icon" href="image/qb_ico.gif">
 </head>
 <body bgcolor="#E6D4F8" >
 	<div id="bgImg" style="position:absolute; left:0px; top:0px; z-index:-1; overflow:hidden;">

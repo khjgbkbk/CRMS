@@ -10,22 +10,22 @@
 	{
 		if( $("input[name='addUsrid']").attr('value') == "" )
 		{
-			$('div.message').html('½Ğ¿é¤J±b¸¹!');
+			$('div.message').html('è«‹è¼¸å…¥å¸³è™Ÿ!');
 			return;
 		}
 		if( $("input[name='addUsrpwd']").attr('value') == "" )
 		{
-			$('div.message').html('½Ğ¿é¤J±K½X!');
+			$('div.message').html('è«‹è¼¸å…¥å¯†ç¢¼!');
 			return;
 		}
 		if( $("input[name='addCmUsrpwd']").attr('value') == "" )
 		{
-			$('div.message').html('½Ğ¦A¿é¤J¤@¦¸±K½X!');
+			$('div.message').html('è«‹å†è¼¸å…¥ä¸€æ¬¡å¯†ç¢¼!');
 			return;
 		}
 		if( $("input[name='addUsrpwd']").attr('value') != $("input[name='addCmUsrpwd']").attr('value') )
 		{
-			$('div.message').html('±K½X¿é¤J¤£¥¿½T!');
+			$('div.message').html('å¯†ç¢¼è¼¸å…¥ä¸æ­£ç¢º!');
 			return;
 		}
 		$.ajax({
@@ -51,10 +51,11 @@
 					alert('Successed !!');
 					document.location.href="./";
 					break;
-				case "failed":
+				case "fail":
+					alert('Failed !!');
 					$('input[name="addUsrid"]').attr({value:''}); 
 					$('input[name="addUsrpwd"]').attr({value:''}); 
-					alert('Failed !!');
+					$('input[name="addCmUsrpwd"]').attr({value:''}); 
 					break;
 				default:
 					$('div.message').html(result);
@@ -78,7 +79,7 @@
 	});
 </script>
 <title>CRMS</title>
-<link rel="shortcut icon" href="/image/qb.png">
+<link rel="shortcut icon" href="image/qb_ico.gif">
 </head>
 <body bgcolor="#EBF5FF"  link="1C19FF" vlink="1C19FF">
 <?php
@@ -120,8 +121,8 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 				<td>
 				</td>
 				<td align="right">
-					<input type="button" value="°e¥X" id="Send">
-					<input type="button" value="ªğ¦^" id="Goback">
+					<input type="button" value="é€å‡º" id="Send">
+					<input type="button" value="è¿”å›" id="Goback">
 				</td>
 			</tr>
 			</tbody>

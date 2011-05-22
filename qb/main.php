@@ -5,7 +5,7 @@
 <html>
 <head>
 <title>CRMS</title>
-<link rel="shortcut icon" href="/image/qb.png">
+<link rel="shortcut icon" href="/image/qb_ico.gif">
 </head>
 <body bgcolor="#EBF5FF"  link="1C19FF" vlink="1C19FF">
 <?php

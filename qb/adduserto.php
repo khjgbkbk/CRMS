@@ -9,18 +9,15 @@
 	}
 	else
 	{
-		//include("../database/fLogin.php");
-		//$return = funcLogin(array("username" => $_POST['addUsrID'],"password" =>  $_POST['addUsrPW']));
-		
-		
-		$return = array("success" => false);
-		if($return['success'])
+		include("../database/fRegister.php");
+		$return = funcLogin( array("username" => $_POST['UsrID'],"password" => $_POST['UsrPW']) );
+		if(false)
 		{
 			echo json_encode("success");
 		}
 		else
 		{
-			echo json_encode("failed");
+			echo json_encode("fail");
 		}
 	}
 ?>
