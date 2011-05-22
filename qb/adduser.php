@@ -66,6 +66,7 @@
 	}
 </script>
 <script type="text/javascript">
+	var KEY_ENTER = 13;
 	$(document).ready(function () 
 	{
 		$('#Send').click(function()
@@ -76,7 +77,7 @@
 		{
 			document.location.href="./";
 		});
-	});
+	})
 	$(document).keydown(function(event){ 
 		//如果按 enter
 		if(event.keyCode == KEY_ENTER)
