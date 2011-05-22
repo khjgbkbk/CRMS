@@ -1,5 +1,6 @@
 <?php
-include("fLogin.php");
+//include("fLogin.php");
+include("fRegister.php");
 
 $user['username'] = $_POST['id'];
 $user['password'] = $_POST['password'];
@@ -10,7 +11,10 @@ $user['password'] = $_POST['password'];
 echo $user['username']."<br>";
 echo $user['password']."<br>";
 
-print_r( funcLogin($user));
+$obj['username'] = $user['username'];
+$obj['password'] = $user['password'];
+
+print_r( funcRegister($obj) );
 
 //if($name != null && $password != null && $row[1] == $name && $row[2] == $password)
 //{
