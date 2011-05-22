@@ -4,6 +4,7 @@
 	if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	{
 		header('Location: ./main.php');
+		exit;
 	}
 ?>
 <html>
