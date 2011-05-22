@@ -8,17 +8,17 @@
 			$row = mysql_fetch_row($result);
 
 			if($row[1]==""){
-				return array("success" => false);
+				return array("success" => false, "status" => "username not exists");
 			}else{
 				$sql = "delete from ".$db_shadow." where name = '{$ask['username']}'";
 				if( mysql_query($sql) or die(mysql_error()) ){
 					return array("success" => true);
 				}else{
-					return array("success" => false);
+					return array("success" => false, "status" => "delete failed");
 				}
 			}
 		}else{
-			return array("success" => false);
+			return array("success" => false, "status" => "input not complete");
 		}
 	}
 ?>
