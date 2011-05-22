@@ -10,9 +10,15 @@ public class CRMS extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        server servers = new server();
         TextView tv = new TextView(this);
-        tv.setText(servers.getServerTest()+"aa");
+        user Client = new user("admin","admin");
+        server CRMSserver = new server();
+        if(Client.login(CRMSserver) == true){
+        	tv.setText("Success");
+        }else{
+        	tv.setText("Fail");
+        	
+        }
         setContentView(tv);
 
     }
