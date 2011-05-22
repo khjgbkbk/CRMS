@@ -11,7 +11,7 @@
 				return array("success" => false, "status" => "username exists");
 			}else{
 				$sql = "insert into ".$db_shadow." (name, passwd) values ('{$ask['username']}', '{$ask['password']}')";
-				if( mysql_query($sql) or die(mysql_error()) ){
+				if( mysql_query($sql) ){
 					return array("success" => true);
 				}else{
 					return array("success" => false, "status" => "insert failed");

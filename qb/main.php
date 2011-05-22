@@ -5,7 +5,7 @@
 <html>
 <head>
 <title>CRMS</title>
-<link rel="shortcut icon" href="/image/qb.png">
+<link rel="shortcut icon" href="/image/qb_ico.gif">
 </head>
 <body bgcolor="#EBF5FF"  link="1C19FF" vlink="1C19FF">
 <?php
@@ -20,7 +20,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			<table style="position:absolute; right:13px; top:13px; z-index:0; overflow:hidden; border: 3px dotted rgb(109, 2, 107);">
 				<tbody>
 				<td>
-					<a href='./logout.php'>Log out</a>
+					<a STYLE="text-decoration: none" href='./logout.php'>Log out</a>
 				</td>
 				</tbody>
 			</table>
@@ -31,19 +31,19 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 				<tbody>
 				<tr>
 					<td>
-						<a href="adduser.php">[新增使用者]</a>
+						<a STYLE="text-decoration: none" href="adduser.php">[新增使用者]</a>
 					</td>
 					<td>
 						&nbsp
 					</td>
 					<td>
-						<a href="">[編輯使用者]</a>
+						<a STYLE="text-decoration: none" href="">[編輯使用者]</a>
 					</td>
 					<td>
 						&nbsp
 					</td>
 					<td>
-						<a href="">[刪除使用者]</a>
+						<a STYLE="text-decoration: none" href="deluser.php">[刪除使用者]</a>
 					</td>
 				</tr>
 				</tbody>

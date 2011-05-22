@@ -10,22 +10,22 @@
 	{
 		if( $("input[name='addUsrid']").attr('value') == "" )
 		{
-			$('div.message').html('½Ğ¿é¤J±b¸¹!');
+			$('div.message').html('è«‹è¼¸å…¥å¸³è™Ÿ!');
 			return;
 		}
 		if( $("input[name='addUsrpwd']").attr('value') == "" )
 		{
-			$('div.message').html('½Ğ¿é¤J±K½X!');
+			$('div.message').html('è«‹è¼¸å…¥å¯†ç¢¼!');
 			return;
 		}
 		if( $("input[name='addCmUsrpwd']").attr('value') == "" )
 		{
-			$('div.message').html('½Ğ¦A¿é¤J¤@¦¸±K½X!');
+			$('div.message').html('è«‹å†è¼¸å…¥ä¸€æ¬¡å¯†ç¢¼!');
 			return;
 		}
 		if( $("input[name='addUsrpwd']").attr('value') != $("input[name='addCmUsrpwd']").attr('value') )
 		{
-			$('div.message').html('±K½X¿é¤J¤£¥¿½T!');
+			$('div.message').html('å¯†ç¢¼è¼¸å…¥ä¸æ­£ç¢º!');
 			return;
 		}
 		$.ajax({
@@ -49,12 +49,13 @@
 					break;
 				case "success":
 					alert('Successed !!');
-					document.location.href="./";
+					document.location.href = "./";
 					break;
-				case "failed":
+				case "fail":
+					alert('Failed !!');
 					$('input[name="addUsrid"]').attr({value:''}); 
 					$('input[name="addUsrpwd"]').attr({value:''}); 
-					alert('Failed !!');
+					$('input[name="addCmUsrpwd"]').attr({value:''}); 
 					break;
 				default:
 					$('div.message').html(result);
@@ -65,6 +66,7 @@
 	}
 </script>
 <script type="text/javascript">
+	var KEY_ENTER = 13;
 	$(document).ready(function () 
 	{
 		$('#Send').click(function()
@@ -75,10 +77,17 @@
 		{
 			document.location.href="./";
 		});
+	})
+	$(document).keydown(function(event){ 
+		//å¦‚æœæŒ‰ enter
+		if(event.keyCode == KEY_ENTER)
+		{
+			send();
+		}
 	});
 </script>
 <title>CRMS</title>
-<link rel="shortcut icon" href="/image/qb.png">
+<link rel="shortcut icon" href="image/qb_ico.gif">
 </head>
 <body bgcolor="#EBF5FF"  link="1C19FF" vlink="1C19FF">
 <?php
@@ -88,6 +97,17 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		<div align='center'>
 			<h1>CRMS::SERVER.AddUser</h1>
 		</div>
+		
+		<div align='right'>
+			<table style="position:absolute; right:13px; top:13px; z-index:0; overflow:hidden; border: 3px dotted rgb(109, 2, 107);">
+				<tbody>
+				<td>
+					<a STYLE="text-decoration: none" href='./logout.php'>Log out</a>
+				</td>
+				</tbody>
+			</table>
+		</div>
+		
 		<br>
 		<div align="center">
 			<table style="border: 5px dotted rgb(109, 2, 107); " align="center" cellPadding="10" frame="border">
@@ -120,8 +140,8 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 				<td>
 				</td>
 				<td align="right">
-					<input type="button" value="°e¥X" id="Send">
-					<input type="button" value="ªğ¦^" id="Goback">
+					<input type="button" value="é€å‡º" id="Send">
+					<input type="button" value="è¿”å›" id="Goback">
 				</td>
 			</tr>
 			</tbody>
