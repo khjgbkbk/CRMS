@@ -12,7 +12,7 @@ public class CRMS extends Activity {
         setContentView(R.layout.main);
         server servers = new server();
         TextView tv = new TextView(this);
-        tv.setText(servers.getServerTest());
+        tv.setText(servers.getServerTest()+"a");
         setContentView(tv);
 
     }
