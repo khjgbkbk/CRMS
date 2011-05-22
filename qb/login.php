@@ -1,4 +1,8 @@
 <?php
+	ob_start();
+	session_start();
+?>
+<?php
 	if(!isset($_POST['UsrID']) || $_POST['UsrID']=="") 
 	{
 		echo json_encode("nid");
@@ -14,6 +18,8 @@
 		if($return['success'])
 		{
 			echo json_encode("success");
+			$_SESSION["loginid"] = $_POST['UsrID'];
+			$_SESSION["loginpwd"] = $_POST['UsrPW'];
 		}
 		else
 		{
