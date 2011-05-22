@@ -1,5 +1,5 @@
 <?php
-	funcRegister($ask){
+	function funcRegister($ask){
 		include("mysql_connect.php");
 
 		if( isset($ask['username']) && isset($ask['password']) && $ask['username']!="" && $ask['password']!="" ){
