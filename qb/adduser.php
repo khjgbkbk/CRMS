@@ -6,11 +6,70 @@
 <head>
 <script type="text/javascript" src="jquery-1.2.6.js"></script>
 <script type="text/javascript">
+	function send()
+	{
+		if( $("input[name='addUsrid']").attr('value') == "" )
+		{
+			$('div.message').html('請輸入帳號!');
+			return;
+		}
+		if( $("input[name='addUsrpwd']").attr('value') == "" )
+		{
+			$('div.message').html('請輸入密碼!');
+			return;
+		}
+		if( $("input[name='addCmUsrpwd']").attr('value') == "" )
+		{
+			$('div.message').html('請再輸入一次密碼!');
+			return;
+		}
+		if( $("input[name='addUsrpwd']").attr('value') != $("input[name='addCmUsrpwd']").attr('value') )
+		{
+			$('div.message').html('密碼輸入不正確!');
+			return;
+		}
+		$.ajax({
+			url: 'adduserto.php',
+			type: 'POST',
+			data: {
+				addUsrID: $("input[name='addUsrid']").attr('value'),
+				addUsrPW: $("input[name='addUsrpwd']").attr('value'),
+			},
+			dataType: "json",
+			error: function(xhr) {
+				alert('Ajax request failure');
+			},
+			success: function(result) {
+				switch (result) {
+				case "nid":
+					$('div.message').html("Please enter a username");
+					break;
+				case "npd":
+					$('div.message').html("Please enter password !!");
+					break;
+				case "success":
+					alert('Successed !!');
+					document.location.href="./";
+					break;
+				case "failed":
+					$('input[name="addUsrid"]').attr({value:''}); 
+					$('input[name="addUsrpwd"]').attr({value:''}); 
+					alert('Failed !!');
+					break;
+				default:
+					$('div.message').html(result);
+					break;
+				}
+			},
+		});
+	}
+</script>
+<script type="text/javascript">
 	$(document).ready(function () 
 	{
 		$('#Send').click(function()
 		{
-			document.location.href="./";
+			send();
 		});
 		$('#Goback').click(function()
 		{
@@ -38,7 +97,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 					Username:
 				</td>
 				<td>
-					<input type="text" name="Usrid">
+					<input type="text" name="addUsrid">
 				</td>
 			</tr>
 			<tr>
@@ -46,7 +105,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 					Password:
 				</td>
 				<td>
-					<input type="text" name="Usrpwd">
+					<input type="text" name="addUsrpwd">
 				</td>
 			</tr>
 			<tr>
@@ -54,7 +113,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 					Comfirm password:
 				</td>
 				<td>
-					<input type="text" name="CmUsrpwd">
+					<input type="text" name="addCmUsrpwd">
 				</td>
 			</tr>
 			<tr>
@@ -77,5 +136,8 @@ else
 	exit;
 }
 ?>
+	<br>
+	<div align="center" class="message">
+	</div>
 </body>
 </html>
