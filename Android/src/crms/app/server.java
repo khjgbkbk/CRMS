@@ -8,7 +8,6 @@ import org.apache.http.NameValuePair;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -16,8 +15,13 @@ import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 
 public class server {
+
+	String URLs = "http://crmss.thepilabs.com/androidMain.php";
+	
 	
 	public user userLogin(user u){
+		
+		
 		return new user();
 	}
 	
@@ -25,8 +29,9 @@ public class server {
 		return "test";
 		
 	}
+	
+	
 	public String getServerTest(){
-		String URLs = "http://crmss.thepilabs.com/androidMain.php";
         HttpPost httpRequest = new HttpPost(URLs);
         /*
          * Post運作傳送變數必須用NameValuePair[]陣列儲存
