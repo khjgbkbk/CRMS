@@ -1,6 +1,24 @@
 <?php
 	ob_start();
 	session_start();
+	function get_browser_version()
+	{
+        $browser_version = array("Chrome","MSIE","Firefox","Opera","Safari","Netscape");
+        $i = 0;
+        while($i < count($browser_version))
+        {
+                if(strstr($_SERVER["HTTP_USER_AGENT"],$browser_version[$i])) {
+                        return $browser_version[$i];
+                }
+                $i++;
+        }
+        return "Unknow";
+	}
+	if(get_browser_version() == "MSIE")
+	{
+		header('Location: ./iegodead.html');
+	}
+	
 	if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	{
 		header('Location: ./main.php');
