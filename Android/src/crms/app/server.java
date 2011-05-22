@@ -16,6 +16,11 @@ import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 
 public class server {
+	
+	public user userLogin(user u){
+		return new user();
+	}
+	
 	public String test(){
 		return "test";
 		
