@@ -1,5 +1,4 @@
 <?php
-
 	function funcQuery($ask){
 		include("mysql_connect.php");
 
