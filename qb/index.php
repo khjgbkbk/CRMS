@@ -195,6 +195,7 @@
 	});
 </script>
 <title>CRMS</title>
+<link rel="shortcut icon" href="image/qb.png">
 </head>
 <body bgcolor="#E6D4F8" >
 	<div id="bgImg" style="position:absolute; left:0px; top:0px; z-index:-1; overflow:hidden;">
@@ -230,12 +231,16 @@
 		</tr>
 		</tbody>	
 	</table>
+	<br/>
+	<div align="center" style="font-size: 9pt; color: #3937FF;">
+		僕と契約して○○○○になってよ！
+	</div>
 	<br>
 	<div align="center" class="message">
-	<form style="display:none"	method="post" name="kakusu" action="main.php">
-			<input type="hidden" name="Uid" value="">
-			<input type="hidden" name="Upd" value="">
-	</form>
+		<form style="display:none"	method="post" name="kakusu" action="main.php">
+				<input type="hidden" name="Uid" value="">
+				<input type="hidden" name="Upd" value="">
+		</form>
 	</div>
 </body>
 </html>

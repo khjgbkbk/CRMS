@@ -4,19 +4,20 @@
 ?>
 <html>
 <head>
-<title></title>
+<title>CRMS</title>
+<link rel="shortcut icon" href="/image/qb.png">
 </head>
-<body>
+<body bgcolor="#EBF5FF"  link="1C19FF" vlink="1C19FF">
 <?php
 if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 {
 ?> 
 		<div align='center'>
-			<h1>CRMS::SERVER.MAIN</h1>
+			<h1>CRMS::SERVER.Main</h1>
 		</div>
 	
 		<div align='right'>
-			<table style="position:absolute; right:13px; top:13px; z-index:-1; overflow:hidden; border: 3px dotted rgb(109, 2, 107);">
+			<table style="position:absolute; right:13px; top:13px; z-index:0; overflow:hidden; border: 3px dotted rgb(109, 2, 107);">
 				<tbody>
 				<td>
 					<a href='./logout.php'>Log out</a>
@@ -26,10 +27,27 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		</div>
 		
 		<div align=center>
-			<p style="font-size: 50pt;">
-				This is main page<br>
-				Building...<br>
-			</p>
+			<table style="">
+				<tbody>
+				<tr>
+					<td>
+						<a href="adduser.php">[新增使用者]</a>
+					</td>
+					<td>
+						&nbsp
+					</td>
+					<td>
+						<a href="">[編輯使用者]</a>
+					</td>
+					<td>
+						&nbsp
+					</td>
+					<td>
+						<a href="">[刪除使用者]</a>
+					</td>
+				</tr>
+				</tbody>
+			</table>
 		</div>
 <?php	
 }
