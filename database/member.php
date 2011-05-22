@@ -1,6 +1,8 @@
 <?php
-include("authorized.php");
+//include("authorized.php");
 //include("mysql_connect.php");
+
+include("fQuery.php");
 
 echo '<a href="logout.php">Logout</a>  <br><br>';
 
