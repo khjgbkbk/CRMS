@@ -8,7 +8,7 @@
 			$row = mysql_fetch_row($result);
 
 			if($row[1]!=""){
-				return array("success" => false); 
+				return array("success" => false);
 			}else{
 				$sql = "insert into ".$db_shadow." (name, passwd) values ('{$ask['username']}', '{$ask['password']}')";
 				if( mysql_query($sql) or die(mysql_error()) ){
