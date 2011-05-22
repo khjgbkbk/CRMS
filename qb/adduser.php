@@ -77,6 +77,13 @@
 			document.location.href="./";
 		});
 	});
+	$(document).keydown(function(event){ 
+		//如果按 enter
+		if(event.keyCode == KEY_ENTER)
+		{
+			send();
+		}
+	});
 </script>
 <title>CRMS</title>
 <link rel="shortcut icon" href="image/qb_ico.gif">
@@ -89,6 +96,17 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		<div align='center'>
 			<h1>CRMS::SERVER.AddUser</h1>
 		</div>
+		
+		<div align='right'>
+			<table style="position:absolute; right:13px; top:13px; z-index:0; overflow:hidden; border: 3px dotted rgb(109, 2, 107);">
+				<tbody>
+				<td>
+					<a href='./logout.php'>Log out</a>
+				</td>
+				</tbody>
+			</table>
+		</div>
+		
 		<br>
 		<div align="center">
 			<table style="border: 5px dotted rgb(109, 2, 107); " align="center" cellPadding="10" frame="border">

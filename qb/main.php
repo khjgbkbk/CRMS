@@ -43,7 +43,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 						&nbsp
 					</td>
 					<td>
-						<a href="">[刪除使用者]</a>
+						<a href="deluser.php">[刪除使用者]</a>
 					</td>
 				</tr>
 				</tbody>
