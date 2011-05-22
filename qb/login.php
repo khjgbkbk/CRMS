@@ -1,8 +1,6 @@
 <?php
 	ob_start();
 	session_start();
-?>
-<?php
 	if(!isset($_POST['UsrID']) || $_POST['UsrID']=="") 
 	{
 		echo json_encode("nid");
