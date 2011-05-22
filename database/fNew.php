@@ -2,15 +2,23 @@
 	function funcNew($ask){
 		include("mysql_connect.php");
 
-		if( isset($ask['id']) && $ask['id']!="" ){
-			$sql = "insert into ".$db_equip." (name, dorm, id, price, date) values ('{$ask['name']}', '{$ask['dorm']}', '{$ask['id']}', '{$ask['price']}', curdate() )";
-			if( mysql_query($sql) or die(mysql_error()) ){
-				return array("success" => true);
+		if( isset($ask['name']) && isset($ask['dorm']) && isset($ask['id']) && isset($ask['price']) && $ask['name']!="" && $ask['dorm']!="" && $ask['id']!="" && $ask['price']!="" ){
+			$sql = "select * from ".$db_equip." where id = '{$ask['id']}'";
+			$result = mysql_query($sql) or die(mysql_error());
+			$row = mysql_fetch_row($result);
+
+			if($row[0]!=""){
+				return array("success" => false, "status" => "id exists");
 			}else{
-				return array("success" => false);
+				$sql = "insert into ".$db_equip." (name, dorm, id, price, date) values ('{$ask['name']}', '{$ask['dorm']}', '{$ask['id']}', '{$ask['price']}', curdate() )";
+				if( mysql_query($sql) or die(mysql_error()) ){
+					return array("success" => true);
+				}else{
+					return array("success" => false, "status" => "insert failed");
+				}
 			}
 		}else{
-			return array("success" => false);
+			return array("success" => false, "status" => "input not complete");
 		}
 	}
 ?>
