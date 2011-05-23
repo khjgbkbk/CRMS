@@ -2,7 +2,12 @@
 	function funcNew($ask){
 		include("mysql_connect.php");
 
-		if( isset($ask['name']) && isset($ask['dorm']) && isset($ask['id']) && isset($ask['price']) && $ask['name']!="" && $ask['dorm']!="" && $ask['id']!="" && $ask['price']!="" ){
+		if(isset($ask)){
+			if(!isset($ask['name']))  $ask['name'] = "UnnamedEquipment";
+			if(!isset($ask['dorm']))  $ask['dorm'] = "?";
+			if(!isset($ask['id']))    $ask['id'] = "0";
+			if(!isset($ask['price'])) $ask['price'] = 0;
+//isset($ask['name']) && isset($ask['dorm']) && isset($ask['id']) && isset($ask['price']) && $ask['name']!="" && $ask['dorm']!="" && $ask['id']!="" && $ask['price']!="" ){
 			$sql = "select * from ".$db_equip." where id = '{$ask['id']}'";
 			$result = mysql_query($sql) or die(mysql_error());
 			$row = mysql_fetch_row($result);
