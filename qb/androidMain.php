@@ -32,8 +32,23 @@ if(!isset($_SERVER['PHP_AUTH_USER']) || !isset($_SERVER['PHP_AUTH_PW'])){
 		exit;
 	}else{
 		header("HTTP/1.1 200 OK");		
-		echo "welcome my Administrator";
+		//echo "welcome my Administrator";
 	}
+}
+switch($_SERVER['REQUEST_METHOD']){
+	case 'GET':
+		if(isset($argv[1])){
+        	switch($argv[1]){
+		case "equipment" :
+			include("../database/fQuery.php");
+        		echo json_encode(funcQuery(array("id" => $argv[2])));
+        		exit;
+		}
+		}
+        exit;
+	default:
+
+	exit;
 }
 
 
