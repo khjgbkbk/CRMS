@@ -2,22 +2,17 @@ package crms.app;
 
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import android.widget.Toast;
 
 public class user {
 	String _Username;
@@ -46,7 +41,8 @@ public class user {
 			if (httpResponse.getStatusLine().getStatusCode() == 200) {
 				/* 取出回應字串 */
 				String strResult = EntityUtils.toString(httpResponse.getEntity());
-				return new equipment(new JSONObject(strResult));
+
+		        return new equipment(new JSONObject(strResult));
 			} else if (httpResponse.getStatusLine().getStatusCode() == 401) {
 				return null;
 			}else{
@@ -54,34 +50,19 @@ public class user {
 			}
 	}
 
-	public boolean login(server s) {
-		HttpPost httpRequest = new HttpPost(s.URLs);
-		/*
-		 * Post運作傳送變數必須用NameValuePair[]陣列儲存
-		 */
-		List<NameValuePair> params = new ArrayList<NameValuePair>();
-
-		// params.add(new BasicNameValuePair("STUID",
-		// eText.getText().toString()));
-		// params.add(new BasicNameValuePair("CLASS","2"));
-		try {
-			/* 發出HTTP request */
-
-			httpRequest.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
-
+	public boolean login(server s) throws ClientProtocolException, IOException {
+		HttpGet httpRequest = new HttpGet(s.URLs);
+		/* 發出HTTP request */
 			/* 取得HTTP response */
 			DefaultHttpClient HttpClient = new DefaultHttpClient();
 			HttpClient.getCredentialsProvider().setCredentials(
-					new AuthScope("crmss.thepilabs.com", 80),
+					s._authScope,
 					getUsernamePasswordCredentials());
 			HttpResponse httpResponse = HttpClient.execute(httpRequest);
 
 			/* 若狀態碼為200 ok */
 			if (httpResponse.getStatusLine().getStatusCode() == 200) {
-				/* 取出回應字串 */
-				// String strResult =
-				// EntityUtils.toString(httpResponse.getEntity(),"BIG5");
-				// 回傳回應字串
+				//登入成功
 				_DefaultServer = s;
 				_isLogined = true;
 
@@ -93,23 +74,6 @@ public class user {
 				_isLogined = false;
 			}
 
-		} catch (ClientProtocolException e) {
-			// Toast.makeText(this, e.getMessage().toString(),
-			// Toast.LENGTH_SHORT)
-			// .show();
-			e.printStackTrace();
-		} catch (IOException e) {
-			// Toast.makeText(this, e.getMessage().toString(),
-			// Toast.LENGTH_SHORT)
-			// .show();
-			e.printStackTrace();
-		} catch (Exception e) {
-			// Toast.makeText(this, e.getMessage().toString(),
-			// Toast.LENGTH_SHORT)
-			// .show();
-			e.printStackTrace();
-
-		}
 		return _isLogined;
 	}
 

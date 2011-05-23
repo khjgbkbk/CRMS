@@ -15,7 +15,12 @@ public class equipment {
 	location _Location = null;
 	int _price;
 	Date _date;
-	
+	public String toString(){
+		return _name;
+	}
+	public location getLocation(){
+		return _Location;
+	}
 	public equipment(JSONObject jsonObject) throws JSONException, ParseException {
 		// TODO Auto-generated constructor stub
 		//try{
