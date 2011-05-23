@@ -21,6 +21,12 @@ public class equipment {
 	public location getLocation(){
 		return _Location;
 	}
+
+	public equipment setLocation(location L){
+		_Location = L;
+		return this;
+	}
+	
 	public equipment(JSONObject jsonObject) throws JSONException, ParseException {
 		// TODO Auto-generated constructor stub
 		//try{
