@@ -5,8 +5,8 @@
 		if( isset($ask['id']) && $ask['id']!="" ){
 			$sql = "select * from ".$db_equip." where id = '{$ask['id']}'";
 			$result = mysql_query($sql) or die(mysql_error());
-			$row = mysql_fetch_row($result);
-			if( $row[0]=="" ){
+			$row = mysql_fetch_assoc($result);
+			if( $row == false ){
 				return array("success" => false);
 			}else{
 				$result = $row;
