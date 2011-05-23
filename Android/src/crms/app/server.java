@@ -17,7 +17,7 @@ import org.apache.http.util.EntityUtils;
 public class server {
 
 	String URLs = "http://crmss.thepilabs.com/androidMain.php";
-	
+	AuthScope _authScope = new AuthScope("crmss.thepilabs.com", 80);
 	
 	public user userLogin(user u){
 		
