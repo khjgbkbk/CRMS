@@ -9,6 +9,8 @@ import org.json.JSONException;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,9 +20,11 @@ public class CRMS extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        findViewById(R.id.textView1);
         Log.v("test","aasd");
-        TextView tv = new TextView(this);
-        user Client = new user("admin","admina");
+        final TextView tv = (TextView) findViewById(R.id.textView1);
+        //R.layout.main.tv;
+        final user Client = new user("admin","admina");
         server CRMSserver = new server();
         try {
 			if(Client.login(CRMSserver) == true){
@@ -66,12 +70,34 @@ public class CRMS extends Activity {
 			e.printStackTrace();
 		}
 		if(Equip != null){
-			tv.setText(Equip.getLocation().toString());
+			tv.setText(Equip.location().toString());
 		}
 
         Log.v("test","a");
-        setContentView(tv);
-
+        //setContentView(tv);
+        //setContentView()
         Log.v("test","c");
+        final Button button = (Button) findViewById(R.id.button2);
+        button.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                //final TextView tv = (TextView) findViewById(R.id.textView1);
+                try {
+					Client.getEquipment("123");
+				} catch (ClientProtocolException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+                tv.setText("clicked");
+            }
+        });
     }
 }
