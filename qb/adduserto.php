@@ -10,7 +10,7 @@
 	else
 	{
 		include("../database/fRegister.php");
-		$return = funcRegister( array("username" => $_POST['addUsrID'], "password" => $_POST['addUsrPW']) );
+		$return = funcRegister( array("username" => $_POST['addUsrID'], "password" => md5($_POST['addUsrPW'])) );
 		if($return["success"])
 		{
 			echo json_encode("success");

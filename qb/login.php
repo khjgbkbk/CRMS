@@ -12,7 +12,7 @@
 	else
 	{
 		include("../database/fLogin.php");
-		$return = funcLogin(array("username" => $_POST['UsrID'],"password" =>  $_POST['UsrPW']));
+		$return = funcLogin(array("username" => $_POST['UsrID'],"password" =>  md5($_POST['UsrPW'])));
 		if($return['success'])
 		{
 			echo json_encode("success");

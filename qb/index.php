@@ -244,7 +244,7 @@
 		<tr align="right">
 			<td>
 				<input type="button" class="myButton" value="" id="send">
-				<input type="button" value="Cancel" id="clean">
+				<!--<input type="button" value="Cancel" id="clean">-->
 			</td>
 		</tr>
 		</tbody>	
