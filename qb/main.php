@@ -32,6 +32,12 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 				<tbody>
 				<tr>
 					<td>
+						<a STYLE="text-decoration: none" href="">[使用者列表]</a>
+					</td>
+					<td>
+						&nbsp
+					</td>
+					<td>
 						<a STYLE="text-decoration: none" href="adduser.php">[新增使用者]</a>
 					</td>
 					<td>
@@ -45,6 +51,30 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 					</td>
 					<td>
 						<a STYLE="text-decoration: none" href="deluser.php">[刪除使用者]</a>
+					</td>
+					
+				</tr>
+				<tr>
+					<td>
+						<a STYLE="text-decoration: none" href="">[器材列表]</a>
+					</td>
+					<td>
+						&nbsp
+					</td>
+					<td>
+						<a STYLE="text-decoration: none" href="addequiv.php">[新增器材]</a>
+					</td>
+					<td>
+						&nbsp
+					</td>
+					<td>
+						<a STYLE="text-decoration: none" href="">[編輯器材]</a>
+					</td>
+					<td>
+						&nbsp
+					</td>
+					<td>
+						<a STYLE="text-decoration: none" href="">[刪除器材]</a>
 					</td>
 				</tr>
 				</tbody>
