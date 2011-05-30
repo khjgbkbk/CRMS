@@ -50,6 +50,18 @@ public class user {
 			}
 	}
 
+	public equipment newEquipment(equipment equip) throws JSONException{
+		if(equip == null){
+			return null;
+		}
+		JSONObject json = new JSONObject();
+		json.put("name", "value");
+		
+		
+		
+		return null;
+	}
+	
 	public boolean login(server s) throws ClientProtocolException, IOException {
 		HttpGet httpRequest = new HttpGet(s.URLs);
 		/* µo¥XHTTP request */
