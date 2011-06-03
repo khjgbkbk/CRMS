@@ -1,11 +1,10 @@
 <?php
-$column_size = 5;
-
 	function funcList($ask){
+		$column_size = 5;
 		include("mysql_connect.php");
 
 		if( isset($ask['dorm']) && $ask['dorm']!="" ){
-			$sql = "select * from ".$db_equip." where dorm = ".$ask['dorm'];
+			$sql = "select * from ".$db_equip." where dorm = '{$ask['dorm']}'";
 			$result = mysql_query($sql) or die(mysql_error());
 			$row_size = 0;
 			while($row = mysql_fetch_row($result)){
@@ -14,7 +13,7 @@ $column_size = 5;
 			}
 			if( $row_size == 0 ){
 				return array("success" => false);
-			}else
+			}else{
 				return array("success" => true, "row_size" => $row_size, "column_size" => $column_size, $data);
 			}
 		}else{
@@ -27,8 +26,8 @@ $column_size = 5;
 			}
 			if( $row_size == 0 ){
 				return array("success" => false);
-			}else
-				return array("success" => true, "row_size" => $row_size, "column_size" => $column_size, $data);
+			}else{
+				return array("success" => true, "row_size" => $row_size, "column_size" => $column_size, "data" => $data);
 			}
 		}
 	}
