@@ -9,7 +9,7 @@ $column_size = 5;
 			$result = mysql_query($sql) or die(mysql_error());
 			$row_size = 0;
 			while($row = mysql_fetch_row($result)){
-				$data[$row_size] = $row
+				$data[$row_size] = $row;
 				$row_size++;
 			}
 			if( $row_size == 0 ){
@@ -22,7 +22,7 @@ $column_size = 5;
 			$result = mysql_query($sql) or die(mysql_error());
 			$row_size = 0;
 			while($row = mysql_fetch_row($result)){
-				$data[$row_size] = $row
+				$data[$row_size] = $row;
 				$row_size++;
 			}
 			if( $row_size == 0 ){
