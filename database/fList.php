@@ -1,5 +1,5 @@
 <?php
-$column_size = 5;
+	$column_size = 5;
 
 	function funcList($ask){
 		include("mysql_connect.php");
