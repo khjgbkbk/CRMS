@@ -1,9 +1,10 @@
 <?php
 //include("fLogin.php");
 //include("fRegister.php");
-include("fUnregister.php");
+//include("fUnregister.php");
 //include("fNew.php");
 //include("fDelete.php");
+include("fList.php");
 
 $user['username'] = $_POST['id'];
 $user['password'] = $_POST['password'];
@@ -15,11 +16,11 @@ echo $user['username']."<br>";
 echo $user['password']."<br>";
 
 $obj['name'] = "switch";
-$obj['dorm'] = "52";
+$obj['dorm'] = "dorm_f";
 $obj['id'] = "0123";
 $obj['price'] = 1234567;
 
-print_r( json_encode(funcUnregister($user)) );
+print_r( json_encode(funcList($obj)) );
 
 //if($name != null && $password != null && $row[1] == $name && $row[2] == $password)
 //{
