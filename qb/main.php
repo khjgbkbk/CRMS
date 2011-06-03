@@ -7,6 +7,16 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <title>CRMS</title>
 <link rel="shortcut icon" href="image/qb_ico.gif">
+<style type="text/css">
+	.div1{
+		position: 	absolute;
+		top:		50px;
+		left:		200px;	
+		border:		solid 1px #000;
+		float:		left;
+	}
+	
+</style>
 </head>
 <body bgcolor="#EBF5FF"  link="1C19FF" vlink="1C19FF">
 <?php
@@ -29,6 +39,20 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 				</tbody>
 			</table>
 		</div>
+		
+		<div class="div1">
+			<table>
+				<tbody>
+				<tr>
+					<td>
+						<a STYLE="text-decoration: none" href="">[管理]</a>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		
 		
 		<div align=center>
 			<table style="">
@@ -83,6 +107,8 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 				</tbody>
 			</table>
 		</div>
+		
+		
 <?php	
 }
 else
