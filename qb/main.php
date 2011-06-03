@@ -12,7 +12,6 @@
 		position: 	absolute;
 		top:		50px;
 		left:		200px;	
-		border:		solid 1px #000;
 		float:		left;
 	}
 	
@@ -45,7 +44,13 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 				<tbody>
 				<tr>
 					<td>
-						<a STYLE="text-decoration: none" href="">[管理]</a>
+						<a STYLE="text-decoration: none" href="">[管理]</a>／
+					</td>
+					<td>
+						<a STYLE="text-decoration: none" href="">[系統]</a>／
+					</td>
+					<td>
+						<a STYLE="text-decoration: none" href="">[登出]</a>
 					</td>
 				</tr>
 				</tbody>
@@ -60,6 +65,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 				<tr>
 					<td>
 						<a STYLE="text-decoration: none" href="">[使用者列表]</a>
+						
 					</td>
 					<td>
 						&nbsp
