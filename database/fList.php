@@ -1,9 +1,4 @@
 <?php
-<<<<<<< HEAD
-	$column_size = 5;
-
-=======
->>>>>>> e9cc2cdcca4977ebd1a4465fbfef83604cf64f4e
 	function funcList($ask){
 		$column_size = 5;
 		include("mysql_connect.php");
