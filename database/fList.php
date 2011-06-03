@@ -3,8 +3,10 @@
 		$column_size = 5;
 		include("mysql_connect.php");
 
+		if(!isset($ask['sort']) $ask['sort'] = "date";
+
 		if( isset($ask['dorm']) && $ask['dorm']!="" ){
-			$sql = "select * from ".$db_equip." where dorm = '{$ask['dorm']}'";
+			$sql = "select * from ".$db_equip." order by '{$ask['sort']}' where dorm = '{$ask['dorm']}'";
 			$result = mysql_query($sql) or die(mysql_error());
 			$row_size = 0;
 			while($row = mysql_fetch_row($result)){
