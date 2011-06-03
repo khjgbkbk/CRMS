@@ -16,7 +16,7 @@ echo $user['username']."<br>";
 echo $user['password']."<br>";
 
 $obj['name'] = "switch";
-$obj['dorm'] = "dorm_f";
+//$obj['dorm'] = "dorm_f";
 $obj['id'] = "0123";
 $obj['price'] = 1234567;
 
