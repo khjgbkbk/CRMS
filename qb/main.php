@@ -5,8 +5,43 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="jquery-1.2.6.js"></script>
 <title>CRMS</title>
 <link rel="shortcut icon" href="image/qb_ico.gif">
+<!-- Some function -->
+<script type="text/javascript">
+	function getsec()
+	{
+		$.ajax({
+			url: 'sec.php',
+			type: 'POST',
+			data: {
+				//UsrID: $("input[name='Usrid']").attr('value'),
+				//UsrPW: $("input[name='Usrpwd']").attr('value'),
+			},
+			error: function(xhr) {
+				alert('Ajax request failure');
+			},
+			success: function(result) {
+				switch (result) {
+				case "error":
+					document.location.href = "notfound.php";
+					break;
+				case "nid":
+					$('div.message').html("Please enter your username");
+					break;
+				case "npd":
+					$('div.message').html("Please enter your password");
+					break;
+			
+				default:
+					$('div.message').html(result);
+					break;
+				}
+			},
+		});
+	}
+</script>
 <style type="text/css">
 	.div1{
 		position: 	absolute;
@@ -14,7 +49,6 @@
 		left:		200px;	
 		float:		left;
 	}
-	
 </style>
 </head>
 <body bgcolor="#EBF5FF"  link="1C19FF" vlink="1C19FF">
@@ -44,13 +78,10 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 				<tbody>
 				<tr>
 					<td>
-						<a STYLE="text-decoration: none" href="">[管理]</a>／
+						<a STYLE="text-decoration: none" id="mng" href="">[管理]</a>／
 					</td>
 					<td>
-						<a STYLE="text-decoration: none" href="">[系統]</a>／
-					</td>
-					<td>
-						<a STYLE="text-decoration: none" href="">[登出]</a>
+						<a STYLE="text-decoration: none" id="sys" href="">[系統]</a>
 					</td>
 				</tr>
 				</tbody>
@@ -59,8 +90,8 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		
 		
 		
-		<div align=center>
-			<table style="">
+		<div  id="sec" align=center>
+			<table>
 				<tbody>
 				<tr>
 					<td>
@@ -114,7 +145,9 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			</table>
 		</div>
 		
-		
+		<div id="datamsg">
+			
+		</div>
 <?php	
 }
 else
