@@ -8,6 +8,7 @@ import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpParams;
@@ -89,9 +90,29 @@ public class user {
 		return null;
 	}
 	
-	public boolean deleteEquipment(equipment equip){
-		
-		
+	public boolean deleteEquipment(equipment equip) throws ClientProtocolException, IOException{
+		HttpDelete httpRequest = new HttpDelete(_DefaultServer.URLs + "/equipment/" + equip.id());
+		/* 發出HTTP request */
+		/* 取得HTTP response */
+		DefaultHttpClient HttpClient = new DefaultHttpClient();
+		HttpClient.getCredentialsProvider().setCredentials(
+				_DefaultServer._authScope,
+				getUsernamePasswordCredentials());
+		HttpResponse httpResponse = HttpClient.execute(httpRequest);
+
+		/* 若狀態碼為200 ok */
+		if (httpResponse.getStatusLine().getStatusCode() == 200) {
+			//刪除成功
+			return true;
+
+		} else if (httpResponse.getStatusLine().getStatusCode() == 401) {
+			/* 取出回應字串 */
+			// String strResult =
+			// EntityUtils.toString(httpResponse.getEntity(),"BIG5");
+			// 回傳回應字串
+			_isLogined = false;
+			return false;
+		}
 		
 		
 		return false;
@@ -102,26 +123,26 @@ public class user {
  	public boolean login(server s) throws ClientProtocolException, IOException {
 		HttpGet httpRequest = new HttpGet(s.URLs);
 		/* 發出HTTP request */
-			/* 取得HTTP response */
-			DefaultHttpClient HttpClient = new DefaultHttpClient();
-			HttpClient.getCredentialsProvider().setCredentials(
-					s._authScope,
-					getUsernamePasswordCredentials());
-			HttpResponse httpResponse = HttpClient.execute(httpRequest);
+		/* 取得HTTP response */
+		DefaultHttpClient HttpClient = new DefaultHttpClient();
+		HttpClient.getCredentialsProvider().setCredentials(
+				s._authScope,
+				getUsernamePasswordCredentials());
+		HttpResponse httpResponse = HttpClient.execute(httpRequest);
 
-			/* 若狀態碼為200 ok */
-			if (httpResponse.getStatusLine().getStatusCode() == 200) {
-				//登入成功
-				_DefaultServer = s;
-				_isLogined = true;
+		/* 若狀態碼為200 ok */
+		if (httpResponse.getStatusLine().getStatusCode() == 200) {
+			//登入成功
+			_DefaultServer = s;
+			_isLogined = true;
 
-			} else if (httpResponse.getStatusLine().getStatusCode() == 401) {
-				/* 取出回應字串 */
-				// String strResult =
-				// EntityUtils.toString(httpResponse.getEntity(),"BIG5");
-				// 回傳回應字串
-				_isLogined = false;
-			}
+		} else if (httpResponse.getStatusLine().getStatusCode() == 401) {
+			/* 取出回應字串 */
+			// String strResult =
+			// EntityUtils.toString(httpResponse.getEntity(),"BIG5");
+			// 回傳回應字串
+			_isLogined = false;
+		}
 
 		return _isLogined;
 	}
