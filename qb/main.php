@@ -106,12 +106,9 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		
 		<div align=center>
 			<ul id="sec">
-				<!--
 				<li><a STYLE="text-decoration: none" href="">[器材列表]</a></li>
 				<li><a STYLE="text-decoration: none" href="">[新增器材]</a></li>
 				<li><a STYLE="text-decoration: none" href="">[編輯器材]</a></li>
-				<li><a STYLE="text-decoration: none" href="">[刪除器材]</a></li>
-				-->
 			</ul>
 		</div>
 		

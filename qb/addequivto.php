@@ -7,10 +7,6 @@
 	{
 		echo json_encode("noplace");
 	}
-	else if( !isset($_POST['addEquivId']) || $_POST['addEquivId']=="" )
-	{
-		echo json_encode("noid");
-	}
 	else
 	{
 		include("../database/fNew.php");

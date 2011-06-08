@@ -8,17 +8,17 @@
 	{
 		if( $("input[name='Equivname']").attr('value') == "" )
 		{
-			$('div.message').html('�п�J�����W��!');
+			$('div.message').html('請輸入器材名稱!');
 			return;
 		}
 		if( $("input[name='Equivplace']").attr('value') == "" )
 		{
-			$('div.message').html('�п�J�����Ҧb��m!');
+			$('div.message').html('請輸入器材所在位置!');
 			return;
 		}
 		if( $("input[name='Equivid']").attr('value') == "" )
 		{
-			$('div.message').html('�п�J�������s��!');
+			$('div.message').html('請輸入器材的編號!');
 			return;
 		}
 		$.ajax({
@@ -75,7 +75,7 @@
 		});
 	})
 	$(document).keydown(function(event){ 
-		//�p�G�� enter
+		//如果按 enter
 		if(event.keyCode == KEY_ENTER)
 		{
 			send();
@@ -95,8 +95,15 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		$col = $re["column_size"];
 ?>
 <div align="center">
-	<table>
+	<table style="border: 3px dotted rgb(109, 2, 107);">
 	<tbody>
+		<tr>
+			<td>器材名稱</td>
+			<td>器材位置</td>
+			<td></td>
+			<td>器材價錢</td>
+			<td>器材編號</td>
+		</tr>
 <?php
 		for($i=0 ; $i<$row ; $i++)
 		{
@@ -122,10 +129,6 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 </div>
 
 <?php
-	}
-	else
-	{
-		echo "No data"."<br>";
 	}
 }
 ?>

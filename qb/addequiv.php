@@ -16,11 +16,6 @@
 			$('div.message').html('請輸入器材所在位置!');
 			return;
 		}
-		if( $("input[name='Equivid']").attr('value') == "" )
-		{
-			$('div.message').html('請輸入器材的編號!');
-			return;
-		}
 		$.ajax({
 			url: 'addequivto.php',
 			type: 'POST',
@@ -87,6 +82,8 @@
 if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 {
 ?> 
+	新增器材
+	<br><br>
 	<div align="center">
 		<table style="border: 5px dotted rgb(109, 2, 107); " align="center" cellPadding="10" frame="border">
 		<tbody>
