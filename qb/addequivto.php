@@ -14,7 +14,7 @@
 	else
 	{
 		include("../database/fNew.php");
-		$return = funcNew( array("name" => $_POST['addEquivName'], "dorm" => $_POST['addEquivPlace']), "id" => $_POST['addEquivId']), "price" => $_POST['addEquivPrice']) );
+		$return = funcNew( array("name" => $_POST['addEquivName'], "dorm" => $_POST['addEquivPlace'], "id" => $_POST['addEquivId'], "price" => $_POST['addEquivPrice']) );
 		if($return["success"])
 		{
 			echo json_encode("success");
