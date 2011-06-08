@@ -2,15 +2,16 @@
 -rw-r--r-- 1 b983040004 b983040004 1559 2011-05-22 00:11 database.sql		
 
 -rw-r--r-- 1 b983040004 b983040004  705 2011-05-23 00:57 fDelete.php		finished	Remove device
--rw-r--r-- 1 b983040004 b983040004   12 2011-05-22 21:57 fEdit.php		untouched	Change device info
--rw-r--r-- 1 b983040004 b983040004   12 2011-05-22 23:35 fList.php		untouched	List all devices
--rw-r--r-- 1 b983040004 b983040004  573 2011-05-22 20:30 fLogin.php		finish		Login Authorize
--rw-r--r-- 1 b983040004 b983040004  921 2011-05-23 00:50 fNew.php		finish		New device
--rw-r--r-- 1 b983040004 b983040004  475 2011-05-22 23:37 fQuery.php		finish		Query for device by id
+-rw-r--r-- 1 b983040004 b983040004   12 2011-05-22 21:57 fEdit.php		finished	Change device info
+-rw-r--r-- 1 b983040004 b983040004   12 2011-05-22 23:35 fList.php		finished	List all devices
+-rw-r--r-- 1 b983040004 b983040004  573 2011-05-22 20:30 fLogin.php		finished	Login Authorize
+-rw-r--r-- 1 b983040004 b983040004  921 2011-05-23 00:50 fNew.php		finished	New device
+-rw-r--r-- 1 b983040004 b983040004  475 2011-05-22 23:37 fQuery.php		finishde	Query for device by id
 
 -rw-r--r-- 1 b983040004 b983040004  799 2011-05-23 01:23 fRegister.php		finish		Add new user
 -rw-r--r-- 1 b983040004 b983040004  742 2011-05-23 01:02 fUnregister.php	finish		Delete user
 -rw-r--r-- 1 b983040004 b983040004   11 2011-05-22 22:01 fAuthority.php		untouched	change authority
+							 fUsers.php		finish		List all Users (Don't touch the authorized part, just don't give anything)
 
 -rw-r--r-- 1 b983040004 b983040004  355 2011-05-21 22:22 index.html		for debug
 -rw-r--r-- 1 b983040004 b983040004  112 2011-05-23 00:24 status.com		readme

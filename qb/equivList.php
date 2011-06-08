@@ -1,89 +1,7 @@
 <?php
-	ob_start();
-	session_start();
-?>
-<!-- function send -->
-<script type="text/javascript">
-	function send()
-	{
-		if( $("input[name='Equivname']").attr('value') == "" )
-		{
-			$('div.message').html('½Ğ¿é¤J¾¹§÷¦WºÙ!');
-			return;
-		}
-		if( $("input[name='Equivplace']").attr('value') == "" )
-		{
-			$('div.message').html('½Ğ¿é¤J¾¹§÷©Ò¦b¦ì¸m!');
-			return;
-		}
-		if( $("input[name='Equivid']").attr('value') == "" )
-		{
-			$('div.message').html('½Ğ¿é¤J¾¹§÷ªº½s¸¹!');
-			return;
-		}
-		$.ajax({
-			url: 'addequivto.php',
-			type: 'POST',
-			data: {
-				addEquivName: 	$("input[name='Equivname']").attr('value'),
-				addEquivPlace: 	$("input[name='Equivplace']").attr('value'),
-				addEquivId: 	$("input[name='Equivid']").attr('value'),
-				addEquivPrice: 	$("input[name='Equivprice']").attr('value'),
-			},
-			dataType: "json",
-			error: function(xhr) {
-				alert('Ajax request failure');
-			},
-			success: function(result) {
-				switch (result) {
-				case "noname":
-					$('div.message').html("Please enter the Name");
-					break;
-				case "noplace":
-					$('div.message').html("Please enter the Place !!");
-					break;
-				case "noid":
-					$('div.message').html("Please enter the ID !!");
-					break;
-				case "success":
-					alert('Successed !!');
-					document.location.href = "./";
-					break;
-				case "fail":
-					alert('Failed !!');
-					$('input[name="Equivname"]').attr({value:''}); 
-					$('input[name="Equivplace"]').attr({value:''}); 
-					$('input[name="Equivid"]').attr({value:''});
-					$('input[name="Equivprice"]').attr({value:''});
-					break;
-				default:
-					$('div.message').html(result);
-					break;
-				}
-			},
-		});
-	}
-</script>
-<!-- click action -->
-<script type="text/javascript">
-	var KEY_ENTER = 13;
-	$(document).ready(function () 
-	{
-		$('#Send').click(function()
-		{
-			send();
-		});
-	})
-	$(document).keydown(function(event){ 
-		//¦pªG«ö enter
-		if(event.keyCode == KEY_ENTER)
-		{
-			send();
-		}
-	});
-</script>
+ob_start();
+session_start();
 
-<?php
 if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 {
 	include("../database/fList.php");
@@ -95,8 +13,16 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		$col = $re["column_size"];
 ?>
 <div align="center">
-	<table>
+	<table style="border: 3px dotted rgb(109, 2, 107);">
 	<tbody>
+		<tr>
+			<td>å™¨æåç¨±</td>
+			<td>å™¨æä½ç½®</td>
+			<td></td>
+			<td>å™¨æåƒ¹éŒ¢</td>
+			<td>å™¨æç·¨è™Ÿ</td>
+			<td>åˆªé™¤</td>
+		</tr>
 <?php
 		for($i=0 ; $i<$row ; $i++)
 		{
@@ -112,22 +38,18 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 <?php
 			}
 ?>
+		<td><input type="button" value="åˆªé™¤"><td>
 	</tr>
 <?php
 		}
-	}
+	
 ?>
 	</tbody>
 	</table>
 </div>
 
 <?php
-	/*
-	else
-	{
-		echo "failure"."<br>";
 	}
-	*/
 }
 ?>
 

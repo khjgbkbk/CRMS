@@ -10,7 +10,7 @@
 			if($row[0]==""){
 				return array("success" => false, "status" => "id not exists");
 			}else{
-				$sql = "delete from ".$db_equip." where id = '{$ask['id']}'";
+				$sql = "update ".$db_equip." set name='{$ask['name']}' , dorm='{$ask['dorm']}' , price='{$ask['price']}' where id = '{$ask['id']}'";
 				if( mysql_query($sql) or die(mysql_error()) ){
 					return array("success" => true);
 				}else{

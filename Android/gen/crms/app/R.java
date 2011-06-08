@@ -42,12 +42,17 @@ public final class R {
         public static final int textView4=0x7f050001;
     }
     public static final class layout {
+<<<<<<< HEAD
         public static final int edit=0x7f030000;
         public static final int main=0x7f030001;
         public static final int menu=0x7f030002;
         public static final int newitem=0x7f030003;
         public static final int query=0x7f030004;
         public static final int remove=0x7f030005;
+=======
+        public static final int login=0x7f030000;
+        public static final int main=0x7f030001;
+>>>>>>> 3a5f1959b6c8c3403b3b628c44593a28a2a43197
     }
     public static final class string {
         public static final int app_name=0x7f040001;
