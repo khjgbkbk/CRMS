@@ -7,19 +7,17 @@
                 <LinearLayout android:layout_gravity="top" android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/linearLayout1">
                     <TableLayout android:id="@+id/tableLayout2" android:layout_width="wrap_content" android:layout_height="fill_parent">
                         <TableRow android:id="@+id/tableRow3" android:layout_width="wrap_content" android:layout_height="wrap_content">
-                            <TextView android:id="@+id/TextView01" android:layout_height="wrap_content" android:text="TextView" android:layout_width="wrap_content"></TextView>
-                            <EditText android:text="EditText" android:layout_height="wrap_content" android:id="@+id/EditText01" android:layout_gravity="center" android:layout_width="wrap_content"></EditText>
                         </TableRow>
                         <TableRow android:id="@+id/tableRow4" android:layout_width="wrap_content" android:layout_height="wrap_content">
-                            <TextView android:id="@+id/textView2" android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="eqID:"></TextView>
-                            <EditText android:layout_height="wrap_content" android:visibility="visible" android:id="@+id/editText1" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:enabled="true" android:text="1234"></EditText>
+                            <TextView android:id="@+id/textView2" android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="Equipment ID:"></TextView>
+                            <EditText android:layout_height="wrap_content" android:visibility="visible" android:id="@+id/editText1" android:layout_gravity="center_horizontal" android:enabled="true" android:text="1234" android:layout_width="70dip"></EditText>
                         </TableRow>
                         <TableRow android:id="@+id/tableRow5" android:layout_width="wrap_content" android:layout_height="wrap_content">
                             <TextView android:id="@+id/textView3" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="Name:"></TextView>
                             <EditText android:layout_height="wrap_content" android:id="@+id/editText2" android:layout_width="fill_parent" android:text="name"></EditText>
                         </TableRow>
                         <TableRow android:id="@+id/tableRow6" android:layout_width="wrap_content" android:layout_height="wrap_content">
-                            <TextView android:id="@+id/TextView02" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="dorm:"></TextView>
+                            <TextView android:id="@+id/TextView02" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="Dorm:"></TextView>
                             <EditText android:text="F" android:layout_height="wrap_content" android:id="@+id/EditText02" android:layout_width="fill_parent"></EditText>
                         </TableRow>
                         <TableRow android:id="@+id/tableRow9" android:layout_width="wrap_content" android:layout_height="wrap_content">
