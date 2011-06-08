@@ -12,10 +12,13 @@
             <TextView android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/textView2" android:layout_height="wrap_content" android:text="Equipment ID:" android:layout_weight="1"></TextView>
         </TableRow>
         <TableRow android:id="@+id/tableRow4" android:layout_width="wrap_content" android:layout_height="wrap_content">
-            <EditText android:id="@+id/editText1" android:layout_width="wrap_content" android:layout_height="60dip" android:layout_weight="10"></EditText>
+            <EditText android:id="@+id/editText1" android:layout_width="wrap_content" android:layout_height="60dip" android:layout_weight="20"></EditText>
             <Button android:text="QR" android:id="@+id/button2" android:layout_width="wrap_content" android:layout_height="60dip" android:layout_weight="1"></Button>
         </TableRow>
-        <Button android:layout_width="wrap_content" android:id="@+id/button1" android:layout_height="wrap_content" android:layout_marginLeft="20dip" android:layout_marginRight="20dip" android:layout_marginTop="30dip" android:text="Enter" android:textSize="30dip"></Button>
+        <TableRow android:id="@+id/tableRow3" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <Button android:text="Enter" android:textSize="30dip" android:id="@+id/button1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20dip" android:layout_weight="20" android:onClick="queryenter"></Button>
+            <Button android:id="@+id/button3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="30dip" android:layout_marginTop="20dip" android:text="Back" android:layout_weight="1" android:onClick="queryback"></Button>
+        </TableRow>
     </TableLayout>
     
 </RelativeLayout>

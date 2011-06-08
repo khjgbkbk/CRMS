@@ -20,65 +20,8 @@ public class CRMS extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        /*
-        findViewById(R.id.textView1);
-        Log.v("test","aasd");
-        final TextView tv = (TextView) findViewById(R.id.textView1);
-        //R.layout.main.tv;
-        final user Client = new user("admin","admina");
-        server CRMSserver = new server();
-        try {
-			if(Client.login(CRMSserver) == true){
-				tv.setText("SuccessA");
-			}else{
-				tv.setText("Fail");
-				
-			}
-		} catch (ClientProtocolException e) {
-			// TODO Auto-generated catch block
-			 Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-
-			 Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
-			e.printStackTrace();
-		}
-		equipment Equip = null;
-
-        Log.v("test","a");
-		try {
-			Equip = Client.getEquipment("123");
-		} catch (ClientProtocolException e) {
-			// TODO Auto-generated catch block
-
-			 Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-
-			 Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
-			e.printStackTrace();
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-
-			 Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
-			e.printStackTrace();
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-
-			 Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
-			e.printStackTrace();
-		}
-		if(Equip != null){
-			tv.setText(Equip.location().toString());
-		}
-
-        Log.v("test","a");
-        //setContentView(tv);
-        //setContentView()
-        Log.v("test","c");*/
-        final Button button = (Button) findViewById(R.id.button2);
+   
+/*  final Button button = (Button) findViewById(R.id.button2);
         button.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 //final TextView tv = (TextView) findViewById(R.id.textView1);
@@ -97,9 +40,9 @@ public class CRMS extends Activity {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}*/
-		        setContentView(R.layout.menu);
+/*		        setContentView(R.layout.menu);
 		        /*go to query*/
-		        final Button buttonQ = (Button) findViewById(R.id.button1);
+/*		        final Button buttonQ = (Button) findViewById(R.id.button1);
 		        buttonQ.setOnClickListener(new Button.OnClickListener(){
 		            	public void onClick(View v) {
 				        setContentView(R.layout.query);
@@ -107,7 +50,7 @@ public class CRMS extends Activity {
 		   
 		        });
 		        /*go to new*/
-		        final Button buttonN = (Button) findViewById(R.id.button2);
+ /*		        final Button buttonN = (Button) findViewById(R.id.button2);
 		        buttonN.setOnClickListener(new Button.OnClickListener(){
 		            	public void onClick(View v) {
 				        setContentView(R.layout.newitem);
@@ -115,7 +58,7 @@ public class CRMS extends Activity {
 		   
 		        });
 		        /*go to remove*/
-		        final Button buttonR = (Button) findViewById(R.id.button3);
+        /*		        final Button buttonR = (Button) findViewById(R.id.button3);
 		        buttonR.setOnClickListener(new Button.OnClickListener(){
 		            	public void onClick(View v) {
 				        setContentView(R.layout.remove);
@@ -123,7 +66,7 @@ public class CRMS extends Activity {
 		   
 		        });
 		        /*logout*/
-		        final Button buttonH = (Button) findViewById(R.id.button4);
+        /*		        final Button buttonH = (Button) findViewById(R.id.button4);
 		        buttonH.setOnClickListener(new Button.OnClickListener(){
 		            	public void onClick(View v) {
 				        setContentView(R.layout.main);
@@ -134,6 +77,34 @@ public class CRMS extends Activity {
             }
       
         });
-
+*/
     }
+    public void login(View cvView){
+    	setContentView(R.layout.menu);
+    }
+    /*query*/
+    public void goquery(View cvView){
+    	setContentView(R.layout.query);
+    }
+    public void queryback(View cvView){
+    	setContentView(R.layout.menu);
+    }
+    /*new item*/
+    public void gonew(View cvView){
+    	setContentView(R.layout.newitem);
+    }
+    public void neweqback(View cvView){
+    	setContentView(R.layout.menu);
+    }
+    /*remove*/
+    public void gorm(View cvView){
+    	setContentView(R.layout.remove);
+    }
+    public void rmback(View cvView){
+    	setContentView(R.layout.menu);
+    }
+    public void gotomain(View cvView){
+    	setContentView(R.layout.main);
+    }
+    
 }
