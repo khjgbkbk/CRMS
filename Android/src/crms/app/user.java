@@ -7,7 +7,10 @@ import org.apache.http.HttpResponse;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -92,14 +95,21 @@ public class user {
 		return _isLogined;
 	}
 
-	public boolean newUser(user newer) throws ClientProtocolException, IOException{
-		HttpGet httpRequest = new HttpGet(_DefaultServer.URLs);
+	public boolean newUser(user newer) throws ClientProtocolException, IOException, JSONException{
+		HttpPost httpRequest = new HttpPost(_DefaultServer.URLs);
 		/* 發出HTTP request */
 			/* 取得HTTP response */
 			DefaultHttpClient HttpClient = new DefaultHttpClient();
 			HttpClient.getCredentialsProvider().setCredentials(
 					_DefaultServer._authScope,
 					getUsernamePasswordCredentials());
+			
+			JSONObject json = new JSONObject();
+			json.put("username",newer._Username);
+			json.put("Password",newer._Password);
+			HttpParams params =new BasicHttpParams();
+			params.setParameter("data", json.toString());
+			httpRequest.setParams(params);
 			HttpResponse httpResponse = HttpClient.execute(httpRequest);
 
 			/* 若狀態碼為200 ok */
