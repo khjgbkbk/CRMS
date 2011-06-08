@@ -2,10 +2,10 @@
 -- version 3.3.10deb1
 -- http://www.phpmyadmin.net
 --
--- 主機: localhost
--- 建立日期: May 22, 2011, 12:03 AM
--- 伺服器版本: 5.1.54
--- PHP 版本: 5.3.5-1ubuntu7.2
+-- Host: localhost
+-- Generation Time: Jun 08, 2011 at 11:31 PM
+-- Server version: 5.1.54
+-- PHP Version: 5.3.5-1ubuntu7.2
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -16,16 +16,15 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- 資料庫: `crms_db`
+-- Database: `crms_db`
 --
 
 -- --------------------------------------------------------
 
 --
--- 資料表格式： `equipment`
+-- Table structure for table `equipment`
 --
 
-DROP TABLE IF EXISTS `equipment`;
 CREATE TABLE IF NOT EXISTS `equipment` (
   `name` varchar(40) NOT NULL,
   `dorm` varchar(40) NOT NULL,
@@ -36,17 +35,19 @@ CREATE TABLE IF NOT EXISTS `equipment` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- 列出以下資料庫的數據： `equipment`
+-- Dumping data for table `equipment`
 --
 
+INSERT INTO `equipment` (`name`, `dorm`, `id`, `price`, `date`) VALUES
+('router', 'dorm_f', '1234567890987654321', 123456789, '2012-12-31'),
+('bbs', 'dorm_z', 'wtf', 9999999, '1750-06-01');
 
 -- --------------------------------------------------------
 
 --
--- 資料表格式： `shadow`
+-- Table structure for table `shadow`
 --
 
-DROP TABLE IF EXISTS `shadow`;
 CREATE TABLE IF NOT EXISTS `shadow` (
   `no` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
@@ -54,10 +55,10 @@ CREATE TABLE IF NOT EXISTS `shadow` (
   `privilege` smallint(6) NOT NULL,
   PRIMARY KEY (`no`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
--- 列出以下資料庫的數據： `shadow`
+-- Dumping data for table `shadow`
 --
 
 INSERT INTO `shadow` (`no`, `name`, `passwd`, `privilege`) VALUES
