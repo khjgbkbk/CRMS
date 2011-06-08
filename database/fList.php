@@ -16,7 +16,7 @@
 			if( $row_size == 0 ){
 				return array("success" => false);
 			}else{
-				return array("success" => true, "row_size" => $row_size, "column_size" => $column_size, $data);
+				return array("success" => true, "row_size" => $row_size, "column_size" => $column_size, "data" => $data);
 			}
 		}else{
 			$sql = "select * from ".$db_equip." order by {$ask['sort']}";
