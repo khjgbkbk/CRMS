@@ -10,48 +10,52 @@
 <link rel="shortcut icon" href="image/qb_ico.gif">
 <!-- Some function -->
 <script type="text/javascript">
-	$(document).ready(function(){
+	function bindUlSec(){
 		$("ul#sec li a").click(function(event){
-			$("div#datamsg").html();
-			event.preventDefault();
-			var action = $(this).html();
-			var pageList = {
-					"[使用者列表]" 	: "userList.php",
-					"[新增使用者]" 	: "adduser.php",
-					"[編輯使用者]" 	: "Notfound.php",
-					"[刪除使用者]" 	: "deluser.php",
-					"[器材列表]"   	: "equivList.php",
-					"[新增器材]"   	: "addequiv.php",
-					"[編輯器材]"	: "Notfound.php",
-					"[刪除器材]"	: "Notfound.php",
-			};
-			$.ajax({
-				url  : pageList[action],
-				statusCode : {
-					200 : function(res){
-							$("div#datamsg").html(res); vh
-						},
-					404 : 
-						function(res){
-							$("div#datamsg").html("Page Not Found");
-						},
-				}
+				$("div#datamsg").html();
+				event.preventDefault();
+				var action = $(this).html();
+				var pageList = {
+						"[使用者列表]" 	: "userList.php",
+						"[新增使用者]" 	: "adduser.php",
+						"[編輯使用者]" 	: "Notfound.php",
+						"[刪除使用者]" 	: "deluser.php",
+						"[器材列表]"   	: "equivList.php",
+						"[新增器材]"   	: "addequiv.php",
+						"[編輯器材]"	: "Notfound.php",
+				};
+				$.ajax({
+					url  : pageList[action],
+					statusCode : {
+						200 : function(res){
+								$("div#datamsg").html(res); vh
+							},
+						404 : 
+							function(res){
+								$("div#datamsg").html("Page Not Found");
+							}
+					}
+				});
 			});
-		});
+	
+	};
+	$(document).ready(function(){
+		bindUlSec();
 		$("ul#fir li a").click(function(event){
 			event.preventDefault();
 			$("div#datamsg").html("");
 			var actionL = $(this).html();
 			var comList = {
 					"[管理]" 	: "magList.php",
-					"[系統]" 	: "sysList.php",
+					"[系統]" 	: "sysList.php"
 			};
 			$.ajax({
 				url  : comList[actionL],
 				statusCode : {
 					200 : function(res){
 							$("ul#sec").html(res);
-						},
+							bindUlSec();
+						}
 				}
 			});
 		});
@@ -102,10 +106,12 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		
 		<div align=center>
 			<ul id="sec">
+				<!--
 				<li><a STYLE="text-decoration: none" href="">[器材列表]</a></li>
 				<li><a STYLE="text-decoration: none" href="">[新增器材]</a></li>
 				<li><a STYLE="text-decoration: none" href="">[編輯器材]</a></li>
 				<li><a STYLE="text-decoration: none" href="">[刪除器材]</a></li>
+				-->
 			</ul>
 		</div>
 		
