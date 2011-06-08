@@ -120,6 +120,43 @@ public class user {
 		
 	}
 	
+	public equipment putEquipment(equipment equip) throws JSONException, ClientProtocolException, IOException{
+		if(equip == null){
+			return null;
+		}
+		JSONObject json = new JSONObject();
+		json.put("name",equip.name());
+		json.put("dorm",equip.location());
+		json.put("id",equip.id());
+		json.put("price",equip.price());
+		HttpPost httpRequest = new HttpPost(_DefaultServer.URLs + "/equipment/");
+		/* 發出HTTP request */
+		/* 取得HTTP response */
+		DefaultHttpClient HttpClient = new DefaultHttpClient();
+		HttpClient.getCredentialsProvider().setCredentials(
+				_DefaultServer._authScope,
+				getUsernamePasswordCredentials());
+		HttpParams params =new BasicHttpParams();
+		params.setParameter("data", json.toString());
+		httpRequest.setParams(params);
+		HttpResponse httpResponse = HttpClient.execute(httpRequest);
+
+		/* 若狀態碼為200 ok */
+		if (httpResponse.getStatusLine().getStatusCode() == 200) {
+			
+			return equip;
+
+		} else if (httpResponse.getStatusLine().getStatusCode() == 401) {
+			/* 取出回應字串 */
+			// String strResult =
+			// EntityUtils.toString(httpResponse.getEntity(),"BIG5");
+			// 回傳回應字串
+			return null;
+		}
+		
+		return null;
+	}
+	
  	public boolean login(server s) throws ClientProtocolException, IOException {
 		HttpGet httpRequest = new HttpGet(s.URLs);
 		/* 發出HTTP request */
