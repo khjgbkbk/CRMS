@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="jquery-1.2.6.js"></script>
+<script type="text/javascript" src="jquery-1.6.1.min.js"></script>
 <title>CRMS</title>
 <link rel="shortcut icon" href="image/qb_ico.gif">
 <!-- Some function -->
@@ -41,13 +41,48 @@
 			},
 		});
 	}
+	$(document).ready(function(){
+		$("ul#sec li a").click(function(event){
+			event.preventDefault();
+			var action = $(this).html();
+			
+			var pageList = {
+								"[使用者列表]" : "userList.php",
+								"[新增使用者]" : "adduser.php"
+								
+							};
+alert(pageList[action]);			
+			
+			$.ajax({
+				url  : pageList[action],
+				statusCode : {
+					200 : function(res){
+					alert("aa00");
+						$("div#datamsg").html(res);
+					}
+				
+				}
+				/*success:function(res){
+					alert("aa00");
+						$("div#datamsg").html(res);
+					}*/
+			
+			
+			});
+			
+		
+		});
+	
+	});
+	
+	
+	
 </script>
 <style type="text/css">
-	.div1{
-		position: 	absolute;
+	ul#div1 li{
 		top:		50px;
 		left:		200px;	
-		float:		left;
+		width:		100px;
 	}
 </style>
 </head>
@@ -73,76 +108,24 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			</table>
 		</div>
 		
-		<div class="div1">
-			<table>
-				<tbody>
-				<tr>
-					<td>
-						<a STYLE="text-decoration: none" id="mng" href="">[管理]</a>／
-					</td>
-					<td>
-						<a STYLE="text-decoration: none" id="sys" href="">[系統]</a>
-					</td>
-				</tr>
-				</tbody>
-			</table>
+		<div>
+			<ul id="div1">
+				<li><a STYLE="text-decoration: none" id="mng" href="">[管理]</a></li>
+				<li><a STYLE="text-decoration: none" id="sys" href="">[系統]</a></li>
+			</ul>
 		</div>
 		
-		
-		
-		<div  id="sec" align=center>
-			<table>
-				<tbody>
-				<tr>
-					<td>
-						<a STYLE="text-decoration: none" href="">[使用者列表]</a>
-						
-					</td>
-					<td>
-						&nbsp
-					</td>
-					<td>
-						<a STYLE="text-decoration: none" href="adduser.php">[新增使用者]</a>
-					</td>
-					<td>
-						&nbsp
-					</td>
-					<td>
-						<a STYLE="text-decoration: none" href="">[編輯使用者]</a>
-					</td>
-					<td>
-						&nbsp
-					</td>
-					<td>
-						<a STYLE="text-decoration: none" href="deluser.php">[刪除使用者]</a>
-					</td>
-					
-				</tr>
-				<tr>
-					<td>
-						<a STYLE="text-decoration: none" href="">[器材列表]</a>
-					</td>
-					<td>
-						&nbsp
-					</td>
-					<td>
-						<a STYLE="text-decoration: none" href="addequiv.php">[新增器材]</a>
-					</td>
-					<td>
-						&nbsp
-					</td>
-					<td>
-						<a STYLE="text-decoration: none" href="">[編輯器材]</a>
-					</td>
-					<td>
-						&nbsp
-					</td>
-					<td>
-						<a STYLE="text-decoration: none" href="">[刪除器材]</a>
-					</td>
-				</tr>
-				</tbody>
-			</table>
+		<div align=center>
+			<ul id="sec">
+				<li><a STYLE="text-decoration: none" href="">[使用者列表]</a></li>
+				<li><a STYLE="text-decoration: none">[新增使用者]</a></li>
+				<li><a STYLE="text-decoration: none" href="">[編輯使用者]</a></li>
+				<li><a STYLE="text-decoration: none" href="deluser.php">[刪除使用者]</a></li>
+				<li><a STYLE="text-decoration: none" href="">[器材列表]</a></li>
+				<li><a STYLE="text-decoration: none" href="addequiv.php">[新增器材]</a></li>
+				<li><a STYLE="text-decoration: none" href="">[編輯器材]</a></li>
+				<li><a STYLE="text-decoration: none" href="">[刪除器材]</a></li>
+			</ul>
 		</div>
 		
 		<div id="datamsg">
