@@ -115,19 +115,18 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	</tr>
 <?php
 		}
-	}
+	
 ?>
 	</tbody>
 	</table>
 </div>
 
 <?php
-	/*
+	}
 	else
 	{
-		echo "failure"."<br>";
+		echo "No data"."<br>";
 	}
-	*/
 }
 ?>
 
