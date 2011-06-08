@@ -26,13 +26,13 @@ public final class R {
         public static final int editText1=0x7f050004;
         public static final int editText2=0x7f050007;
         public static final int linearLayout1=0x7f050008;
-        public static final int scrollView1=0x7f05000f;
+        public static final int scrollView1=0x7f05000e;
         public static final int tableLayout1=0x7f050000;
-        public static final int tableLayout2=0x7f050010;
+        public static final int tableLayout2=0x7f05000f;
         public static final int tableRow1=0x7f050002;
         public static final int tableRow2=0x7f050005;
         public static final int tableRow3=0x7f050009;
-        public static final int tableRow4=0x7f05000e;
+        public static final int tableRow4=0x7f050010;
         public static final int tableRow5=0x7f050011;
         public static final int tableRow6=0x7f050012;
         public static final int tableRow9=0x7f050015;
@@ -46,6 +46,7 @@ public final class R {
         public static final int menu=0x7f030002;
         public static final int newitem=0x7f030003;
         public static final int query=0x7f030004;
+        public static final int remove=0x7f030005;
     }
     public static final class string {
         public static final int app_name=0x7f040001;

@@ -81,7 +81,7 @@ public class CRMS extends Activity {
         button.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 //final TextView tv = (TextView) findViewById(R.id.textView1);
-                try {
+                /*try {
 					Client.getEquipment("123");
 				} catch (ClientProtocolException e) {
 					// TODO Auto-generated catch block
@@ -95,11 +95,36 @@ public class CRMS extends Activity {
 				} catch (ParseException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
-
+				}*/
 		        setContentView(R.layout.menu);
-                tv.setText("click");
+		        /*go to query*/
+		        final Button buttonQ = (Button) findViewById(R.id.button1);
+		        buttonQ.setOnClickListener(new Button.OnClickListener(){
+		            	public void onClick(View v) {
+				        setContentView(R.layout.query);
+		            }
+		   
+		        });
+		        /*go to new*/
+		        final Button buttonN = (Button) findViewById(R.id.button2);
+		        buttonN.setOnClickListener(new Button.OnClickListener(){
+		            	public void onClick(View v) {
+				        setContentView(R.layout.newitem);
+		            }
+		   
+		        });
+		        /*go to remove*/
+		        final Button buttonR = (Button) findViewById(R.id.button3);
+		        buttonR.setOnClickListener(new Button.OnClickListener(){
+		            	public void onClick(View v) {
+				        setContentView(R.layout.remove);
+		            }
+		   
+		        });
+		        
             }
+      
         });
+
     }
 }
