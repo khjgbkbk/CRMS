@@ -1,12 +1,9 @@
 <?php
-
 	function funcLogin($user){
 	/*
 	*Login Success When ['success'] eq true or eq false
 	*/
-
 		include("mysql_connect.php");
-
 		if( isset($user['username']) && isset($user['password']) && $user['username']!="" && $user['password']!="" ){
 			//
 			$sql = "SELECT * FROM ".$db_shadow." where name = '{$user['username']}'";
