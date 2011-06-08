@@ -96,7 +96,9 @@ public class CRMS extends Activity {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-                tv.setText("clicked");
+
+		        setContentView(R.layout.menu);
+                tv.setText("click");
             }
         });
     }

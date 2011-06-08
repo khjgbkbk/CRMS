@@ -12,7 +12,7 @@
         </TableRow>
         <TableRow android:id="@+id/tableRow2" android:layout_width="wrap_content" android:layout_height="wrap_content">
             <Button android:id="@+id/button3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="           Edit          "></Button>
-            <Button android:id="@+id/button4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="          Remove        "></Button>
+            <Button android:id="@+id/button4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="          Remove        " android:linksClickable="true"></Button>
         </TableRow>
         <TableRow android:id="@+id/tableRow3" android:layout_width="wrap_content" android:layout_height="wrap_content"></TableRow>
         <TableRow android:id="@+id/tableRow4" android:layout_width="wrap_content" android:layout_height="wrap_content"></TableRow>

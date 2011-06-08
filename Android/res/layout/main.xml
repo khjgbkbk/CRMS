@@ -18,7 +18,7 @@
         <LinearLayout android:id="@+id/linearLayout1" android:layout_height="wrap_content" android:layout_width="wrap_content" android:orientation="vertical">
             <TableRow android:id="@+id/tableRow3" android:layout_height="wrap_content" android:layout_width="fill_parent">
                 <Button android:id="@+id/button1" android:layout_width="150dip" android:layout_height="wrap_content" android:text="Sign"></Button>
-                <Button android:id="@+id/button2" android:layout_height="wrap_content" android:text="Login" android:layout_width="200dip"></Button>
+                <Button android:id="@+id/button2" android:layout_height="wrap_content" android:text="Login" android:layout_width="200dip" android:onClick="setContentView(R.layout.menu);"></Button>
             </TableRow>
         </LinearLayout>
     </TableLayout>
