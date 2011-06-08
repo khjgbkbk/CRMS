@@ -47,27 +47,26 @@
 			var action = $(this).html();
 			
 			var pageList = {
-								"[使用者列表]" : "userList.php",
-								"[新增使用者]" : "adduser.php"
-								
-							};
-alert(pageList[action]);			
-			
+					"[使用者列表]" 	: "userList.php",
+					"[新增使用者]" 	: "adduser.php",
+					"[編輯使用者]" 	: "",
+					"[刪除使用者]" 	: "deluser.php",
+					"[器材列表]"   	: "",
+					"[新增器材]"   	: "addequiv.php",
+					"[編輯器材]"	: "",
+					"[刪除器材]"	: ""			
+			};
 			$.ajax({
 				url  : pageList[action],
 				statusCode : {
 					200 : function(res){
-					alert("aa00");
 						$("div#datamsg").html(res);
 					}
-				
+					404 : 
+						function(res){
+						$("div#datamsg").html("Page Not Found");
+					}
 				}
-				/*success:function(res){
-					alert("aa00");
-						$("div#datamsg").html(res);
-					}*/
-			
-			
 			});
 			
 		
@@ -118,7 +117,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		<div align=center>
 			<ul id="sec">
 				<li><a STYLE="text-decoration: none" href="">[使用者列表]</a></li>
-				<li><a STYLE="text-decoration: none">[新增使用者]</a></li>
+				<li><a STYLE="text-decoration: none" href="">[新增使用者]</a></li>
 				<li><a STYLE="text-decoration: none" href="">[編輯使用者]</a></li>
 				<li><a STYLE="text-decoration: none" href="deluser.php">[刪除使用者]</a></li>
 				<li><a STYLE="text-decoration: none" href="">[器材列表]</a></li>
