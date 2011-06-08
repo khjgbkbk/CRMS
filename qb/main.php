@@ -40,6 +40,29 @@
 				}
 			});
 		});
+		$("ul#fir li a").click(function(event){
+			$("ul#sec").html();
+			event.preventDefault();
+			var action = $(this).html();
+			var comList = {
+					"[管理]" 	: "magList.php",
+					"[系統]" 	: "sysList.php",
+			};
+			$.ajax({
+				url  : comList[action],
+				statusCode : {
+					200 : function(res){
+							$("ul#sec").html("");
+							$("ul#sec").html(res);
+						},
+					404 : 
+						function(res){
+							$("ul#sec").html("");
+							$("ul#sec").html("Page Not Found");
+						},
+				}
+			});
+		});
 	});
 </script>
 
@@ -61,7 +84,7 @@
 if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 {
 ?> 
-		<div align='center'>
+		<div align="center">
 			<h1>CRMS::SERVER.Main</h1>
 		</div>
 	
@@ -79,7 +102,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		</div>
 		
 		<div>
-			<ul id="fir">
+			<ul id="fir" align=center>
 				<li><a STYLE="text-decoration: none" id="mng" href="">[管理]</a></li>
 				<li><a STYLE="text-decoration: none" id="sys" href="">[系統]</a></li>
 			</ul>
@@ -87,10 +110,6 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		
 		<div align=center>
 			<ul id="sec">
-				<li><a STYLE="text-decoration: none" href="">[使用者列表]</a></li>
-				<li><a STYLE="text-decoration: none" href="">[新增使用者]</a></li>
-				<li><a STYLE="text-decoration: none" href="">[編輯使用者]</a></li>
-				<li><a STYLE="text-decoration: none" href="">[刪除使用者]</a></li>
 				<li><a STYLE="text-decoration: none" href="">[器材列表]</a></li>
 				<li><a STYLE="text-decoration: none" href="">[新增器材]</a></li>
 				<li><a STYLE="text-decoration: none" href="">[編輯器材]</a></li>
