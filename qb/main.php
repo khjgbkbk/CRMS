@@ -23,42 +23,34 @@
 					"[器材列表]"   	: "equivList.php",
 					"[新增器材]"   	: "addequiv.php",
 					"[編輯器材]"	: "Notfound.php",
-					"[刪除器材]"	: "Notfound.php",	
+					"[刪除器材]"	: "Notfound.php",
 			};
 			$.ajax({
 				url  : pageList[action],
 				statusCode : {
 					200 : function(res){
-							$("div#datamsg").html("");
-							$("div#datamsg").html(res);
+							$("div#datamsg").html(res); vh
 						},
 					404 : 
 						function(res){
-							$("div#datamsg").html("");
 							$("div#datamsg").html("Page Not Found");
 						},
 				}
 			});
 		});
 		$("ul#fir li a").click(function(event){
-			$("ul#sec").html();
 			event.preventDefault();
-			var action = $(this).html();
+			$("div#datamsg").html("");
+			var actionL = $(this).html();
 			var comList = {
 					"[管理]" 	: "magList.php",
 					"[系統]" 	: "sysList.php",
 			};
 			$.ajax({
-				url  : comList[action],
+				url  : comList[actionL],
 				statusCode : {
 					200 : function(res){
-							$("ul#sec").html("");
 							$("ul#sec").html(res);
-						},
-					404 : 
-						function(res){
-							$("ul#sec").html("");
-							$("ul#sec").html("Page Not Found");
 						},
 				}
 			});
