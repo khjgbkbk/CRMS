@@ -14,15 +14,15 @@
                         </TableRow>
                         <TableRow android:id="@+id/tableRow5" android:layout_width="fill_parent" android:layout_height="fill_parent">
                             <TextView android:id="@+id/textView3" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="Name:" android:layout_weight="1" android:textSize="25dip"></TextView>
-                            <EditText android:id="@+id/editText2" android:text="name" android:layout_height="70dip" android:layout_weight="20"></EditText>
+                            <EditText android:id="@+id/editText2" android:layout_height="70dip" android:layout_weight="20"></EditText>
                         </TableRow>
                         <TableRow android:id="@+id/tableRow6" android:layout_width="fill_parent" android:layout_height="fill_parent">
                             <TextView android:id="@+id/TextView02" android:text="Dorm:" android:layout_weight="1" android:textSize="25dip"></TextView>
-                            <EditText android:text="F" android:id="@+id/EditText02" android:layout_height="70dip" android:layout_weight="20"></EditText>
+                            <EditText android:id="@+id/EditText02" android:layout_height="70dip" android:layout_weight="20"></EditText>
                         </TableRow>
                         <TableRow android:id="@+id/tableRow9" android:layout_width="fill_parent" android:layout_height="fill_parent">
                             <TextView android:id="@+id/TextView03" android:text="Price:" android:layout_weight="1" android:textSize="25dip"></TextView>
-                            <EditText android:text="0" android:id="@+id/EditText03" android:layout_height="70dip" android:layout_weight="20"></EditText>
+                            <EditText android:id="@+id/EditText03" android:layout_height="70dip" android:layout_weight="20"></EditText>
                         </TableRow>
                         <Button android:id="@+id/button2" android:text="submit" android:layout_marginLeft="20dip" android:layout_marginRight="20dip" android:layout_marginTop="30dip" android:textSize="30dip"></Button>
                     </TableLayout>
