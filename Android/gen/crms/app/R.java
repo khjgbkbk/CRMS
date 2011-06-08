@@ -15,10 +15,10 @@ public final class R {
         public static final int qb=0x7f020001;
     }
     public static final class id {
-        public static final int EditText02=0x7f050014;
-        public static final int EditText03=0x7f050017;
-        public static final int TextView02=0x7f050013;
-        public static final int TextView03=0x7f050016;
+        public static final int EditText02=0x7f050015;
+        public static final int EditText03=0x7f050018;
+        public static final int TextView02=0x7f050014;
+        public static final int TextView03=0x7f050017;
         public static final int button1=0x7f05000a;
         public static final int button2=0x7f05000b;
         public static final int button3=0x7f05000c;
@@ -33,12 +33,13 @@ public final class R {
         public static final int tableRow2=0x7f050005;
         public static final int tableRow3=0x7f050009;
         public static final int tableRow4=0x7f050010;
-        public static final int tableRow5=0x7f050011;
-        public static final int tableRow6=0x7f050012;
-        public static final int tableRow9=0x7f050015;
+        public static final int tableRow5=0x7f050012;
+        public static final int tableRow6=0x7f050013;
+        public static final int tableRow9=0x7f050016;
         public static final int textView1=0x7f050003;
-        public static final int textView2=0x7f050006;
-        public static final int textView3=0x7f050001;
+        public static final int textView2=0x7f050011;
+        public static final int textView3=0x7f050006;
+        public static final int textView4=0x7f050001;
     }
     public static final class layout {
         public static final int edit=0x7f030000;

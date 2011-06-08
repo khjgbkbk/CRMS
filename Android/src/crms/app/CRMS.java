@@ -20,6 +20,7 @@ public class CRMS extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        /*
         findViewById(R.id.textView1);
         Log.v("test","aasd");
         final TextView tv = (TextView) findViewById(R.id.textView1);
@@ -76,7 +77,7 @@ public class CRMS extends Activity {
         Log.v("test","a");
         //setContentView(tv);
         //setContentView()
-        Log.v("test","c");
+        Log.v("test","c");*/
         final Button button = (Button) findViewById(R.id.button2);
         button.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
@@ -118,6 +119,14 @@ public class CRMS extends Activity {
 		        buttonR.setOnClickListener(new Button.OnClickListener(){
 		            	public void onClick(View v) {
 				        setContentView(R.layout.remove);
+		            }
+		   
+		        });
+		        /*logout*/
+		        final Button buttonH = (Button) findViewById(R.id.button4);
+		        buttonH.setOnClickListener(new Button.OnClickListener(){
+		            	public void onClick(View v) {
+				        setContentView(R.layout.main);
 		            }
 		   
 		        });

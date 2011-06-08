@@ -4,15 +4,15 @@
   android:orientation="vertical"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent">
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/textView1" android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/hello"></TextView>
-    <TableLayout android:layout_width="fill_parent" android:id="@+id/tableLayout1" android:layout_height="wrap_content">
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/textView1" android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/hello" android:layout_gravity="center_horizontal"></TextView>
+    <TableLayout android:layout_width="fill_parent" android:id="@+id/tableLayout1" android:layout_height="fill_parent">
         <TableRow android:id="@+id/tableRow1" android:layout_width="wrap_content" android:layout_height="wrap_content">
-            <Button android:id="@+id/button1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Query"></Button>
-            <Button android:text="New" android:id="@+id/button2" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+            <Button android:id="@+id/button1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Query" android:layout_weight="1"></Button>
+            <Button android:text="New" android:id="@+id/button2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1"></Button>
         </TableRow>
-        <TableRow android:id="@+id/tableRow2" android:layout_width="wrap_content" android:layout_height="wrap_content">
-            <Button android:layout_width="wrap_content" android:id="@+id/button3" android:layout_height="wrap_content" android:text="        Remove        "></Button>
-            <Button android:id="@+id/button4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:linksClickable="true" android:text="            out          "></Button>
+        <TableRow android:id="@+id/tableRow2" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_gravity="bottom|center">
+            <Button android:layout_width="wrap_content" android:id="@+id/button3" android:layout_height="wrap_content" android:text="Remove" android:layout_weight="1"></Button>
+            <Button android:id="@+id/button4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:linksClickable="true" android:layout_weight="1" android:text="Logout"></Button>
         </TableRow>
     </TableLayout>
     
