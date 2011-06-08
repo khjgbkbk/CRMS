@@ -125,7 +125,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	}
 	else
 	{
-		echo "failure"."<br>";
+		echo "No data"."<br>";
 	}
 }
 ?>
