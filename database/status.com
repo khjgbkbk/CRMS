@@ -11,6 +11,7 @@
 -rw-r--r-- 1 b983040004 b983040004  799 2011-05-23 01:23 fRegister.php		finish		Add new user
 -rw-r--r-- 1 b983040004 b983040004  742 2011-05-23 01:02 fUnregister.php	finish		Delete user
 -rw-r--r-- 1 b983040004 b983040004   11 2011-05-22 22:01 fAuthority.php		untouched	change authority
+							 fUsers.php		finish		List all Users (Don't touch the authorized part, just don't give anything)
 
 -rw-r--r-- 1 b983040004 b983040004  355 2011-05-21 22:22 index.html		for debug
 -rw-r--r-- 1 b983040004 b983040004  112 2011-05-23 00:24 status.com		readme

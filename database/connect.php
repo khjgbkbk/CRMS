@@ -15,10 +15,10 @@ $user['password'] = $_POST['password'];
 echo $user['username']."<br>";
 echo $user['password']."<br>";
 
-$obj['name'] = "switch";
+//$obj['name'] = "switch";
 //$obj['dorm'] = "dorm_f";
-$obj['id'] = "0123";
-$obj['price'] = 1234567;
+//$obj['id'] = "0123";
+//$obj['price'] = 1234567;
 
 print_r( json_encode(funcList($obj)) );
 
