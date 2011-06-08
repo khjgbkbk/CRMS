@@ -20,7 +20,7 @@
 					"[新增使用者]" 	: "adduser.php",
 					"[編輯使用者]" 	: "Notfound.php",
 					"[刪除使用者]" 	: "deluser.php",
-					"[器材列表]"   	: "Notfound.php",
+					"[器材列表]"   	: "equivList.php",
 					"[新增器材]"   	: "addequiv.php",
 					"[編輯器材]"	: "Notfound.php",
 					"[刪除器材]"	: "Notfound.php",	
@@ -45,16 +45,20 @@
 	
 	
 </script>
+
+<!-- CSS -->
 <style type="text/css">
-	<!--
-	ul#div1 li{
+	ul#fir li{
 		top:		50px;
-		left:		200px;	
 		width:		100px;
+		display:	inline;
 	}
-	-->
+	ul#sec li{
+		display:	inline;
+	}
 </style>
 </head>
+
 <body bgcolor="#EBF5FF"  link="1C19FF" vlink="1C19FF">
 <?php
 if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
@@ -78,7 +82,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		</div>
 		
 		<div>
-			<ul id="div1">
+			<ul id="fir">
 				<li><a STYLE="text-decoration: none" id="mng" href="">[管理]</a></li>
 				<li><a STYLE="text-decoration: none" id="sys" href="">[系統]</a></li>
 			</ul>
@@ -97,6 +101,8 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			</ul>
 		</div>
 		
+		<br>
+		<br>
 		<div id="datamsg" align="center">
 			
 		</div>
@@ -109,4 +115,5 @@ else
 }
 ?>
 </body>
+
 </html>
