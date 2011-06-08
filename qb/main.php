@@ -5,9 +5,57 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="jquery-1.6.1.min.js"></script>
 <title>CRMS</title>
 <link rel="shortcut icon" href="image/qb_ico.gif">
+<!-- Some function -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("ul#sec li a").click(function(event){
+			$("div#datamsg").html();
+			event.preventDefault();
+			var action = $(this).html();
+			var pageList = {
+					"[使用者列表]" 	: "userList.php",
+					"[新增使用者]" 	: "adduser.php",
+					"[編輯使用者]" 	: "Notfound.php",
+					"[刪除使用者]" 	: "deluser.php",
+					"[器材列表]"   	: "equivList.php",
+					"[新增器材]"   	: "addequiv.php",
+					"[編輯器材]"	: "Notfound.php",
+					"[刪除器材]"	: "Notfound.php",	
+			};
+			$.ajax({
+				url  : pageList[action],
+				statusCode : {
+					200 : function(res){
+							$("div#datamsg").html("");
+							$("div#datamsg").html(res);
+						},
+					404 : 
+						function(res){
+							$("div#datamsg").html("");
+							$("div#datamsg").html("Page Not Found");
+						},
+				}
+			});
+		});
+	});
+</script>
+
+<!-- CSS -->
+<style type="text/css">
+	ul#fir li{
+		top:		50px;
+		width:		100px;
+		display:	inline;
+	}
+	ul#sec li{
+		display:	inline;
+	}
+</style>
 </head>
+
 <body bgcolor="#EBF5FF"  link="1C19FF" vlink="1C19FF">
 <?php
 if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
@@ -30,58 +78,30 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			</table>
 		</div>
 		
+		<div>
+			<ul id="fir">
+				<li><a STYLE="text-decoration: none" id="mng" href="">[管理]</a></li>
+				<li><a STYLE="text-decoration: none" id="sys" href="">[系統]</a></li>
+			</ul>
+		</div>
+		
 		<div align=center>
-			<table style="">
-				<tbody>
-				<tr>
-					<td>
-						<a STYLE="text-decoration: none" href="">[使用者列表]</a>
-					</td>
-					<td>
-						&nbsp
-					</td>
-					<td>
-						<a STYLE="text-decoration: none" href="adduser.php">[新增使用者]</a>
-					</td>
-					<td>
-						&nbsp
-					</td>
-					<td>
-						<a STYLE="text-decoration: none" href="">[編輯使用者]</a>
-					</td>
-					<td>
-						&nbsp
-					</td>
-					<td>
-						<a STYLE="text-decoration: none" href="deluser.php">[刪除使用者]</a>
-					</td>
-					
-				</tr>
-				<tr>
-					<td>
-						<a STYLE="text-decoration: none" href="">[器材列表]</a>
-					</td>
-					<td>
-						&nbsp
-					</td>
-					<td>
-						<a STYLE="text-decoration: none" href="addequiv.php">[新增器材]</a>
-					</td>
-					<td>
-						&nbsp
-					</td>
-					<td>
-						<a STYLE="text-decoration: none" href="">[編輯器材]</a>
-					</td>
-					<td>
-						&nbsp
-					</td>
-					<td>
-						<a STYLE="text-decoration: none" href="">[刪除器材]</a>
-					</td>
-				</tr>
-				</tbody>
-			</table>
+			<ul id="sec">
+				<li><a STYLE="text-decoration: none" href="">[使用者列表]</a></li>
+				<li><a STYLE="text-decoration: none" href="">[新增使用者]</a></li>
+				<li><a STYLE="text-decoration: none" href="">[編輯使用者]</a></li>
+				<li><a STYLE="text-decoration: none" href="">[刪除使用者]</a></li>
+				<li><a STYLE="text-decoration: none" href="">[器材列表]</a></li>
+				<li><a STYLE="text-decoration: none" href="">[新增器材]</a></li>
+				<li><a STYLE="text-decoration: none" href="">[編輯器材]</a></li>
+				<li><a STYLE="text-decoration: none" href="">[刪除器材]</a></li>
+			</ul>
+		</div>
+		
+		<br>
+		<br>
+		<div id="datamsg" align="center">
+			
 		</div>
 <?php	
 }
@@ -92,4 +112,5 @@ else
 }
 ?>
 </body>
+
 </html>

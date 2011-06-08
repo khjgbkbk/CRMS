@@ -2,23 +2,23 @@
 	ob_start();
 	session_start();
 ?>
-
+<!-- function send -->
 <script type="text/javascript">
 	function send()
 	{
 		if( $("input[name='Equivname']").attr('value') == "" )
 		{
-			$('div.message').html('è«‹è¼¸å…¥å™¨æåç¨±!');
+			$('div.message').html('½Ğ¿é¤J¾¹§÷¦WºÙ!');
 			return;
 		}
 		if( $("input[name='Equivplace']").attr('value') == "" )
 		{
-			$('div.message').html('è«‹è¼¸å…¥å™¨ææ‰€åœ¨ä½ç½®!');
+			$('div.message').html('½Ğ¿é¤J¾¹§÷©Ò¦b¦ì¸m!');
 			return;
 		}
 		if( $("input[name='Equivid']").attr('value') == "" )
 		{
-			$('div.message').html('è«‹è¼¸å…¥å™¨æçš„ç·¨è™Ÿ!');
+			$('div.message').html('½Ğ¿é¤J¾¹§÷ªº½s¸¹!');
 			return;
 		}
 		$.ajax({
@@ -64,7 +64,7 @@
 		});
 	}
 </script>
-
+<!-- click action -->
 <script type="text/javascript">
 	var KEY_ENTER = 13;
 	$(document).ready(function () 
@@ -75,7 +75,7 @@
 		});
 	})
 	$(document).keydown(function(event){ 
-		//å¦‚æœæŒ‰ enter
+		//¦pªG«ö enter
 		if(event.keyCode == KEY_ENTER)
 		{
 			send();
@@ -86,36 +86,48 @@
 <?php
 if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 {
-?> 
-	<div align="center">
-		<table style="border: 5px dotted rgb(109, 2, 107); " align="center" cellPadding="10" frame="border">
-		<tbody>
-		<tr>
-			<td>Name:</td>
-			<td><input type="text" name="Equivname"></td>
-		</tr>
-		<tr>
-			<td>Place:</td>
-			<td><input type="text" name="Equivplace"></td>
-		</tr>
-		<tr>
-			<td>ID:</td>
-			<td><input type="text" name="Equivid"></td>
-		</tr>
-		<tr>
-			<td>Price:</td>
-			<td><input type="text" name="Equivprice"></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td align="right"><input type="button" value="é€å‡º" id="Send"></td>
-		</tr>
-		</tbody>
-		</table>
-	</div>
-<?php	
+	include("../database/fList.php");
+	$re = funcList(NULL);
+	if( $re["success"] == true )
+	{
+		$data = $re["data"];
+		$row = $re["row_size"];
+		$col = $re["column_size"];
+?>
+<div align="center">
+	<table>
+	<tbody>
+<?php
+		for($i=0 ; $i<$row ; $i++)
+		{
+?>
+	<tr>
+<?php
+			for($j=0 ; $j<$col ; $j++)
+			{
+?>
+		<td>
+			<?php echo $data[$i][$j]; ?>
+		</td>	
+<?php
+			}
+?>
+	</tr>
+<?php
+		}
+	}
+?>
+	</tbody>
+	</table>
+</div>
+
+<?php
+	/*
+	else
+	{
+		echo "failure"."<br>";
+	}
+	*/
 }
 ?>
-	
-<div align="center" class="message">
-</div>
+
