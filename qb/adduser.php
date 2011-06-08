@@ -88,6 +88,8 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 ?> 
 
 		<div align="center">
+			新增網管資料
+			<br><br>
 			<table style="border: 5px dotted rgb(109, 2, 107); " align="center" cellPadding="10" frame="border">
 			<tbody>
 			<tr>
