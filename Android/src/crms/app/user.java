@@ -61,7 +61,7 @@ public class user {
 		json.put("dorm",equip.location());
 		json.put("id",equip.id());
 		json.put("price",equip.price());
-		HttpPost httpRequest = new HttpPost(_DefaultServer.URLs);
+		HttpPost httpRequest = new HttpPost(_DefaultServer.URLs + "/equipment/");
 		/* 發出HTTP request */
 		/* 取得HTTP response */
 		DefaultHttpClient HttpClient = new DefaultHttpClient();
@@ -89,7 +89,17 @@ public class user {
 		return null;
 	}
 	
-	public boolean login(server s) throws ClientProtocolException, IOException {
+	public boolean deleteEquipment(equipment equip){
+		
+		
+		
+		
+		return false;
+		
+		
+	}
+	
+ 	public boolean login(server s) throws ClientProtocolException, IOException {
 		HttpGet httpRequest = new HttpGet(s.URLs);
 		/* 發出HTTP request */
 			/* 取得HTTP response */
@@ -151,7 +161,7 @@ public class user {
 		}
 		return false;
 	}
-	
+ 	
 	private UsernamePasswordCredentials getUsernamePasswordCredentials() {
 		return new UsernamePasswordCredentials(_Username, _Password);
 	}
