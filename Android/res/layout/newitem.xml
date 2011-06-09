@@ -36,7 +36,7 @@
                         </TableRow>
                         <TableRow android:id="@+id/tableRow1" android:layout_width="wrap_content" android:layout_height="wrap_content">
                             <Button android:id="@+id/button2" android:layout_marginTop="20dip" android:text="Submit" android:onClick="newsubmit" android:layout_weight="20" android:textSize="25dip"></Button>
-                            <Button android:id="@+id/button1" android:layout_marginTop="20dip" android:text="Back" android:onClick="neweqback" android:layout_weight="1" android:textSize="25dip"></Button>
+                            <Button android:id="@+id/button1" android:layout_marginTop="20dip" android:text="Back" android:layout_weight="1" android:textSize="25dip" android:onClick="newEqBack"></Button>
                         </TableRow>
                     </TableLayout>
                 </LinearLayout>

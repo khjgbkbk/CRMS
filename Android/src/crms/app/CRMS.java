@@ -104,7 +104,7 @@ public class CRMS extends Activity {
     public void sign(View cvView){
     	setContentView(R.layout.newid);
     }
-    public void newidcancel(View cvView){
+    public void newID_Cancel(View cvView){
     	setContentView(R.layout.main);
     }
     /*query*/
@@ -117,22 +117,22 @@ public class CRMS extends Activity {
     public void queryEnter(View cvView){
     	setContentView(R.layout.equipment);
     }
-    public void queryback(View cvView){
+    public void queryBack(View cvView){
     	setContentView(R.layout.menu);
     }
     /*equipment*/
-    public void equipexit(View cvView){
+    public void equipExit(View cvView){
     	setContentView(R.layout.menu);
     }
     /*new item*/
-    public void gonew(View cvView){
+    public void goNew(View cvView){
     	setContentView(R.layout.newitem);
     }
-    public void neweqback(View cvView){
+    public void newEqBack(View cvView){
     	setContentView(R.layout.menu);
     }
     /*remove*/
-    public void gorm(View cvView){
+    public void goRm(View cvView){
     	setContentView(R.layout.remove);
     }
     public void rmback(View cvView){
