@@ -118,7 +118,15 @@ public class CRMS extends Activity {
     	try {
 			equipment currentEquip = currentUser.getEquipment(uidin.getText().toString());
 			if(currentEquip != null){
+				EditText eT1 = (EditText) findViewById(R.id.editText1);
+				EditText eT2 = (EditText) findViewById(R.id.editText2);
+				EditText eT3 = (EditText) findViewById(R.id.editText3);
+				EditText eT4 = (EditText) findViewById(R.id.editText4);
+				eT1.setText(currentEquip.name());
 				
+			}else{
+				EditText eT1 = (EditText) findViewById(R.id.editText1);
+				eT1.setText("not found");
 				
 			}
     	
