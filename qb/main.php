@@ -73,7 +73,9 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	ul#sec li{
 		display:	inline;
 	}
+	
 </style>
+
 </head>
 
 <body bgcolor="#EBF5FF"  link="1C19FF" vlink="1C19FF">

@@ -2,10 +2,6 @@
 ob_start();
 session_start();
 
-
-
-
-
 if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 {
 	include("../database/fList.php");
@@ -42,7 +38,6 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 				success: function(result) {
 					switch (result) {
 					case "success":
-						$(this).parents("tr").remove();
 						break;
 					default:
 						alert(result);
@@ -50,6 +45,26 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 					}
 				},
 			});
+			$(this).parents("tr").remove();
+		});
+	}
+	function edit()
+	{
+		$('div#ctr tbody td input[id=edit]').click(function()
+		{
+			var cfm = confirm("確定要修改嗎?");
+			if( cfm == false )
+			{	
+				return;
+			}
+			var name = $(this).parents("tr").find("td:eq(0)").html();
+			var place = $(this).parents("tr").find("td:eq(1)").html();
+			var id = $(this).parents("tr").find("td:eq(2)").html();
+			var price = $(this).parents("tr").find("td:eq(3)").html();
+			var btm = $(this).parents("tr").find("td:eq(5) input").val();
+
+			return;
+			
 		});
 	}
 </script>
@@ -61,13 +76,16 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	$(document).ready(function () 
 	{
 		dele();
-		
-		$('#edit').click(function()
-		{
-			edit();
-		});
+		edit();
 	})
 </script>
+
+<!-- CSS -->
+<style type="text/css">
+	div#ctr tbody td{
+		width:		100px;
+	}
+</style>
 
 <div align="center" id="ctr">
 	<table style="border: 3px dotted rgb(109, 2, 107);">
@@ -90,9 +108,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			for($j=0 ; $j<$col ; $j++)
 			{
 ?>
-		<td>
-			<?php echo $data[$i][$j]; ?>
-		</td>	
+		<td><?php echo $data[$i][$j]; ?></td>	
 <?php
 			}
 ?>
