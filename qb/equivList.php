@@ -26,11 +26,10 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			var cfm = confirm("確定要刪除嗎?");
 			if( cfm == false )
 			{	
-				alert("已取消");
 				return;
 			}
 			var pid = $(this).parents("tr").attr("id");
-			//$(this).parents("tr").remove();
+			$(this).parents("tr").remove();
 			var data = $(this).parents("tr").find("td[name=name]");
 			alert(data.length);
 			return ;
