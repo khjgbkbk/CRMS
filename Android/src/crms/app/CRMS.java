@@ -132,7 +132,7 @@ public class CRMS extends Activity {
     	setContentView(R.layout.menu);
     }
     /*remove*/
-    public void gorm(View cvView){
+    public void goRm(View cvView){
     	setContentView(R.layout.remove);
     }
     public void rmback(View cvView){
