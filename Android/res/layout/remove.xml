@@ -19,7 +19,7 @@
         </TableRow>
         <TableRow android:id="@+id/tableRow3" android:layout_width="wrap_content" android:layout_height="wrap_content">
             <Button android:text="Remove" android:textSize="30dip" android:id="@+id/button1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="rm" android:layout_marginTop="20dip" android:layout_weight="20"></Button>
-            <Button android:id="@+id/button3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="30dip" android:text="Back" android:layout_weight="1" android:onClick="rmback" android:layout_marginTop="20dip"></Button>
+            <Button android:id="@+id/button3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="30dip" android:text="Back" android:layout_weight="1" android:layout_marginTop="20dip" android:onClick="rmBack"></Button>
         </TableRow>
     </TableLayout>
     

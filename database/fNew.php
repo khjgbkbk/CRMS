@@ -5,7 +5,7 @@
 		if(isset($ask)){
 			if(!isset($ask['name']))  $ask['name'] = "UnnamedEquipment";
 			if(!isset($ask['dorm']))  $ask['dorm'] = "?";
-			if(!isset($ask['id']))    $ask['id'] = time();
+			if(!isset($ask['id']) || $ask['id']=="")    $ask['id'] = time();
 			if(!isset($ask['price'])) $ask['price'] = 0;
 //isset($ask['name']) && isset($ask['dorm']) && isset($ask['id']) && isset($ask['price']) && $ask['name']!="" && $ask['dorm']!="" && $ask['id']!="" && $ask['price']!="" ){
 			$sql = "select * from ".$db_equip." where id = '{$ask['id']}'";
