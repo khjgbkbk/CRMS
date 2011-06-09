@@ -18,7 +18,7 @@
 				var pageList = {
 						"[使用者列表]" 	: "userList.php",
 						"[新增使用者]" 	: "adduser.php",
-						"[編輯使用者]" 	: "Notfound.php",
+						"[更改資料]" 	: "userEdit.php",
 						"[器材列表]"   	: "equivList.php",
 						"[新增器材]"   	: "addequiv.php",
 						"[查詢器材]"	: "Notfound.php",
