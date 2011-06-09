@@ -12,11 +12,14 @@ public final class R {
     }
     public static final class drawable {
         public static final int icon=0x7f020000;
-        public static final int qb=0x7f020001;
+        public static final int out=0x7f020001;
+        public static final int punch=0x7f020002;
+        public static final int q=0x7f020003;
+        public static final int qb=0x7f020004;
     }
     public static final class id {
-        public static final int TextView02=0x7f05001f;
-        public static final int TextView03=0x7f050021;
+        public static final int TextView02=0x7f050020;
+        public static final int TextView03=0x7f050022;
         public static final int button1=0x7f050016;
         public static final int button2=0x7f050017;
         public static final int button3=0x7f05001a;
@@ -25,17 +28,19 @@ public final class R {
         public static final int editText2=0x7f05000c;
         public static final int editText3=0x7f050010;
         public static final int editText4=0x7f050014;
+        public static final int imageButton1=0x7f05001c;
+        public static final int imageView1=0x7f050024;
         public static final int linearLayout1=0x7f050001;
-        public static final int newitemdorm=0x7f050020;
-        public static final int newitemeqid=0x7f05001d;
-        public static final int newitemname=0x7f05001e;
-        public static final int newitemprice=0x7f050022;
+        public static final int newitemdorm=0x7f050021;
+        public static final int newitemeqid=0x7f05001e;
+        public static final int newitemname=0x7f05001f;
+        public static final int newitemprice=0x7f050023;
         public static final int pw=0x7f050019;
-        public static final int queEqid=0x7f050023;
-        public static final int rmeqid=0x7f050024;
+        public static final int queEqid=0x7f050025;
+        public static final int rmeqid=0x7f050026;
         public static final int scrollView1=0x7f050000;
         public static final int tableLayout1=0x7f050002;
-        public static final int tableLayout2=0x7f05001c;
+        public static final int tableLayout2=0x7f05001d;
         public static final int tableRow1=0x7f050003;
         public static final int tableRow10=0x7f050015;
         public static final int tableRow2=0x7f050005;
@@ -59,8 +64,9 @@ public final class R {
         public static final int menu=0x7f030002;
         public static final int newid=0x7f030003;
         public static final int newitem=0x7f030004;
-        public static final int query=0x7f030005;
-        public static final int remove=0x7f030006;
+        public static final int qbout=0x7f030005;
+        public static final int query=0x7f030006;
+        public static final int remove=0x7f030007;
     }
     public static final class string {
         public static final int admin=0x7f040002;
