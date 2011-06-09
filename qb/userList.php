@@ -13,7 +13,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		$col = $re["column_size"];
 ?>
 <div align="center">
-	<table style="border: 3px dotted rgb(109, 2, 107);">
+	<table id="data" style="border: 3px dotted rgb(109, 2, 107);">
 	<tbody>
 		<tr>
 			<td>使用者編號</td>
