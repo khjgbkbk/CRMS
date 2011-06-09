@@ -31,10 +31,10 @@ public final class R {
         public static final int imageButton1=0x7f05001c;
         public static final int imageView1=0x7f050024;
         public static final int linearLayout1=0x7f050001;
-        public static final int newitemdorm=0x7f050021;
-        public static final int newitemeqid=0x7f05001e;
-        public static final int newitemname=0x7f05001f;
-        public static final int newitemprice=0x7f050023;
+        public static final int newItemDorm=0x7f050021;
+        public static final int newItemEqid=0x7f05001e;
+        public static final int newItemName=0x7f05001f;
+        public static final int newItemPrice=0x7f050023;
         public static final int pw=0x7f050019;
         public static final int queEqid=0x7f050025;
         public static final int rmeqid=0x7f050026;

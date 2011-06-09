@@ -165,14 +165,16 @@ public class CRMS extends Activity {
 				
 			}else{
 				//EditText eT1 = (EditText) findViewById(R.id.editText1);
-				eT1.setText("not found");
+
+	    		Builder alertDialog = new Builder(CRMS.this) ;
+	     	    alertDialog.setMessage("找不到機器").show();
 				
 			}
-    	
+			currentEquip = null;
     	
     	} catch (ClientProtocolException e) {
-
-    		eT1.setText("IN2");
+    		Builder alertDialog = new Builder(CRMS.this) ;
+     	    alertDialog.setMessage("連線錯誤").show();
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -204,6 +206,41 @@ public class CRMS extends Activity {
     /*new item*/
     public void goNew(View cvView){
     	setContentView(R.layout.newitem);
+    }
+    public void newSubmit(View cvView){
+    	equipment currentEquip = new equipment();
+    	EditText newItemName = (EditText) findViewById(R.id.newItemName);
+    	EditText newItemDorm = (EditText) findViewById(R.id.newItemDorm);
+    	EditText newItemEqid = (EditText) findViewById(R.id.newItemEqid);
+    	EditText newItemPrice = (EditText) findViewById(R.id.newItemPrice);
+    	
+    	currentEquip.name(newItemName.getText().toString())
+    				.location(new location(newItemDorm.getText().toString()))
+    				.price(Integer.parseInt(newItemPrice.getText().toString()));
+    	
+    	try {
+    		equipment newEquip = currentUser.newEquipment(currentEquip);
+			if( newEquip != null ){
+
+	    		Builder alertDialog = new Builder(CRMS.this) ;
+	     	    alertDialog.setMessage("新增成功").show();
+				newItemEqid.setText(newEquip.id());
+				
+			}
+			currentEquip = null;
+			
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	
     }
     public void newEqBack(View cvView){
     	setContentView(R.layout.menu);
