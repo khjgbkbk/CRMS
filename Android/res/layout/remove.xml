@@ -12,7 +12,7 @@
             <TextView android:id="@+id/textView2" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_weight="1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Equipment ID:"></TextView>
         </TableRow>
         <TableRow android:id="@+id/tableRow2" android:layout_width="wrap_content" android:layout_height="wrap_content">
-            <EditText android:id="@+id/editText1" android:layout_height="60dip" android:layout_weight="20">
+            <EditText android:layout_height="60dip" android:layout_weight="20" android:id="@+id/rmeqid">
                 <requestFocus></requestFocus>
             </EditText>
             <Button android:text="QR" android:layout_width="wrap_content" android:id="@+id/button2" android:layout_height="60dip" android:layout_weight="1"></Button>

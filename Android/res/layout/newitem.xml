@@ -10,19 +10,19 @@
                         </TableRow>
                         <TableRow android:id="@+id/tableRow4" android:layout_width="fill_parent" android:layout_height="fill_parent">
                             <TextView android:id="@+id/textView2" android:layout_width="fill_parent" android:text="Equipment ID:" android:layout_weight="1" android:textSize="25dip"></TextView>
-                            <EditText android:visibility="visible" android:id="@+id/editText1" android:layout_weight="20" android:layout_height="70dip"></EditText>
+                            <EditText android:visibility="visible" android:layout_weight="20" android:layout_height="70dip" android:id="@+id/newitemeqid"></EditText>
                         </TableRow>
                         <TableRow android:id="@+id/tableRow5" android:layout_width="fill_parent" android:layout_height="fill_parent">
                             <TextView android:id="@+id/textView3" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="Name:" android:layout_weight="1" android:textSize="25dip"></TextView>
-                            <EditText android:id="@+id/editText2" android:layout_height="70dip" android:layout_weight="20"></EditText>
+                            <EditText android:layout_height="70dip" android:layout_weight="20" android:id="@+id/newitemname"></EditText>
                         </TableRow>
                         <TableRow android:id="@+id/tableRow6" android:layout_width="fill_parent" android:layout_height="fill_parent">
                             <TextView android:id="@+id/TextView02" android:text="Dorm:" android:layout_weight="1" android:textSize="25dip"></TextView>
-                            <EditText android:id="@+id/EditText02" android:layout_height="70dip" android:layout_weight="20"></EditText>
+                            <EditText android:layout_height="70dip" android:layout_weight="20" android:id="@+id/newitemdorm"></EditText>
                         </TableRow>
                         <TableRow android:id="@+id/tableRow9" android:layout_width="fill_parent" android:layout_height="fill_parent">
                             <TextView android:id="@+id/TextView03" android:text="Price:" android:layout_weight="1" android:textSize="25dip"></TextView>
-                            <EditText android:id="@+id/EditText03" android:layout_height="70dip" android:layout_weight="20"></EditText>
+                            <EditText android:layout_height="70dip" android:layout_weight="20" android:id="@+id/newitemprice"></EditText>
                         </TableRow>
                         <TableRow android:id="@+id/tableRow1" android:layout_width="wrap_content" android:layout_height="wrap_content">
                             <Button android:textSize="30dip" android:id="@+id/button2" android:layout_marginTop="20dip" android:text="Submit" android:onClick="newsubmit" android:layout_weight="20"></Button>
