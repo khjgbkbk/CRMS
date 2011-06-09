@@ -93,15 +93,15 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			<table style="border: 5px dotted rgb(109, 2, 107); " align="center" cellPadding="10" frame="border">
 			<tbody>
 			<tr>
-				<td>Username:</td>
+				<td>帳號:</td>
 				<td><input type="text" name="addUsrid"></td>
 			</tr>
 			<tr>
-				<td>Password:</td>
+				<td>密碼:</td>
 				<td><input type="text" name="addUsrpwd"></td>
 			</tr>
 			<tr>
-				<td>Comfirm password:</td>
+				<td>確認密碼:</td>
 				<td><input type="text" name="addCmUsrpwd"></td>
 			</tr>
 			<tr>
