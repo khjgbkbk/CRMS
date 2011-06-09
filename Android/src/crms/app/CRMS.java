@@ -120,7 +120,7 @@ public class CRMS extends Activity {
     public void goQuery(View cvView){
     	setContentView(R.layout.query);
     }
-    public void queryenter(View cvView){
+    public void queryEnter(View cvView){
     	setContentView(R.layout.equipment);
     }
     public void queryback(View cvView){
