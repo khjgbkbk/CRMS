@@ -2,6 +2,10 @@
 ob_start();
 session_start();
 
+
+
+
+
 if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 {
 	include("../database/fList.php");
@@ -12,15 +16,65 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		$row = $re["row_size"];
 		$col = $re["column_size"];
 ?>
-<div align="center">
+
+<!-- Functions -->
+<script type="text/javascript">
+	function dele()
+	{
+		var cfm = confirm("確定要刪除嗎?");
+		if( cfm == false )
+		{	
+			alert("已取消");
+			return;
+		}
+		$.ajax({
+			url: '',
+			type: 'POST',
+			data: {
+				data: $("input[name='addUsrid']").attr('value'),
+				addUsrPW: $("input[name='addUsrpwd']").attr('value'),
+			},
+			dataType: "json",
+			error: function(xhr) {
+				alert('Ajax request failure');
+			},
+			success: function(result) {
+				switch (result) {
+				case "nid":
+					$('div.message').html("Please enter a username");
+					break;
+				}
+			},
+		});
+	}
+</script>
+
+
+<!-- 送出相關事件函式 -->
+<script type="text/javascript">
+	var KEY_ENTER = 13;
+	$(document).ready(function () 
+	{
+		$('#dele').click(function()
+		{
+			dele();
+		});
+		$('#edit').click(function()
+		{
+			edit();
+		});
+	})
+</script>
+
+<div align="center" id="ctr">
 	<table style="border: 3px dotted rgb(109, 2, 107);">
 	<tbody>
 		<tr>
-			<td>器材名稱</td>
-			<td>器材位置</td>
-			<td></td>
-			<td>器材價錢</td>
-			<td>器材編號</td>
+			<td>名稱</td>
+			<td>位置</td>
+			<td>編號</td>
+			<td>價錢</td>
+			<td>加入時間</td>
 			<td>編輯</td>
 			<td>刪除</td>
 		</tr>
@@ -28,7 +82,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		for($i=0 ; $i<$row ; $i++)
 		{
 ?>
-	<tr>
+	<tr id="<?php echo $i; ?>" >
 <?php
 			for($j=0 ; $j<$col ; $j++)
 			{
