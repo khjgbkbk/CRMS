@@ -14,31 +14,52 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 <script type="text/javascript">
 	function bindUlSec(){
 		$("ul#sec li a").click(function(event){
-				$("div#datamsg").html();
-				event.preventDefault();
-				var action = $(this).html();
-				var pageList = {
-						"[使用者列表]" 	: "userList.php",
-						"[新增使用者]" 	: "adduser.php",
-						"[更改資料]" 	: "userEdit.php",
-						"[器材列表]"   	: "equivList.php",
-						"[新增器材]"   	: "addequiv.php",
-						"[查詢器材]"	: "equiQuery.php"
-				};
-				$.ajax({
-					url  : pageList[action],
-					statusCode : {
-						200 : function(res){
-								$("div#datamsg").html(res); vh
-							},
-						404 : 
-							function(res){
-								$("div#datamsg").html("Page Not Found");
-							}
-					}
-				});
+			$("div#datamsg").html();
+			event.preventDefault();
+			var action = $(this).html();
+			var pageList = {
+					"[使用者列表]" 	: "userList.php",
+					"[新增使用者]" 	: "adduser.php",
+					"[更改資料]" 	: "userEdit.php",
+					"[器材列表]"   	: "equivList.php",
+					"[新增器材]"   	: "addequiv.php",
+					"[查詢器材]"	: "equiQuery.php"
+			};
+			$.ajax({
+				url  : pageList[action],
+				statusCode : {
+					200 : function(res){
+							$("div#datamsg").html(res);
+						},
+					404 : 
+						function(res){
+							$("div#datamsg").html("Page Not Found");
+						}
+				}
 			});
+		});
 	
+	};
+	function equiEdit(link, ask){
+		$.ajax({
+			url  : link,
+			type: 'POST',
+			data: {
+				name: ask['name'],
+				place: ask['place'],
+				id: ask['id'],
+				price: ask['price']
+			},
+			statusCode : {
+				200 : function(res){
+						$("div#datamsg").html(res);
+					},
+				404 : 
+					function(res){
+						$("div#datamsg").html("Page Not Found");
+					}
+			}
+		});
 	};
 	$(document).ready(function(){
 		bindUlSec();

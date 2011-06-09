@@ -57,12 +57,18 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			{	
 				return;
 			}
-			var name = $(this).parents("tr").find("td:eq(0)").html();
-			var place = $(this).parents("tr").find("td:eq(1)").html();
-			var id = $(this).parents("tr").find("td:eq(2)").html();
-			var price = $(this).parents("tr").find("td:eq(3)").html();
-			var btm = $(this).parents("tr").find("td:eq(5) input").val();
-
+			var editname = $(this).parents("tr").find("td:eq(0)").html();
+			var editplace = $(this).parents("tr").find("td:eq(1)").html();
+			var editid = $(this).parents("tr").find("td:eq(2)").html();
+			var editprice = $(this).parents("tr").find("td:eq(3)").html();
+			var data = {
+				"name": editname,
+				"place": editplace,
+				"id": editid,
+				"price": editprice
+			};
+			var link = "equivEdit.php";
+			equiEdit(link, data);
 			return;
 			
 		});
@@ -82,14 +88,17 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 
 <!-- CSS -->
 <style type="text/css">
+	div#ctr table{
+		border: 5px dotted rgb(109, 2, 107);
+	}
 	div#ctr tbody td{
 		width:		100px;
 	}
 </style>
 
 <div align="center" id="ctr">
-	<table style="border: 3px dotted rgb(109, 2, 107);">
-	<tbody>
+	<table>
+	<thead>
 		<tr>
 			<td>名稱</td>
 			<td>位置</td>
@@ -99,6 +108,8 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			<td>編輯</td>
 			<td>刪除</td>
 		</tr>
+	</thead>
+	<tbody>
 <?php
 		for($i=0 ; $i<$row ; $i++)
 		{
