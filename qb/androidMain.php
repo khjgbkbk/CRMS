@@ -112,7 +112,7 @@ switch($_SERVER['REQUEST_METHOD']){
                 switch($argv[1]){
                 case "equipment" :
                         include("../database/fDelete.php");
-                        if(!isset($$argv[2])){
+                        if(!isset($argv[2])){
                                 header("HTTP/1.1 400 Bad Request");
                                 exit;
                         }

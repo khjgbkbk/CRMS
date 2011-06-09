@@ -4,15 +4,15 @@
   android:orientation="vertical"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent">
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/textView1" android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/hello" android:layout_gravity="center_horizontal"></TextView>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/textView1" android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/hello" android:layout_gravity="center_horizontal" android:textSize="30dip"></TextView>
     <TableLayout android:layout_width="fill_parent" android:id="@+id/tableLayout1" android:layout_height="fill_parent">
         <TableRow android:id="@+id/tableRow1" android:layout_width="wrap_content" android:layout_height="wrap_content">
-            <Button android:id="@+id/button1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Query" android:layout_weight="1"></Button>
-            <Button android:text="New" android:id="@+id/button2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1"></Button>
+            <Button android:id="@+id/button1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Query" android:layout_weight="1" android:textSize="25dip" android:onClick="goquery"></Button>
+            <Button android:text="New" android:id="@+id/button2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1" android:textSize="25dip" android:onClick="gonew"></Button>
         </TableRow>
         <TableRow android:id="@+id/tableRow2" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_gravity="bottom|center">
-            <Button android:layout_width="wrap_content" android:id="@+id/button3" android:layout_height="wrap_content" android:text="Remove" android:layout_weight="1"></Button>
-            <Button android:id="@+id/button4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:linksClickable="true" android:layout_weight="1" android:text="Logout"></Button>
+            <Button android:layout_width="wrap_content" android:id="@+id/button3" android:layout_height="wrap_content" android:text="Remove" android:layout_weight="1" android:textSize="25dip" android:onClick="gorm"></Button>
+            <Button android:id="@+id/button4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:linksClickable="true" android:layout_weight="1" android:text="Logout" android:textSize="25dip" android:onClick="gotomain"></Button>
         </TableRow>
     </TableLayout>
     
