@@ -1,19 +1,13 @@
 package crms.app;
 
 import java.io.IOException;
-import java.text.ParseException;
 
 import org.apache.http.client.ClientProtocolException;
-import org.json.JSONException;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class CRMS extends Activity {
     /** Called when the activity is first created. */
