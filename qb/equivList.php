@@ -21,6 +21,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			<td></td>
 			<td>器材價錢</td>
 			<td>器材編號</td>
+			<td>編輯</td>
 			<td>刪除</td>
 		</tr>
 <?php
@@ -38,7 +39,8 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 <?php
 			}
 ?>
-		<td><input type="button" value="刪除"><td>
+		<td><input type="button" id="edit" value="編輯"></td>
+		<td><input type="button" id="dele" value="刪除"></td>
 	</tr>
 <?php
 		}
