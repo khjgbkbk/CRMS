@@ -20,6 +20,9 @@
                 <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/tableRow4">
                     <Button android:text="Logout" android:linksClickable="true" android:layout_height="wrap_content" android:textSize="25dip" android:layout_weight="1" android:id="@+id/button4" android:onClick="logout" android:layout_width="wrap_content"></Button>
                 </TableRow>
+                <TableRow android:layout_height="wrap_content" android:id="@+id/tableRow5" android:layout_width="wrap_content">
+                    <ImageButton android:layout_height="fill_parent" android:onClick="qbout" android:layout_gravity="center_horizontal|center" android:id="@+id/imageButton1" android:src="@drawable/out"></ImageButton>
+                </TableRow>
             </TableLayout>
         </LinearLayout>
     </ScrollView>
