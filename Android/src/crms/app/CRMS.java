@@ -128,7 +128,7 @@ public class CRMS extends Activity {
     public void goNew(View cvView){
     	setContentView(R.layout.newitem);
     }
-    public void neweqback(View cvView){
+    public void newEqBack(View cvView){
     	setContentView(R.layout.menu);
     }
     /*remove*/
