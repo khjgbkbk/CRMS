@@ -17,7 +17,7 @@
         </TableRow>
         <TableRow android:id="@+id/tableRow3" android:layout_width="wrap_content" android:layout_height="wrap_content">
             <Button android:text="Enter" android:textSize="30dip" android:id="@+id/button1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20dip" android:layout_weight="20" android:onClick="queryEnter"></Button>
-            <Button android:id="@+id/button3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="30dip" android:layout_marginTop="20dip" android:text="Back" android:layout_weight="1" android:onClick="queryback"></Button>
+            <Button android:id="@+id/button3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="30dip" android:layout_marginTop="20dip" android:text="Back" android:layout_weight="1" android:onClick="queryBack"></Button>
         </TableRow>
     </TableLayout>
     

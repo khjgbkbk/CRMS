@@ -123,15 +123,15 @@ public class CRMS extends Activity {
     public void queryEnter(View cvView){
     	setContentView(R.layout.equipment);
     }
-    public void queryback(View cvView){
+    public void queryBack(View cvView){
     	setContentView(R.layout.menu);
     }
     /*equipment*/
-    public void equipexit(View cvView){
+    public void equipExit(View cvView){
     	setContentView(R.layout.menu);
     }
     /*new item*/
-    public void gonew(View cvView){
+    public void goNew(View cvView){
     	setContentView(R.layout.newitem);
     }
     public void neweqback(View cvView){
