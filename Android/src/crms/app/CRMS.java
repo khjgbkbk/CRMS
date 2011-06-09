@@ -113,7 +113,7 @@ public class CRMS extends Activity {
     public void sign(View cvView){
     	setContentView(R.layout.newid);
     }
-    public void newidcancel(View cvView){
+    public void newID_Cancel(View cvView){
     	setContentView(R.layout.main);
     }
     /*query*/
