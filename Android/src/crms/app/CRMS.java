@@ -7,6 +7,7 @@ import org.apache.http.client.ClientProtocolException;
 import org.json.JSONException;
 
 import android.app.Activity;
+import android.app.AlertDialog.Builder;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -99,13 +100,14 @@ public class CRMS extends Activity {
     public boolean onKeyDown(int keyCode, KeyEvent msg) {
            if (keyCode == KeyEvent.KEYCODE_BACK) {
                //向左
-        	
+        	   Builder alertDialog = new Builder(CRMS.this) ;
+        	   alertDialog.setMessage("TEST").show();
            	setContentView(R.layout.menu);
                   return (true);
               }
            if (keyCode == KeyEvent.KEYCODE_MENU) {
                //向左
-
+        	   
            	setContentView(R.layout.menu);
                   return (true);
               }
