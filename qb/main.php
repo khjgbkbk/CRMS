@@ -21,7 +21,7 @@
 						"[編輯使用者]" 	: "Notfound.php",
 						"[器材列表]"   	: "equivList.php",
 						"[新增器材]"   	: "addequiv.php",
-						"[編輯器材]"	: "Notfound.php",
+						"[查詢器材]"	: "Notfound.php",
 				};
 				$.ajax({
 					url  : pageList[action],
@@ -107,6 +107,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			<ul id="sec">
 				<li><a STYLE="text-decoration: none" href="">[器材列表]</a></li>
 				<li><a STYLE="text-decoration: none" href="">[新增器材]</a></li>
+				<li><a STYLE="text-decoration: none" href="">[查詢器材]</a></li>
 			</ul>
 		</div>
 		
