@@ -216,9 +216,9 @@ public class CRMS extends Activity {
     public void logout(View cvView){
     	setContentView(R.layout.main);
     }
-    /*?????
+    /*?????*/
     public void qbout(View cvView){
     	setContentView(R.layout.qbout);
-    }*/
+    }
     
 }
