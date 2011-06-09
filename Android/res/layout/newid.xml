@@ -4,5 +4,36 @@
   android:orientation="vertical"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent">
+    <ScrollView android:layout_height="wrap_content" android:id="@+id/scrollView1" android:layout_width="fill_parent">
+        <LinearLayout android:id="@+id/linearLayout1" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TableLayout android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/tableLayout1">
+                <TableRow android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/tableRow1">
+                    <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:id="@+id/textView1" android:textSize="30dip" android:text="New ID"></TextView>
+                </TableRow>
+                <TableRow android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/tableRow2">
+                    <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:id="@+id/textView2" android:textSize="25dip" android:text="User ID:"></TextView>
+                    <EditText android:id="@+id/editText1" android:layout_weight="20" android:layout_height="60dip">
+                        <requestFocus></requestFocus>
+                    </EditText>
+                </TableRow>
+                <TableRow android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/tableRow5">
+                    <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:id="@+id/textView5" android:textSize="25dip" android:text="PW confirm: "></TextView>
+                    <EditText android:id="@+id/editText4" android:layout_width="wrap_content" android:layout_height="60dip" android:layout_weight="20"></EditText>
+                </TableRow>
+                <TableRow android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/tableRow3">
+                    <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:id="@+id/textView3" android:textSize="25dip" android:text="Password:"></TextView>
+                    <EditText android:id="@+id/editText2" android:layout_width="wrap_content" android:layout_height="60dip" android:layout_weight="20"></EditText>
+                </TableRow>
+                <TableRow android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/tableRow4">
+                    <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:id="@+id/textView4" android:textSize="25dip" android:text="Name:"></TextView>
+                    <EditText android:id="@+id/editText3" android:layout_width="wrap_content" android:layout_height="60dip" android:layout_weight="20"></EditText>
+                </TableRow>
+                <TableRow android:id="@+id/tableRow6" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <Button android:id="@+id/button1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1" android:text="Submit" android:onClick="newidsub"></Button>
+                    <Button android:id="@+id/button2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1" android:text="Cancel" android:onClick="newidcancel"></Button>
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
     
 </LinearLayout>
