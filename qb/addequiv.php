@@ -88,19 +88,19 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		<table style="border: 5px dotted rgb(109, 2, 107); " align="center" cellPadding="10" frame="border">
 		<tbody>
 		<tr>
-			<td>Name:</td>
+			<td>名稱:</td>
 			<td><input type="text" name="Equivname"></td>
 		</tr>
 		<tr>
-			<td>Place:</td>
+			<td>位置:</td>
 			<td><input type="text" name="Equivplace"></td>
 		</tr>
 		<tr>
-			<td>ID:</td>
+			<td>編號:</td>
 			<td><input type="text" name="Equivid"></td>
 		</tr>
 		<tr>
-			<td>Price:</td>
+			<td>價錢:</td>
 			<td><input type="text" name="Equivprice"></td>
 		</tr>
 		<tr>

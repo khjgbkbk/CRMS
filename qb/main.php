@@ -18,11 +18,10 @@
 				var pageList = {
 						"[使用者列表]" 	: "userList.php",
 						"[新增使用者]" 	: "adduser.php",
-						"[編輯使用者]" 	: "Notfound.php",
-						"[刪除使用者]" 	: "deluser.php",
+						"[更改資料]" 	: "userEdit.php",
 						"[器材列表]"   	: "equivList.php",
 						"[新增器材]"   	: "addequiv.php",
-						"[編輯器材]"	: "Notfound.php",
+						"[查詢器材]"	: "Notfound.php",
 				};
 				$.ajax({
 					url  : pageList[action],
@@ -46,8 +45,8 @@
 			$("div#datamsg").html("");
 			var actionL = $(this).html();
 			var comList = {
-					"[管理]" 	: "magList.php",
-					"[系統]" 	: "sysList.php"
+				"[管理]": "magList.php",
+				"[系統]": "sysList.php"
 			};
 			$.ajax({
 				url  : comList[actionL],
@@ -97,8 +96,8 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			</table>
 		</div>
 		
-		<div>
-			<ul id="fir" align=center>
+		<div align=center>
+			<ul id="fir">
 				<li><a STYLE="text-decoration: none" id="mng" href="">[管理]</a></li>
 				<li><a STYLE="text-decoration: none" id="sys" href="">[系統]</a></li>
 			</ul>
@@ -108,7 +107,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			<ul id="sec">
 				<li><a STYLE="text-decoration: none" href="">[器材列表]</a></li>
 				<li><a STYLE="text-decoration: none" href="">[新增器材]</a></li>
-				<li><a STYLE="text-decoration: none" href="">[編輯器材]</a></li>
+				<li><a STYLE="text-decoration: none" href="">[查詢器材]</a></li>
 			</ul>
 		</div>
 		

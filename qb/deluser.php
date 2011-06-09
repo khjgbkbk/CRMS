@@ -103,11 +103,13 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			<td>Comfirm password:</td>
 			<td><input type="text" name="addCmUsrpwd"></td>
 		</tr>
+		</tbody>
+		<tfoot>
 		<tr>
 			<td></td>
 			<td align="right"><input type="button" value="送出" id="Send"></td>
 		</tr>
-		</tbody>
+		</tfoot>
 		</table>
 	</div>
 <?php	

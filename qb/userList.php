@@ -2,14 +2,10 @@
 ob_start();
 session_start();
 
-
-
-
-
 if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 {
-	include("../database/fList.php");
-	$re = funcList(NULL);
+	include("../database/fUsers.php");
+	$re = funcUsers(NULL);
 	if( $re["success"] == true )
 	{
 		$data = $re["data"];
@@ -17,38 +13,43 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		$col = $re["column_size"];
 ?>
 
-<!-- Functions -->
 <script type="text/javascript">
 	function dele()
 	{
-		$('div#ctr tbody td input[id=dele]').click(function()
+		$('table#data tbody td input[id=dele]').click(function()
 		{
 			var cfm = confirm("確定要刪除嗎?");
 			if( cfm == false )
 			{	
 				return;
 			}
-			var id = $(this).parents("tr").find("td:eq(2)").html();
+			alert("你的權限不足");
+			return;
+			var pid = $(this).parents("tr").attr("id");
+			var data = $(this).parents("tr").find("td").html();
+			alert(data);
+			$(this).parents("tr").remove();
+			return;
 			$.ajax({
-				url: 'delequiv.php',
+				url: 'deluserfrom.php',
 				type: 'POST',
+				/*
 				data: {
-					ID: id,
-				},
+					addUsrID: "<?php echo $data["+pid+"][1]; ?>",
+					addUsrPW: "<?php echo $data["+pid+"][2]; ?>"
+				},*/
 				dataType: "json",
 				error: function(xhr) {
 					alert('Ajax request failure');
 				},
 				success: function(result) {
 					switch (result) {
-					case "success":
-						$(this).parents("tr").remove();
+					case "fail":
 						break;
-					default:
-						alert(result);
+					default :
 						break;
 					}
-				},
+				}
 			});
 		});
 	}
@@ -69,16 +70,15 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	})
 </script>
 
-<div align="center" id="ctr">
-	<table style="border: 3px dotted rgb(109, 2, 107);">
+
+
+<div align="center">
+	<table id="data" style="border: 3px dotted rgb(109, 2, 107);">
 	<tbody>
 		<tr>
-			<td>名稱</td>
-			<td>位置</td>
-			<td>編號</td>
-			<td>價錢</td>
-			<td>加入時間</td>
-			<td>編輯</td>
+			<td>使用者編號</td>
+			<td>使用者名稱</td>
+			<td>權限</td>
 			<td>刪除</td>
 		</tr>
 <?php
@@ -89,14 +89,19 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 <?php
 			for($j=0 ; $j<$col ; $j++)
 			{
+				if( $j != 2 )
+				{
 ?>
 		<td>
-			<?php echo $data[$i][$j]; ?>
+			<?php 
+				
+					echo $data[$i][$j]; 
+			?>
 		</td>	
 <?php
+				}
 			}
 ?>
-		<td><input type="button" id="edit" value="編輯"></td>
 		<td><input type="button" id="dele" value="刪除"></td>
 	</tr>
 <?php

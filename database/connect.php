@@ -22,7 +22,11 @@ $obj['dorm'] = "dorm_r";
 //$obj['id'] = "wtf";
 $obj['price'] = 1234567;
 
+<<<<<<< HEAD
 print_r( json_encode(funcNew($obj)) );
+=======
+//print_r( json_encode(funcList($obj)) );
+>>>>>>> 40fc05415b018914d8299057de8c252d1881742b
 
 //if($name != null && $password != null && $row[1] == $name && $row[2] == $password)
 //{
