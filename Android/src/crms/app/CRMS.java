@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -80,7 +81,21 @@ public class CRMS extends Activity {
 */
     }
     public void login(View cvView){
-    	setContentView(R.layout.menu);
+    	String tmp1 = new String("1234");
+    	String tmp2 = new String("0000");
+    	EditText uidin = (EditText) findViewById(R.id.uid); 
+    	EditText passwdin = (EditText) findViewById(R.id.pw); 
+    	//TextView uidout= (TextView) findViewById(R.id.uid);
+    	//String outid =  passwdin.getText().toString();
+    	//uidout.setText(outid);
+    	String inuid =  uidin.getText().toString();
+    	String inpasswd =  passwdin.getText().toString();
+    	if(inuid.equals(tmp1)&&inpasswd.equals(tmp2))
+    		setContentView(R.layout.menu);
+    	else{
+    		uidin.setText("fail!");
+    		passwdin.setText("");
+    	}
     }
     /*query*/
     public void goquery(View cvView){
