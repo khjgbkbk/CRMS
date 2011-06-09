@@ -97,6 +97,13 @@ public class CRMS extends Activity {
     		passwdin.setText("");
     	}
     }
+    /*Sign*/
+    public void sign(View cvView){
+    	setContentView(R.layout.newid);
+    }
+    public void newidcancel(View cvView){
+    	setContentView(R.layout.main);
+    }
     /*query*/
     public void goquery(View cvView){
     	setContentView(R.layout.query);
