@@ -87,9 +87,6 @@ public class CRMS extends Activity {
     public void login(View cvView){
     	EditText uidin = (EditText) findViewById(R.id.uid); 
     	EditText passwdin = (EditText) findViewById(R.id.pw);
-    	//TextView uidout= (TextView) findViewById(R.id.uid);
-    	//String outid =  passwdin.getText().toString();
-    	//uidout.setText(outid);
     	String inuid =  uidin.getText().toString();
     	String inpasswd =  passwdin.getText().toString();
     	currentUser = new user(inuid,inpasswd);
@@ -102,10 +99,10 @@ public class CRMS extends Activity {
 				currentUser = null;
 			}
 		} catch (ClientProtocolException e) {
-			// TODO Auto-generated catch block
+			uidin.setText("網路連線錯誤");
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			uidin.setText("IO錯誤");
 			e.printStackTrace();
 		}
     }
