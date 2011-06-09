@@ -8,15 +8,17 @@ import org.json.JSONException;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 
 public class CRMS extends Activity {
     /** Called when the activity is first created. */
-    //@Override
+    //
     
     private user currentUser;
     private server currentServer = new server();
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
@@ -79,6 +81,22 @@ public class CRMS extends Activity {
         });
 */
     }
+    public boolean onKeyDown(int keyCode, KeyEvent msg) {
+           if (keyCode == KeyEvent.KEYCODE_BACK) {
+               //å‘å·¦
+        	
+           	setContentView(R.layout.menu);
+                  return (true);
+              }
+           if (keyCode == KeyEvent.KEYCODE_MENU) {
+               //å‘å·¦
+
+           	setContentView(R.layout.menu);
+                  return (true);
+              }
+           
+           return super.onKeyDown(keyCode, msg);
+       }
     /*Login*/
     public void login(View cvView){
     	EditText uidin = (EditText) findViewById(R.id.uid); 
@@ -95,10 +113,10 @@ public class CRMS extends Activity {
 				currentUser = null;
 			}
 		} catch (ClientProtocolException e) {
-			uidin.setText("ºô¸ô³s½u¿ù»~");
+			uidin.setText("ç¶²è·¯é€£ç·šéŒ¯èª¤");
 			e.printStackTrace();
 		} catch (IOException e) {
-			uidin.setText("IO¿ù»~");
+			uidin.setText("IOéŒ¯èª¤");
 			e.printStackTrace();
 		}
     }
