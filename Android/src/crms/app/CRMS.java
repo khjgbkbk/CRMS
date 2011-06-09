@@ -114,7 +114,7 @@ public class CRMS extends Activity {
     	setContentView(R.layout.query);
     }
     public void queryEnter(View cvView){
-    	EditText uidin = (EditText) findViewById(R.id.queeqid);
+    	EditText uidin = (EditText) findViewById(R.id.queEqid);
     	try {
 			equipment currentEquip = currentUser.getEquipment(uidin.getText().toString());
 			if(currentEquip != null){
