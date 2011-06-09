@@ -12,6 +12,66 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		$row = $re["row_size"];
 		$col = $re["column_size"];
 ?>
+
+<script type="text/javascript">
+	function dele()
+	{
+		$('table#data tbody td input[id=dele]').click(function()
+		{
+			var cfm = confirm("確定要刪除嗎?");
+			if( cfm == false )
+			{	
+				return;
+			}
+			alert("你的權限不足");
+			return;
+			var pid = $(this).parents("tr").attr("id");
+			var data = $(this).parents("tr").find("td").html();
+			alert(data);
+			$(this).parents("tr").remove();
+			return;
+			$.ajax({
+				url: 'deluserfrom.php',
+				type: 'POST',
+				/*
+				data: {
+					addUsrID: "<?php echo $data["+pid+"][1]; ?>",
+					addUsrPW: "<?php echo $data["+pid+"][2]; ?>"
+				},*/
+				dataType: "json",
+				error: function(xhr) {
+					alert('Ajax request failure');
+				},
+				success: function(result) {
+					switch (result) {
+					case "fail":
+						break;
+					default :
+						break;
+					}
+				}
+			});
+		});
+	}
+</script>
+
+
+<!-- 送出相關事件函式 -->
+<script type="text/javascript">
+	var KEY_ENTER = 13;
+	$(document).ready(function () 
+	{
+		dele();
+		
+		$('#edit').click(function()
+		{
+			edit();
+		});
+	})
+</script>
+
+
+
 <div align="center">
 	<table id="data" style="border: 3px dotted rgb(109, 2, 107);">
 	<tbody>
@@ -25,7 +85,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		for($i=0 ; $i<$row ; $i++)
 		{
 ?>
-	<tr>
+	<tr id="<?php echo $i; ?>" >
 <?php
 			for($j=0 ; $j<$col ; $j++)
 			{
