@@ -1,8 +1,10 @@
 package crms.app;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 import org.apache.http.client.ClientProtocolException;
+import org.json.JSONException;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -110,12 +112,52 @@ public class CRMS extends Activity {
     /*query*/
     public void goQuery(View cvView){
     	setContentView(R.layout.query);
-    	
-    	
-    	
     }
     public void queryEnter(View cvView){
+
+    	EditText uidin = (EditText) findViewById(R.id.queEqid);
+
     	setContentView(R.layout.equipment);
+		EditText eT1 = (EditText) findViewById(R.id.editText1);
+    	try {
+    		eT1.setText("IN");
+			equipment currentEquip = currentUser.getEquipment(uidin.getText().toString());
+			if(currentEquip != null){
+				EditText eT2 = (EditText) findViewById(R.id.editText2);
+				EditText eT3 = (EditText) findViewById(R.id.editText3);
+				EditText eT4 = (EditText) findViewById(R.id.editText4);
+				eT1.setText(currentEquip.name());
+				
+			}else{
+				//EditText eT1 = (EditText) findViewById(R.id.editText1);
+				eT1.setText("not found");
+				
+			}
+    	
+    	
+    	} catch (ClientProtocolException e) {
+
+    		eT1.setText("IN2");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+    		eT1.setText("IN2");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JSONException e) {
+    		eT1.setText("IN2");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+    		eT1.setText("IN2");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+    	
+    	
+    	
     }
     public void queryBack(View cvView){
     	setContentView(R.layout.menu);

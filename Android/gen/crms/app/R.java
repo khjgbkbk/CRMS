@@ -31,7 +31,7 @@ public final class R {
         public static final int newitemname=0x7f05001e;
         public static final int newitemprice=0x7f050022;
         public static final int pw=0x7f050019;
-        public static final int queeqid=0x7f050023;
+        public static final int queEqid=0x7f050023;
         public static final int rmeqid=0x7f050024;
         public static final int scrollView1=0x7f050000;
         public static final int tableLayout1=0x7f050002;
@@ -63,6 +63,7 @@ public final class R {
         public static final int remove=0x7f030006;
     }
     public static final class string {
+        public static final int admin=0x7f040002;
         public static final int app_name=0x7f040001;
         public static final int hello=0x7f040000;
     }
