@@ -80,6 +80,7 @@ public class CRMS extends Activity {
         });
 */
     }
+    /*Login*/
     public void login(View cvView){
     	String tmp1 = new String("1234");
     	String tmp2 = new String("0000");
