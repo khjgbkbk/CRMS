@@ -17,7 +17,7 @@
         </TableRow>
         <LinearLayout android:id="@+id/linearLayout1" android:layout_height="wrap_content" android:layout_width="wrap_content" android:orientation="vertical">
             <TableRow android:id="@+id/tableRow3" android:layout_height="wrap_content" android:layout_width="fill_parent">
-                <Button android:id="@+id/button1" android:layout_height="wrap_content" android:text="Sign" android:layout_weight="1" android:textSize="25dip" android:onClick="usersign"></Button>
+                <Button android:id="@+id/button1" android:layout_height="wrap_content" android:text="Sign" android:layout_weight="1" android:textSize="25dip" android:onClick="sign"></Button>
                 <Button android:id="@+id/button2" android:layout_height="wrap_content" android:layout_weight="1" android:textSize="25dip" android:onClick="login" android:text="Login"></Button>
             </TableRow>
         </LinearLayout>
