@@ -1,7 +1,9 @@
 <?php
-	ob_start();
-	session_start();
-?>
+ob_start();
+session_start();
+if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
+{
+?> 
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -21,7 +23,7 @@
 						"[更改資料]" 	: "userEdit.php",
 						"[器材列表]"   	: "equivList.php",
 						"[新增器材]"   	: "addequiv.php",
-						"[查詢器材]"	: "Notfound.php",
+						"[查詢器材]"	: "equiQuery.php"
 				};
 				$.ajax({
 					url  : pageList[action],
@@ -75,10 +77,6 @@
 </head>
 
 <body bgcolor="#EBF5FF"  link="1C19FF" vlink="1C19FF">
-<?php
-if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
-{
-?> 
 		<div align="center">
 			<h1>CRMS::SERVER.Main</h1>
 		</div>
