@@ -17,7 +17,10 @@ import android.widget.Toast;
 
 public class CRMS extends Activity {
     /** Called when the activity is first created. */
-    @Override
+    //@Override
+    
+    private user currentUser;
+    private server currentServer = new server();
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
@@ -82,21 +85,29 @@ public class CRMS extends Activity {
     }
     /*Login*/
     public void login(View cvView){
-    	String tmp1 = new String("1234");
-    	String tmp2 = new String("0000");
     	EditText uidin = (EditText) findViewById(R.id.uid); 
-    	EditText passwdin = (EditText) findViewById(R.id.pw); 
+    	EditText passwdin = (EditText) findViewById(R.id.pw);
     	//TextView uidout= (TextView) findViewById(R.id.uid);
     	//String outid =  passwdin.getText().toString();
     	//uidout.setText(outid);
     	String inuid =  uidin.getText().toString();
     	String inpasswd =  passwdin.getText().toString();
-    	if(inuid.equals(tmp1)&&inpasswd.equals(tmp2))
-    		setContentView(R.layout.menu);
-    	else{
-    		uidin.setText("fail!");
-    		passwdin.setText("");
-    	}
+    	currentUser = new user(inuid,inpasswd);
+    	try {
+			if(currentUser.login(currentServer))
+				setContentView(R.layout.menu);
+			else{
+				uidin.setText("fail!");
+				passwdin.setText("");
+				currentUser = null;
+			}
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
     /*Sign*/
     public void sign(View cvView){
