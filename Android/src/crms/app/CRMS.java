@@ -1,8 +1,10 @@
 package crms.app;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 import org.apache.http.client.ClientProtocolException;
+import org.json.JSONException;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -110,12 +112,36 @@ public class CRMS extends Activity {
     /*query*/
     public void goQuery(View cvView){
     	setContentView(R.layout.query);
-    	
-    	
-    	
     }
     public void queryEnter(View cvView){
+    	EditText uidin = (EditText) findViewById(R.id.queeqid);
+    	try {
+			equipment currentEquip = currentUser.getEquipment(uidin.getText().toString());
+			if(currentEquip != null){
+				
+				
+			}
+    	
+    	
+    	} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+    	
+    	
     	setContentView(R.layout.equipment);
+    	
     }
     public void queryBack(View cvView){
     	setContentView(R.layout.menu);
