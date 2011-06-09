@@ -45,8 +45,8 @@
 			$("div#datamsg").html("");
 			var actionL = $(this).html();
 			var comList = {
-					"[管理]" 	: "magList.php",
-					"[系統]" 	: "sysList.php"
+				"[管理]": "magList.php",
+				"[系統]": "sysList.php"
 			};
 			$.ajax({
 				url  : comList[actionL],

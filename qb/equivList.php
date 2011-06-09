@@ -21,30 +21,38 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 <script type="text/javascript">
 	function dele()
 	{
-		var cfm = confirm("確定要刪除嗎?");
-		if( cfm == false )
-		{	
-			alert("已取消");
-			return;
-		}
-		$.ajax({
-			url: '',
-			type: 'POST',
-			data: {
-				data: $("input[name='addUsrid']").attr('value'),
-				addUsrPW: $("input[name='addUsrpwd']").attr('value'),
-			},
-			dataType: "json",
-			error: function(xhr) {
-				alert('Ajax request failure');
-			},
-			success: function(result) {
-				switch (result) {
-				case "nid":
-					$('div.message').html("Please enter a username");
-					break;
-				}
-			},
+		$('div#ctr tbody td input[id=dele]').click(function()
+		{
+			var cfm = confirm("確定要刪除嗎?");
+			if( cfm == false )
+			{	
+				alert("已取消");
+				return;
+			}
+			var pid = $(this).parents("tr").attr("id");
+			//$(this).parents("tr").remove();
+			var data = $(this).parents("tr").find("td[name=name]");
+			alert(data.length);
+			return ;
+			$.ajax({
+				url: '',
+				type: 'POST',
+				data: {
+					data: $("input[name='addUsrid']").attr('value'),
+					addUsrPW: $("input[name='addUsrpwd']").attr('value'),
+				},
+				dataType: "json",
+				error: function(xhr) {
+					alert('Ajax request failure');
+				},
+				success: function(result) {
+					switch (result) {
+					case "nid":
+						$('div.message').html("Please enter a username");
+						break;
+					}
+				},
+			});
 		});
 	}
 </script>
@@ -55,10 +63,8 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	var KEY_ENTER = 13;
 	$(document).ready(function () 
 	{
-		$('#dele').click(function()
-		{
-			dele();
-		});
+		dele();
+		
 		$('#edit').click(function()
 		{
 			edit();
