@@ -28,17 +28,12 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			{	
 				return;
 			}
-			var pid = $(this).parents("tr").attr("id");
-			$(this).parents("tr").remove();
-			var data = $(this).parents("tr").find("td[name=name]");
-			alert(data.length);
-			return ;
+			var id = $(this).parents("tr").find("td:eq(2)").html();
 			$.ajax({
-				url: '',
+				url: 'delequiv.php',
 				type: 'POST',
 				data: {
-					data: $("input[name='addUsrid']").attr('value'),
-					addUsrPW: $("input[name='addUsrpwd']").attr('value'),
+					ID: id,
 				},
 				dataType: "json",
 				error: function(xhr) {
@@ -46,8 +41,11 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 				},
 				success: function(result) {
 					switch (result) {
-					case "nid":
-						$('div.message').html("Please enter a username");
+					case "success":
+						$(this).parents("tr").remove();
+						break;
+					default:
+						alert(result);
 						break;
 					}
 				},
