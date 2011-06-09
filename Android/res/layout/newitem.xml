@@ -35,8 +35,8 @@
                             <EditText android:layout_weight="20" android:id="@+id/newitemprice" android:layout_height="60dip"></EditText>
                         </TableRow>
                         <TableRow android:id="@+id/tableRow1" android:layout_width="wrap_content" android:layout_height="wrap_content">
-                            <Button android:textSize="30dip" android:id="@+id/button2" android:layout_marginTop="20dip" android:text="Submit" android:onClick="newsubmit" android:layout_weight="20"></Button>
-                            <Button android:id="@+id/button1" android:layout_marginTop="20dip" android:textSize="30dip" android:text="Back" android:onClick="neweqback" android:layout_weight="1"></Button>
+                            <Button android:id="@+id/button2" android:layout_marginTop="20dip" android:text="Submit" android:onClick="newsubmit" android:layout_weight="20" android:textSize="25dip"></Button>
+                            <Button android:id="@+id/button1" android:layout_marginTop="20dip" android:text="Back" android:onClick="neweqback" android:layout_weight="1" android:textSize="25dip"></Button>
                         </TableRow>
                     </TableLayout>
                 </LinearLayout>
