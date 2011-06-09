@@ -1,19 +1,13 @@
 package crms.app;
 
 import java.io.IOException;
-import java.text.ParseException;
 
 import org.apache.http.client.ClientProtocolException;
-import org.json.JSONException;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class CRMS extends Activity {
     /** Called when the activity is first created. */
@@ -87,9 +81,6 @@ public class CRMS extends Activity {
     public void login(View cvView){
     	EditText uidin = (EditText) findViewById(R.id.uid); 
     	EditText passwdin = (EditText) findViewById(R.id.pw);
-    	//TextView uidout= (TextView) findViewById(R.id.uid);
-    	//String outid =  passwdin.getText().toString();
-    	//uidout.setText(outid);
     	String inuid =  uidin.getText().toString();
     	String inpasswd =  passwdin.getText().toString();
     	currentUser = new user(inuid,inpasswd);
@@ -102,10 +93,10 @@ public class CRMS extends Activity {
 				currentUser = null;
 			}
 		} catch (ClientProtocolException e) {
-			// TODO Auto-generated catch block
+			uidin.setText("網路連線錯誤");
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			uidin.setText("IO錯誤");
 			e.printStackTrace();
 		}
     }
@@ -119,6 +110,9 @@ public class CRMS extends Activity {
     /*query*/
     public void goQuery(View cvView){
     	setContentView(R.layout.query);
+    	
+    	
+    	
     }
     public void queryEnter(View cvView){
     	setContentView(R.layout.equipment);
