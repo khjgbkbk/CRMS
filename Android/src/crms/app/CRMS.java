@@ -7,6 +7,7 @@ import org.apache.http.client.ClientProtocolException;
 import org.json.JSONException;
 
 import android.app.Activity;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -81,6 +82,20 @@ public class CRMS extends Activity {
         });
 */
     }
+    @Override 
+    public void onConfigurationChanged(Configuration newConfig)
+    { 
+        super.onConfigurationChanged(newConfig); 
+     if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
+     {
+//land
+     }
+     else if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
+     {
+//port
+     }
+    }
+    
     public boolean onKeyDown(int keyCode, KeyEvent msg) {
            if (keyCode == KeyEvent.KEYCODE_BACK) {
                //向左
