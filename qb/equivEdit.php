@@ -74,7 +74,7 @@
 	</tr>
 	<tr>
 		<td>編號:</td>
-		<td><input type="text" name="Equivid" value="<?php echo $_POST['id'];?>"></td>
+		<td><input type="text" disabled="true" name="Equivid" value="<?php echo $_POST['id'];?>"></td>
 	</tr>
 	<tr>
 		<td>價錢:</td>
