@@ -327,6 +327,14 @@ public class CRMS extends Activity {
     public void qbout(View cvView){
     	setContentView(R.layout.qbout);
     }
+    /*listing*/
+    public void goList(View cvView){
+    	setContentView(R.layout.list);
+    }
+    public void listBack(View cvView){
+    	setContentView(R.layout.menu);
+    }
+    
     /*Zxing QRcode scan*/
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
