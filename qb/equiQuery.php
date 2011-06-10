@@ -29,7 +29,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 					$('div#message').html('Not found');
 					break;
 				default:
-					$('div#message').html('<table style="border: 5px dotted rgb(109, 2, 107); " align="center" cellPadding="10" frame="border"><tbody><tr>		<td>名稱</td><td>位置</td><td>編號</td><td>價錢</td><td>加入時間</td></tr><tr>  <td>'+result["name"]+'</td><td>'+result["dorm"]+'</td><td>'+result["id"]+'</td><td>'+result["price"]+'</td><td>'+result["date"]+'</td></tr></tbody></table>');
+					$('div#message').html('<table style="border: 5px dotted rgb(109, 2, 107); " align="center" cellPadding="10" frame="border"><tbody><tr>		<td>名稱</td><td>位置</td><td>編號</td><td>價錢</td><td>加入時間</td></tr><tr>  <td>'+result["name"]+'</td><td>'+result["building"]+'</td><td>'+result["id"]+'</td><td>'+result["price"]+'</td><td>'+result["date"]+'</td></tr></tbody></table>');
 					break;
 				}
 			}

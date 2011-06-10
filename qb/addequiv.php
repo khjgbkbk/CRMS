@@ -32,11 +32,11 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			success: function(result) {
 				switch (result) {
 				case "success":
-					alert('Successed !!');
+					alert('新增成功 !');
 					document.location.href = "./";
 					break;
 				case "fail":
-					alert('Failed !!');
+					alert('新增失敗 !');
 					$('div#ctr tbody input[type="text"]').each(function(){
 						$(this).attr({value:''});
 					});

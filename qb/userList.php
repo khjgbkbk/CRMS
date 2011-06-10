@@ -5,7 +5,7 @@ session_start();
 if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 {
 	include("../database/fUsers.php");
-	$re = funcUsers(NULL);
+	$re = funcUsers(array("sort" => 'no'));
 	if( $re["success"] == true )
 	{
 		$data = $re["data"];
@@ -76,7 +76,10 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	}
 	table#data td{
 		width:		100px;
-		
+		text-align:	center;
+	}
+	table#data td#btn{
+		width:		10px;
 	}
 </style>
 使用者列表
@@ -87,9 +90,9 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		<tr>
 			<td>使用者編號</td>
 			<td>使用者名稱</td>
-			<td>權限</td>
-			<td>刪除</td>
+			<td id="btn">刪除</td>
 		</tr>
+	</thead>
 	<tbody>
 <?php
 		for($i=0 ; $i<$row ; $i++)
@@ -99,7 +102,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 <?php
 			for($j=0 ; $j<$col ; $j++)
 			{
-				if( $j != 2 )
+				if( $j!=2 && $j!=3 )
 				{
 ?>
 		<td><?php echo htmlspecialchars( $data[$i][$j] ); ?></td>	
@@ -107,7 +110,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 				}
 			}
 ?>
-		<td><input type="button" id="dele" value="刪除"></td>
+		<td id="btn"><input type="button" id="dele" value="刪除"></td>
 	</tr>
 <?php
 		}

@@ -5,7 +5,7 @@ session_start();
 if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 {
 	include("../database/fList.php");
-	$re = funcList(NULL);
+	$re = funcList(array("sort" => 'id'));
 	if( $re["success"] == true )
 	{
 		$data = $re["data"];
@@ -55,9 +55,9 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			{	
 				return;
 			}
-			var editname = $(this).parents("tr").find("td:eq(0)").html();
-			var editplace = $(this).parents("tr").find("td:eq(1)").html();
-			var editid = $(this).parents("tr").find("td:eq(2)").html();
+			var editname = $(this).parents("tr").find("td:eq(1)").html();
+			var editplace = $(this).parents("tr").find("td:eq(2)").html();
+			var editid = $(this).parents("tr").find("td:eq(0)").html();
 			var editprice = $(this).parents("tr").find("td:eq(3)").html();
 			var data = {
 				"name": editname,
@@ -93,8 +93,14 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		padding-bottom: 9px; 
 		padding-left:   9px;
 	}
+	div#ctr td{
+		text-align:	center;
+	}
 	div#ctr tbody td{
 		width:		100px;
+	}
+	div#ctr tbody td#btn{
+		width:		10px;
 	}
 </style>
 器材列表
@@ -103,13 +109,13 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	<table>
 	<thead>
 		<tr>
+			<td>編號</td>
 			<td>名稱</td>
 			<td>位置</td>
-			<td>編號</td>
 			<td>價錢</td>
 			<td>加入時間</td>
-			<td>編輯</td>
-			<td>刪除</td>
+			<td id="btn">編輯</td>
+			<td id="btn">刪除</td>
 		</tr>
 	</thead>
 	<tbody>
@@ -119,13 +125,13 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		{
 ?>
 	<tr id="<?php echo $i; ?>" >
-		<td><?php echo htmlspecialchars ($data[$i]['name']	); ?></td>
-		<td><?php echo htmlspecialchars ($data[$i]['dorm']	); ?></td>
 		<td><?php echo htmlspecialchars ($data[$i]['id']	); ?></td>
+		<td><?php echo htmlspecialchars ($data[$i]['name']	); ?></td>
+		<td><?php echo htmlspecialchars ($data[$i]['building']	); ?></td>
 		<td><?php echo htmlspecialchars ($data[$i]['price']	); ?></td>
 		<td><?php echo htmlspecialchars ($data[$i]['date']	); ?></td>
-		<td><input type="button" id="edit" value="編輯"></td>
-		<td><input type="button" id="dele" value="刪除"></td>
+		<td id="btn"><input type="button" id="edit" value="編輯"></td>
+		<td id="btn"><input type="button" id="dele" value="刪除"></td>
 	</tr>
 <?php
 		}

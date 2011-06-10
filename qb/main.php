@@ -94,21 +94,24 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	ul#sec li{
 		display:	inline;
 	}
-	
+	div#info td#namae{
+		color: #FF0000;
+	}
 </style>
-
 </head>
-
 <body bgcolor="#EBF5FF"  link="1C19FF" vlink="1C19FF">
 		<div align="center">
 			<h1>CRMS::SERVER.Main</h1>
 		</div>
 	
-		<div align='right'>
+		<div align='right' id="info">
 			<table style="position:absolute; right:13px; top:13px; z-index:0; overflow:hidden; border: 3px dotted rgb(109, 2, 107);">
 				<tbody>
 				<td>
-					&nbsp&nbsp Welcome <?php echo htmlspecialchars($_SESSION["loginid"]); ?> &nbsp&nbsp
+					&nbsp&nbsp Welcome
+				</td>
+				<td id="namae">
+					<?php echo htmlspecialchars($_SESSION["loginid"]); ?>&nbsp&nbsp
 				</td>
 				<td>
 					&nbsp&nbsp<a STYLE="text-decoration: none" href='./logout.php'>Log out</a>&nbsp&nbsp
