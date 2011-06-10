@@ -1,31 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:orientation="vertical"
-  android:layout_width="fill_parent"
-  android:layout_height="fill_parent">
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/textView1" android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/hello" android:layout_gravity="center_horizontal" android:textSize="30dip"></TextView>
-    <ScrollView android:id="@+id/scrollView1" android:layout_height="wrap_content" android:layout_width="fill_parent">
-        <LinearLayout android:layout_height="fill_parent" android:layout_width="fill_parent" android:id="@+id/linearLayout1">
-            <TableLayout android:id="@+id/tableLayout1" android:layout_height="fill_parent" android:layout_width="fill_parent">
-                <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/tableRow1">
-                    <Button android:text="Query" android:layout_height="wrap_content" android:textSize="25dip" android:layout_weight="1" android:id="@+id/button1" android:onClick="goQuery" android:layout_width="wrap_content"></Button>
-                </TableRow>
-                <TableRow android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_gravity="bottom|center" android:id="@+id/tableRow2">
-                    <Button android:text="New" android:layout_height="wrap_content" android:textSize="25dip" android:layout_weight="1" android:id="@+id/button2" android:onClick="goNew" android:layout_width="wrap_content"></Button>
-                </TableRow>
-                <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/tableRow3">
-                    <Button android:text="Remove" android:layout_height="wrap_content" android:textSize="25dip" android:layout_weight="1" android:id="@+id/button3" android:onClick="goRm" android:layout_width="wrap_content"></Button>
-                </TableRow>
-                <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/tableRow4">
-                    <Button android:text="Logout" android:linksClickable="true" android:layout_height="wrap_content" android:textSize="25dip" android:layout_weight="1" android:id="@+id/button4" android:onClick="logout" android:layout_width="wrap_content"></Button>
-                </TableRow>
-                <TableRow android:layout_height="wrap_content" android:id="@+id/tableRow5" android:layout_width="wrap_content">
-                    <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/textView2" android:layout_height="fill_parent" android:layout_width="fill_parent" android:text="DON'T CLICK!→"></TextView>
-                    <ImageButton android:layout_height="fill_parent" android:onClick="qbout" android:layout_gravity="center_horizontal|center" android:id="@+id/imageButton1" android:src="@drawable/out"></ImageButton>
-                </TableRow>
-            </TableLayout>
-        </LinearLayout>
-    </ScrollView>
-    
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<TextView android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:id="@+id/textView1"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:text="@string/hello" android:layout_gravity="center_horizontal"
+		android:textSize="30dip"></TextView>
+	<ScrollView android:id="@+id/scrollView1"
+		android:layout_height="wrap_content" android:layout_width="fill_parent">
+		<LinearLayout android:layout_height="fill_parent"
+			android:layout_width="fill_parent" android:id="@+id/linearLayout1">
+			<TableLayout android:id="@+id/tableLayout1"
+				android:layout_height="fill_parent" android:layout_width="fill_parent">
+				<TableRow android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:id="@+id/tableRow1">
+					<Button android:text="Query" android:layout_height="wrap_content"
+						android:textSize="25dip" android:layout_weight="1" android:id="@+id/button1"
+						android:onClick="goQuery" android:layout_width="wrap_content"></Button>
+				</TableRow>
+				<TableRow android:layout_width="fill_parent"
+					android:layout_height="fill_parent" android:layout_gravity="bottom|center"
+					android:id="@+id/tableRow2">
+					<Button android:text="New" android:layout_height="wrap_content"
+						android:textSize="25dip" android:layout_weight="1" android:id="@+id/button2"
+						android:onClick="goNew" android:layout_width="wrap_content"></Button>
+				</TableRow>
+				<TableRow android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:id="@+id/tableRow3">
+					<Button android:text="Remove" android:layout_height="wrap_content"
+						android:textSize="25dip" android:layout_weight="1" android:id="@+id/button3"
+						android:onClick="goRm" android:layout_width="wrap_content"></Button>
+				</TableRow>
+				<TableRow android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:id="@+id/tableRow4">
+					<Button android:text="Logout" android:linksClickable="true"
+						android:layout_height="wrap_content" android:textSize="25dip"
+						android:layout_weight="1" android:id="@+id/button4"
+						android:onClick="logout" android:layout_width="wrap_content"></Button>
+				</TableRow>
+				<TableRow android:layout_height="wrap_content" android:id="@+id/tableRow5"
+					android:layout_width="wrap_content">
+					<TextView android:textAppearance="?android:attr/textAppearanceLarge"
+						android:id="@+id/textView2" android:layout_height="fill_parent"
+						android:layout_width="fill_parent" android:text="DON'T CLICK!→"></TextView>
+					<ImageButton android:layout_height="fill_parent"
+						android:onClick="qbout" android:layout_gravity="center_horizontal|center"
+						android:id="@+id/imageButton1" android:src="@drawable/out"></ImageButton>
+				</TableRow>
+			</TableLayout>
+		</LinearLayout>
+	</ScrollView>
+
 </LinearLayout>

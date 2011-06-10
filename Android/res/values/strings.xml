@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Welcome to CRMS!</string>
-    <string name="app_name">CRMS</string>
-    <string name="admin">admin</string>
-    
+	<string name="hello">Welcome to CRMS!</string>
+	<string name="app_name">CRMS</string>
+	<string name="admin">admin</string>
+
 </resources>
