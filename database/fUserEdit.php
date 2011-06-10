@@ -1,5 +1,5 @@
 <?php
-	function funcPassword($ask){
+	function funcUserEdit($ask){
 		include("mysql_connect.php");
 
 		if( isset($ask['username']) && isset($ask['password']) && $ask['username']!="" && $ask['password']!="" ){
