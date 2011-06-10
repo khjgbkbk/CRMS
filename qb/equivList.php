@@ -95,7 +95,8 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		width:		100px;
 	}
 </style>
-
+器材列表
+<br><br>
 <div align="center" id="ctr">
 	<table>
 	<thead>

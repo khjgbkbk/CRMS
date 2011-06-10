@@ -77,7 +77,8 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		
 	}
 </style>
-
+使用者列表
+<br><br>
 <div align="center">
 	<table id="data" style="border: 5px dotted rgb(109, 2, 107);">
 	<thead>
