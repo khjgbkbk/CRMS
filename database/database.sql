@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 10, 2011 at 04:50 PM
+-- Generation Time: Jun 10, 2011 at 07:33 PM
 -- Server version: 5.1.54
 -- PHP Version: 5.3.5-1ubuntu7.2
 
@@ -25,6 +25,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Table structure for table `buildings`
 --
 
+DROP TABLE IF EXISTS `buildings`;
 CREATE TABLE IF NOT EXISTS `buildings` (
   `index` int(11) NOT NULL AUTO_INCREMENT,
   `building` varchar(15) NOT NULL,
@@ -57,6 +58,7 @@ INSERT INTO `buildings` (`index`, `building`, `desc`) VALUES
 -- Table structure for table `equipment`
 --
 
+DROP TABLE IF EXISTS `equipment`;
 CREATE TABLE IF NOT EXISTS `equipment` (
   `name` varchar(40) NOT NULL,
   `dorm` int(15) NOT NULL,
@@ -82,6 +84,7 @@ INSERT INTO `equipment` (`name`, `dorm`, `id`, `price`, `date`) VALUES
 -- Table structure for table `shadow`
 --
 
+DROP TABLE IF EXISTS `shadow`;
 CREATE TABLE IF NOT EXISTS `shadow` (
   `no` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
