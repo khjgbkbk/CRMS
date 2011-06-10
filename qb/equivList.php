@@ -90,6 +90,10 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 <style type="text/css">
 	div#ctr table{
 		border: 5px dotted rgb(109, 2, 107);
+		padding-top:   	9px; 
+		padding-right:  9px; 
+		padding-bottom: 9px; 
+		padding-left:   9px;
 	}
 	div#ctr tbody td{
 		width:		100px;
