@@ -1,3 +1,9 @@
+<?php
+ob_start();
+session_start();
+if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
+{
+?> 
 
 <script type="text/javascript">
 	function send()
@@ -48,16 +54,8 @@
 		{
 			send();
 		});
-	})
-	$(document).keydown(function(event){ 
-		//如果按 enter
-		if(event.keyCode == KEY_ENTER)
-		{
-			send();
-		}
 	});
 </script>
-
 
 修改器材資訊
 <br><br>
@@ -87,3 +85,7 @@
 	</tbody>
 	</table>
 </div>
+
+<?php	
+}
+?>

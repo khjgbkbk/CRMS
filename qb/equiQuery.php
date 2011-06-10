@@ -10,7 +10,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	{
 		if( $("input[name='Equivid']").attr('value') == "" )
 		{
-			alert('請輸入編號!');
+			$('div#message').html('請輸入編號!');
 			return;
 		}
 		$.ajax({
@@ -45,13 +45,6 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		{
 			send();
 		});
-	})
-	$(document).keydown(function(event){ 
-		//如果按 enter
-		if(event.keyCode == KEY_ENTER)
-		{
-			send();
-		}
 	});
 </script>
 

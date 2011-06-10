@@ -1,8 +1,9 @@
 <?php
-	ob_start();
-	session_start();
-?>
-
+ob_start();
+session_start();
+if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
+{
+?> 
 <script type="text/javascript">
 	function send()
 	{
@@ -66,52 +67,40 @@
 		{
 			send();
 		});
-	})
-	$(document).keydown(function(event){ 
-		//如果按 enter
-		if(event.keyCode == KEY_ENTER)
-		{
-			send();
-		}
 	});
 </script>
 
-<?php
-if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
-{
-?> 
-
-		<div align="center" id="ctr">
-			新增使用者資料
-			<br><br>
-			<table style="border: 5px dotted rgb(109, 2, 107); " align="center" cellPadding="10" frame="border">
-			<tbody>
-			<tr>
-				<td>帳號:</td>
-				<td><input type="text" name="addUsrid"></td>
-			</tr>
-			<tr>
-				<td>密碼:</td>
-				<td><input type="password" name="addUsrpwd"></td>
-			</tr>
-			<tr>
-				<td>確認密碼:</td>
-				<td><input type="password" name="addCmUsrpwd"></td>
-			</tr>
-			</tbody>
-			<tfoot>
-			<tr>
-				<td></td>
-				<td align="right"><input type="button" value="送出" id="Send"></td>
-			</tr>
-			</tfoot>
-			</table>
-		</div>
-		
-<?php	
-}
-?>
+<div align="center" id="ctr">
+	新增使用者資料
+	<br><br>
+	<table style="border: 5px dotted rgb(109, 2, 107); " align="center" cellPadding="10" frame="border">
+	<tbody>
+	<tr>
+		<td>帳號:</td>
+		<td><input type="text" name="addUsrid"></td>
+	</tr>
+	<tr>
+		<td>密碼:</td>
+		<td><input type="password" name="addUsrpwd"></td>
+	</tr>
+	<tr>
+		<td>確認密碼:</td>
+		<td><input type="password" name="addCmUsrpwd"></td>
+	</tr>
+	</tbody>
+	<tfoot>
+	<tr>
+		<td></td>
+		<td align="right"><input type="button" value="送出" id="Send"></td>
+	</tr>
+	</tfoot>
+	</table>
+</div>
 <br><br>
 <div align="center" class="message">
 
 </div>
+
+<?php	
+}
+?>
