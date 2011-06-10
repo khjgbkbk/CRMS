@@ -76,7 +76,9 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	}
 	table#data td{
 		width:		100px;
-		
+	}
+	table#data td#btn{
+		width:		10px;
 	}
 </style>
 使用者列表
@@ -87,8 +89,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		<tr>
 			<td>使用者編號</td>
 			<td>使用者名稱</td>
-			<td>權限</td>
-			<td>刪除</td>
+			<td id="btn">刪除</td>
 		</tr>
 	<tbody>
 <?php
@@ -99,7 +100,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 <?php
 			for($j=0 ; $j<$col ; $j++)
 			{
-				if( $j != 2 )
+				if( $j!=2 && $j!=3 )
 				{
 ?>
 		<td><?php echo htmlspecialchars( $data[$i][$j] ); ?></td>	
@@ -107,7 +108,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 				}
 			}
 ?>
-		<td><input type="button" id="dele" value="刪除"></td>
+		<td id="btn"><input type="button" id="dele" value="刪除"></td>
 	</tr>
 <?php
 		}

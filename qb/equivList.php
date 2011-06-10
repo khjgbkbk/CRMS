@@ -96,6 +96,9 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	div#ctr tbody td{
 		width:		100px;
 	}
+	div#ctr tbody td#btn{
+		width:		10px;
+	}
 </style>
 器材列表
 <br><br>
@@ -108,8 +111,8 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			<td>編號</td>
 			<td>價錢</td>
 			<td>加入時間</td>
-			<td>編輯</td>
-			<td>刪除</td>
+			<td id="btn">編輯</td>
+			<td id="btn">刪除</td>
 		</tr>
 	</thead>
 	<tbody>
@@ -124,8 +127,8 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		<td><?php echo htmlspecialchars ($data[$i]['id']	); ?></td>
 		<td><?php echo htmlspecialchars ($data[$i]['price']	); ?></td>
 		<td><?php echo htmlspecialchars ($data[$i]['date']	); ?></td>
-		<td><input type="button" id="edit" value="編輯"></td>
-		<td><input type="button" id="dele" value="刪除"></td>
+		<td id="btn"><input type="button" id="edit" value="編輯"></td>
+		<td id="btn"><input type="button" id="dele" value="刪除"></td>
 	</tr>
 <?php
 		}
