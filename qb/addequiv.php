@@ -1,8 +1,9 @@
 <?php
-	ob_start();
-	session_start();
+ob_start();
+session_start();
+if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
+{
 ?>
-
 <script type="text/javascript">
 	function send()
 	{
@@ -31,25 +32,15 @@
 			},
 			success: function(result) {
 				switch (result) {
-				case "noname":
-					$('div.message').html("Please enter the Name");
-					break;
-				case "noplace":
-					$('div.message').html("Please enter the Place !!");
-					break;
-				case "noid":
-					$('div.message').html("Please enter the ID !!");
-					break;
 				case "success":
 					alert('Successed !!');
 					document.location.href = "./";
 					break;
 				case "fail":
 					alert('Failed !!');
-					$('input[name="Equivname"]').attr({value:''}); 
-					$('input[name="Equivplace"]').attr({value:''}); 
-					$('input[name="Equivid"]').attr({value:''});
-					$('input[name="Equivprice"]').attr({value:''});
+					$('div#ctr tbody input[type="text"]').each(function{
+						$(this).attr({value:''});
+					});
 					break;
 				default:
 					$('div.message').html(result);
@@ -78,41 +69,40 @@
 	});
 </script>
 
-<?php
-if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
-{
-?> 
-	新增器材
-	<br><br>
-	<div align="center">
-		<table style="border: 5px dotted rgb(109, 2, 107); " align="center" cellPadding="10" frame="border">
-		<tbody>
-		<tr>
-			<td>名稱:</td>
-			<td><input type="text" name="Equivname"></td>
-		</tr>
-		<tr>
-			<td>位置:</td>
-			<td><input type="text" name="Equivplace"></td>
-		</tr>
-		<tr>
-			<td>編號:</td>
-			<td><input type="text" name="Equivid"></td>
-		</tr>
-		<tr>
-			<td>價錢:</td>
-			<td><input type="text" name="Equivprice"></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td align="right"><input type="button" value="送出" id="Send"></td>
-		</tr>
-		</tbody>
-		</table>
-	</div>
+新增器材
+<br><br>
+<div align="center" id="ctr">
+	<table style="border: 5px dotted rgb(109, 2, 107); " align="center" cellPadding="10" frame="border">
+	<tbody>
+	<tr>
+		<td>名稱:</td>
+		<td><input type="text" name="Equivname"></td>
+	</tr>
+	<tr>
+		<td>位置:</td>
+		<td><input type="text" name="Equivplace"></td>
+	</tr>
+	<tr>
+		<td>編號:</td>
+		<td><input type="text" name="Equivid"></td>
+	</tr>
+	<tr>
+		<td>價錢:</td>
+		<td><input type="text" name="Equivprice"></td>
+	</tr>
+	</tbody>
+	<tfoot>
+	<tr>
+		<td></td>
+		<td align="right"><input type="button" value="送出" id="Send"></td>
+	</tr>
+	</tfoot>
+	</table>
+</div>
+<div align="center" class="message">
+</div>
 <?php	
 }
 ?>
 	
-<div align="center" class="message">
-</div>
+
