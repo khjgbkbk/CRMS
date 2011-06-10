@@ -250,11 +250,6 @@ public class user {
 		return false;
 	}
  	
-	private UsernamePasswordCredentials getUsernamePasswordCredentials() {
-		return new UsernamePasswordCredentials(_Username, _Password);
-	}
-
-	
 	private DefaultHttpClient addAuth(DefaultHttpClient httpclient){
 		HttpRequestInterceptor preemptiveAuth = new HttpRequestInterceptor() {
 
