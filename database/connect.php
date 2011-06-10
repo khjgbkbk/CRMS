@@ -4,11 +4,11 @@
 //include("fUnregister.php");
 //include("fNew.php");
 //include("fDelete.php");
-//include("fList.php");
+include("fList.php");
 //include("fUsers.php");
 //include("fEdit.php");
 //include("fPassword.php");
-include("fBuilding.php");
+//include("fBuilding.php");
 
 $user['username'] = $_POST['id'];
 $user['password'] = $_POST['password'];
@@ -24,8 +24,8 @@ $obj['dorm'] = "3";
 $obj['id'];
 $obj['price'] = 1234567;
 
-print_r( json_encode(funcBuilding($obj)) );
-//print_r( json_encode(funcList($obj)) );
+//print_r( json_encode(funcBuilding($obj)) );
+print_r( json_encode(funcList($obj)) );
 
 //if($name != null && $password != null && $row[1] == $name && $row[2] == $password)
 //{

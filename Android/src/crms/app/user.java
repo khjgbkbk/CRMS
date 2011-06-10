@@ -78,9 +78,6 @@ public class user {
 		HttpPost httpRequest = new HttpPost(_DefaultServer.URLs + "/equipment/");
 		/* 發出HTTP request */
 		/* 取得HTTP response */
-		HttpClient.getCredentialsProvider().setCredentials(
-				_DefaultServer._authScope,
-				getUsernamePasswordCredentials());
 		  List <NameValuePair> params = new ArrayList <NameValuePair>();
 		  //Add Post Data
 		params.add(new BasicNameValuePair("data",json.toString()));
@@ -108,10 +105,6 @@ public class user {
 		HttpDelete httpRequest = new HttpDelete(_DefaultServer.URLs + "/equipment/" + equip.id());
 		/* 發出HTTP request */
 		/* 取得HTTP response */
-		DefaultHttpClient HttpClient = new DefaultHttpClient();
-		HttpClient.getCredentialsProvider().setCredentials(
-				_DefaultServer._authScope,
-				getUsernamePasswordCredentials());
 		HttpResponse httpResponse = HttpClient.execute(httpRequest);
 
 		/* 若狀態碼為200 ok */
@@ -146,10 +139,6 @@ public class user {
 		HttpPost httpRequest = new HttpPost(_DefaultServer.URLs + "/equipment/");
 		/* 發出HTTP request */
 		/* 取得HTTP response */
-		DefaultHttpClient HttpClient = new DefaultHttpClient();
-		HttpClient.getCredentialsProvider().setCredentials(
-				_DefaultServer._authScope,
-				getUsernamePasswordCredentials());
 		HttpParams params =new BasicHttpParams();
 		params.setParameter("data", json.toString());
 		httpRequest.setParams(params);
@@ -213,11 +202,6 @@ public class user {
 		HttpPost httpRequest = new HttpPost(_DefaultServer.URLs);
 		/* 發出HTTP request */
 		/* 取得HTTP response */
-		DefaultHttpClient HttpClient = new DefaultHttpClient();
-		HttpClient.getCredentialsProvider().setCredentials(
-				_DefaultServer._authScope,
-				getUsernamePasswordCredentials());
-		
 		JSONObject json = new JSONObject();
 		json.put("username",newer._Username);
 		json.put("Password",newer._Password);
@@ -246,20 +230,19 @@ public class user {
 	}
 
 	
-	private static DefaultHttpClient addAuth(DefaultHttpClient httpclient){
+	private DefaultHttpClient addAuth(DefaultHttpClient httpclient){
 		HttpRequestInterceptor preemptiveAuth = new HttpRequestInterceptor() {
-
 
 		@Override
 		public void process(HttpRequest request, HttpContext context)
 				throws HttpException, IOException {
 			// TODO Auto-generated method stub
-			String username = "admin";
-			String password = "admin";
+
+			String username = _Username;
+			String password = _Password;
 			UsernamePasswordCredentials ucreds = new UsernamePasswordCredentials(
 			username, password);
-			request.addHeader(new BasicScheme().authenticate(ucreds,
-			request));
+			request.addHeader(new BasicScheme().authenticate(ucreds,request));
 		}
 
 		};
