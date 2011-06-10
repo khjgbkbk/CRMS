@@ -243,6 +243,7 @@ public class CRMS extends Activity {
     	adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
     	spinner_d.setAdapter(adapter);
     	//spinner_d.getSelectedItemId()
+    	
 		} catch (org.apache.http.ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
