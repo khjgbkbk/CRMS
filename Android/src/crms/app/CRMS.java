@@ -105,17 +105,23 @@ public class CRMS extends Activity {
         //向左
         //  Builder alertDialog = new Builder(CRMS.this) ;
         //   alertDialog.setMessage("TEST").show();
-    		Spinner spinner_d = (Spinner) findViewById(R.id.newItemDorm);
-        	location tmp = (location) spinner_d.getSelectedItem();
-          Builder alertDialog = new Builder(CRMS.this) ;
-               alertDialog.setMessage(tmp.toString()).show();
-    		///	setContentView(R.layout.menu);
+    	//	Spinner spinner_d = (Spinner) findViewById(R.id.newItemDorm);
+        //	location tmp = (location) spinner_d.getSelectedItem();
+        //  Builder alertDialog = new Builder(CRMS.this) ;
+        //       alertDialog.setMessage(tmp.toString()).show();
+    		if(currentUser.isLogined()){
+    			setContentView(R.layout.menu);
+    		}else{
+    			setContentView(R.layout.main);
+    			
+    		}
             return (true);
         }
         if (keyCode == KeyEvent.KEYCODE_MENU) {
         //向左
-        	   
-        	setContentView(R.layout.menu);
+        	if(currentUser.isLogined()){
+    			setContentView(R.layout.menu);
+    		}
             return (true);
         }   
         return super.onKeyDown(keyCode, msg);
@@ -131,10 +137,12 @@ public class CRMS extends Activity {
 			if(currentUser.login(currentServer))
 				setContentView(R.layout.menu);
 			else{
-				uidin.setText("fail!");
+				uidin.setText("");
 				passwdin.setText("");
 				currentUser = null;
-				setContentView(R.layout.qbout);
+				Builder alertDialog = new Builder(CRMS.this) ;
+	     	    alertDialog.setMessage("帳號密碼錯誤").show();
+	     	   
 			}
 		} catch (ClientProtocolException e) {
 
@@ -156,13 +164,7 @@ public class CRMS extends Activity {
 			e.printStackTrace();
 		}
     }
-    /*Sign*/
-    public void sign(View cvView){
-    	setContentView(R.layout.newid);
-    }
-    public void newID_Cancel(View cvView){
-    	setContentView(R.layout.main);
-    }
+    
     /*query*/
     public void goQuery(View cvView){
     	setContentView(R.layout.query);
@@ -340,7 +342,7 @@ public class CRMS extends Activity {
 				queryEqId.setText(contents);
 			}
 		}
-		/*remove QR scan*/
+		/* remove QR scan */
 		else if (requestCode == 2) {	
 			if (resultCode == RESULT_OK) {
 				String contents = data.getStringExtra("SCAN_RESULT");	//取得QR Code內容
