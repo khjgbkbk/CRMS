@@ -52,6 +52,7 @@
 					<EditText android:textSize="25dip" android:id="@+id/editText3"
 						android:layout_width="fill_parent" android:layout_weight="1"
 						android:layout_height="60dip"></EditText>
+					<Spinner android:layout_width="wrap_content" android:layout_height="60dip" android:id="@+id/eqDorm"></Spinner>
 				</TableRow>
 				<TableRow android:id="@+id/tableRow8" android:layout_width="wrap_content"
 					android:layout_height="wrap_content">
@@ -70,8 +71,8 @@
 					android:layout_width="wrap_content" android:layout_height="wrap_content">
 					<Button android:id="@+id/button1" android:layout_width="wrap_content"
 						android:layout_height="wrap_content" android:layout_weight="1"
-						android:text="Edit" android:onClick="equipedit" android:password="false"
-						android:textSize="25dip"></Button>
+						android:text="Edit" android:password="false"
+						android:textSize="25dip" android:onClick="equipEdit"></Button>
 					<Button android:id="@+id/button2" android:layout_width="wrap_content"
 						android:layout_height="wrap_content" android:text="Exit"
 						android:layout_weight="1" android:textSize="25dip"

@@ -35,7 +35,7 @@ public class user {
 	server _DefaultServer;
 	Boolean _isLogined = false;
 	DefaultHttpClient HttpClient = new DefaultHttpClient();
-	location [] _locationList;
+	location [] _locationList = null;
 	
 	public user() {
 	}
@@ -162,6 +162,8 @@ public class user {
 	}
 	
 	public location [] getLocationList() throws JSONException, org.apache.http.ParseException, IOException{
+		if(_locationList != null) return _locationList;
+		
 		HttpGet httpRequest 
 		= new HttpGet(_DefaultServer.URLs + "/location");
 		//HttpClient.getCredentialsProvider().setCredentials(
@@ -248,11 +250,6 @@ public class user {
 		return false;
 	}
  	
-	private UsernamePasswordCredentials getUsernamePasswordCredentials() {
-		return new UsernamePasswordCredentials(_Username, _Password);
-	}
-
-	
 	private DefaultHttpClient addAuth(DefaultHttpClient httpclient){
 		HttpRequestInterceptor preemptiveAuth = new HttpRequestInterceptor() {
 

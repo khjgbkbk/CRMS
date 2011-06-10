@@ -2,10 +2,13 @@ package crms.app;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.http.client.ClientProtocolException;
 import org.json.JSONException;
 
+import android.R.string;
 import android.app.Activity;
 import android.app.AlertDialog.Builder;
 import android.content.Intent;
@@ -13,7 +16,9 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 public class CRMS extends Activity {
     /** Called when the activity is first created. */
@@ -100,7 +105,11 @@ public class CRMS extends Activity {
         //向左
         //  Builder alertDialog = new Builder(CRMS.this) ;
         //   alertDialog.setMessage("TEST").show();
-    		setContentView(R.layout.menu);
+    		Spinner spinner_d = (Spinner) findViewById(R.id.newItemDorm);
+        	location tmp = (location) spinner_d.getSelectedItem();
+          Builder alertDialog = new Builder(CRMS.this) ;
+               alertDialog.setMessage(tmp.toString()).show();
+    		///	setContentView(R.layout.menu);
             return (true);
         }
         if (keyCode == KeyEvent.KEYCODE_MENU) {
@@ -127,10 +136,22 @@ public class CRMS extends Activity {
 				currentUser = null;
 			}
 		} catch (ClientProtocolException e) {
-			uidin.setText("網路連線錯誤");
+
+    		Builder alertDialog = new Builder(CRMS.this) ;
+     	    alertDialog.setMessage("網路連線錯誤").show();
 			e.printStackTrace();
 		} catch (IOException e) {
-			uidin.setText("IO錯誤");
+
+    		Builder alertDialog = new Builder(CRMS.this) ;
+     	    alertDialog.setMessage("IO錯誤").show();
+			e.printStackTrace();
+		} catch (org.apache.http.ParseException e) {
+    		Builder alertDialog = new Builder(CRMS.this) ;
+     	    alertDialog.setMessage("封包解析錯誤").show();
+			e.printStackTrace();
+		} catch (JSONException e) {
+    		Builder alertDialog = new Builder(CRMS.this) ;
+     	    alertDialog.setMessage("JSON解析錯誤").show();
 			e.printStackTrace();
 		}
     }
@@ -150,6 +171,21 @@ public class CRMS extends Activity {
     	EditText uidin = (EditText) findViewById(R.id.queEqid);
 
     	setContentView(R.layout.equipment);
+    	
+    	/*設定spinner
+    	Spinner spinner_d = (Spinner) findViewById(R.id.eqDorm);
+    	List<String> list = new ArrayList<String>();
+    	location[] tmpLList;
+		tmpLList = currentUser.getLocationList();
+		
+    	int tmp = tmpLList.length;
+    	for(int i=0;i<tmp;++i){
+    		list.add(tmpLList[i].toString());
+    	}
+    	ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,list);
+    	adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    	spinner_d.setAdapter(adapter);
+    	*/
 		EditText eT1 = (EditText) findViewById(R.id.editText1);
     	try {
     		eT1.setText("IN");
@@ -158,7 +194,10 @@ public class CRMS extends Activity {
 				EditText eT2 = (EditText) findViewById(R.id.editText2);
 				EditText eT3 = (EditText) findViewById(R.id.editText3);
 				EditText eT4 = (EditText) findViewById(R.id.editText4);
-				eT1.setText(currentEquip.name());
+				eT1.setText(currentEquip.id());
+				eT2.setText(currentEquip.name());
+				eT3.setText(currentEquip.location().toString());
+				eT4.setText(Integer.toString(currentEquip.price()));
 				
 			}else{
 				//EditText eT1 = (EditText) findViewById(R.id.editText1);
@@ -208,11 +247,30 @@ public class CRMS extends Activity {
     /*new item*/
     public void goNew(View cvView){
     	setContentView(R.layout.newitem);
+    	/*設定spinner*/
+    	Spinner spinner_d = (Spinner) findViewById(R.id.newItemDorm);
+		try {
+    	ArrayAdapter<location> adapter = new ArrayAdapter<location>(this,android.R.layout.simple_spinner_item,currentUser.getLocationList());
+    	adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    	spinner_d.setAdapter(adapter);
+    	//spinner_d.getSelectedItemId();
+
+    	
+		} catch (org.apache.http.ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
     public void newSubmit(View cvView){
     	equipment currentEquip = new equipment();
     	EditText newItemName = (EditText) findViewById(R.id.newItemName);
-    	//EditText newItemDorm = (EditText) findViewById(R.id.newItemDorm);
+    	EditText newItemDorm = (EditText) findViewById(R.id.newItemDorm);
     	EditText newItemEqid = (EditText) findViewById(R.id.newItemEqid);
     	EditText newItemPrice = (EditText) findViewById(R.id.newItemPrice);
     	
