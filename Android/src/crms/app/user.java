@@ -73,7 +73,7 @@ public class user {
 		}
 		JSONObject json = new JSONObject();
 		json.put("name",equip.name());
-		json.put("dorm",equip.location());
+		json.put("dorm",equip.location()._id);
 		//json.put("id",equip.id());
 		json.put("price",equip.price());
 		HttpPost httpRequest = new HttpPost(_DefaultServer.URLs + "/equipment/");

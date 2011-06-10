@@ -270,12 +270,12 @@ public class CRMS extends Activity {
     public void newSubmit(View cvView){
     	equipment currentEquip = new equipment();
     	EditText newItemName = (EditText) findViewById(R.id.newItemName);
-    	EditText newItemDorm = (EditText) findViewById(R.id.newItemDorm);
+    	Spinner newItemDorm = (Spinner) findViewById(R.id.newItemDorm);
     	EditText newItemEqid = (EditText) findViewById(R.id.newItemEqid);
     	EditText newItemPrice = (EditText) findViewById(R.id.newItemPrice);
     	
     	currentEquip.name(newItemName.getText().toString())
-    				.location(new location(newItemDorm.getText().toString()))
+    				.location((location)newItemDorm.getSelectedItem())
     				.price(Integer.parseInt(newItemPrice.getText().toString()));
     	
     	try {
