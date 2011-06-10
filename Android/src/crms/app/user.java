@@ -5,6 +5,9 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.http.HttpException;
+import org.apache.http.HttpRequest;
+import org.apache.http.HttpRequestInterceptor;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.auth.UsernamePasswordCredentials;
@@ -13,11 +16,13 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.impl.auth.BasicScheme;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.HTTP;
+import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,7 +33,8 @@ public class user {
 	String _Password;
 	server _DefaultServer;
 	Boolean _isLogined = false;
-
+	DefaultHttpClient HttpClient = new DefaultHttpClient();
+	
 	public user() {
 	}
 
@@ -40,11 +46,11 @@ public class user {
 	public equipment getEquipment(String id) throws ClientProtocolException, IOException, JSONException, ParseException {
 		HttpGet httpRequest 
 			= new HttpGet(_DefaultServer.URLs + "/equipment/" + id);
-			DefaultHttpClient HttpClient = new DefaultHttpClient();
-			HttpClient.getCredentialsProvider().setCredentials(
-					_DefaultServer._authScope,
-					getUsernamePasswordCredentials());
+			//HttpClient.getCredentialsProvider().setCredentials(
+			//		_DefaultServer._authScope,
+			//		getUsernamePasswordCredentials());
 			HttpResponse httpResponse = HttpClient.execute(httpRequest);
+			
 
 			/* 若狀態碼為200 ok */
 			if (httpResponse.getStatusLine().getStatusCode() == 200) {
@@ -71,7 +77,6 @@ public class user {
 		HttpPost httpRequest = new HttpPost(_DefaultServer.URLs + "/equipment/");
 		/* 發出HTTP request */
 		/* 取得HTTP response */
-		DefaultHttpClient HttpClient = new DefaultHttpClient();
 		HttpClient.getCredentialsProvider().setCredentials(
 				_DefaultServer._authScope,
 				getUsernamePasswordCredentials());
@@ -173,6 +178,7 @@ public class user {
 		HttpClient.getCredentialsProvider().setCredentials(
 				s._authScope,
 				getUsernamePasswordCredentials());
+		addAuth(HttpClient);
 		HttpResponse httpResponse = HttpClient.execute(httpRequest);
 
 		/* 若狀態碼為200 ok */
@@ -232,4 +238,28 @@ public class user {
 		return new UsernamePasswordCredentials(_Username, _Password);
 	}
 
+	
+	private static DefaultHttpClient addAuth(DefaultHttpClient httpclient){
+		HttpRequestInterceptor preemptiveAuth = new HttpRequestInterceptor() {
+
+
+		@Override
+		public void process(HttpRequest request, HttpContext context)
+				throws HttpException, IOException {
+			// TODO Auto-generated method stub
+			String username = "philipz";
+			String password = "25587911";
+			UsernamePasswordCredentials ucreds = new UsernamePasswordCredentials(
+			username, password);
+			request.addHeader(new BasicScheme().authenticate(ucreds,
+			request));
+		}
+
+		};
+
+		httpclient.addRequestInterceptor(preemptiveAuth, 0);
+		return httpclient;
+		}
+
+	
 }
