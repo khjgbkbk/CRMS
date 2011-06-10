@@ -7,15 +7,19 @@ import org.apache.http.client.ClientProtocolException;
 import org.json.JSONException;
 
 import android.app.Activity;
+import android.app.AlertDialog.Builder;
+import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.EditText;
 
 public class CRMS extends Activity {
     /** Called when the activity is first created. */
+    //
+    
+    private user currentUser;
+    private server currentServer = new server();
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,32 +83,181 @@ public class CRMS extends Activity {
         });
 */
     }
+    @Override 
+    public void onConfigurationChanged(Configuration newConfig)
+    { 
+        super.onConfigurationChanged(newConfig); 
+     if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
+     {
+//land
+     }
+     else if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
+     {
+//port
+     }
+    }
+    
+    public boolean onKeyDown(int keyCode, KeyEvent msg) {
+           if (keyCode == KeyEvent.KEYCODE_BACK) {
+               //向左
+        	   Builder alertDialog = new Builder(CRMS.this) ;
+        	   alertDialog.setMessage("TEST").show();
+           	setContentView(R.layout.menu);
+                  return (true);
+              }
+           if (keyCode == KeyEvent.KEYCODE_MENU) {
+               //向左
+        	   
+           	setContentView(R.layout.menu);
+                  return (true);
+              }
+           
+           return super.onKeyDown(keyCode, msg);
+       }
+    /*Login*/
     public void login(View cvView){
-    	setContentView(R.layout.menu);
+    	EditText uidin = (EditText) findViewById(R.id.uid); 
+    	EditText passwdin = (EditText) findViewById(R.id.pw);
+    	String inuid =  uidin.getText().toString();
+    	String inpasswd =  passwdin.getText().toString();
+    	currentUser = new user(inuid,inpasswd);
+    	try {
+			if(currentUser.login(currentServer))
+				setContentView(R.layout.menu);
+			else{
+				uidin.setText("fail!");
+				passwdin.setText("");
+				currentUser = null;
+			}
+		} catch (ClientProtocolException e) {
+			uidin.setText("網路連線錯誤");
+			e.printStackTrace();
+		} catch (IOException e) {
+			uidin.setText("IO錯誤");
+			e.printStackTrace();
+		}
+    }
+    /*Sign*/
+    public void sign(View cvView){
+    	setContentView(R.layout.newid);
+    }
+    public void newID_Cancel(View cvView){
+    	setContentView(R.layout.main);
     }
     /*query*/
-    public void goquery(View cvView){
+    public void goQuery(View cvView){
     	setContentView(R.layout.query);
     }
-    public void queryback(View cvView){
+    public void queryEnter(View cvView){
+
+    	EditText uidin = (EditText) findViewById(R.id.queEqid);
+
+    	setContentView(R.layout.equipment);
+		EditText eT1 = (EditText) findViewById(R.id.editText1);
+    	try {
+    		eT1.setText("IN");
+			equipment currentEquip = currentUser.getEquipment(uidin.getText().toString());
+			if(currentEquip != null){
+				EditText eT2 = (EditText) findViewById(R.id.editText2);
+				EditText eT3 = (EditText) findViewById(R.id.editText3);
+				EditText eT4 = (EditText) findViewById(R.id.editText4);
+				eT1.setText(currentEquip.name());
+				
+			}else{
+				//EditText eT1 = (EditText) findViewById(R.id.editText1);
+
+	    		Builder alertDialog = new Builder(CRMS.this) ;
+	     	    alertDialog.setMessage("找不到機器").show();
+				
+			}
+			currentEquip = null;
+    	
+    	} catch (ClientProtocolException e) {
+    		Builder alertDialog = new Builder(CRMS.this) ;
+     	    alertDialog.setMessage("連線錯誤").show();
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+    		eT1.setText("IN2");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JSONException e) {
+    		eT1.setText("IN2");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+    		eT1.setText("IN2");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+    	
+    	
+    	
+    }
+    public void queryBack(View cvView){
+    	setContentView(R.layout.menu);
+    }
+    /*equipment*/
+    public void equipExit(View cvView){
     	setContentView(R.layout.menu);
     }
     /*new item*/
-    public void gonew(View cvView){
+    public void goNew(View cvView){
     	setContentView(R.layout.newitem);
     }
-    public void neweqback(View cvView){
+    public void newSubmit(View cvView){
+    	equipment currentEquip = new equipment();
+    	EditText newItemName = (EditText) findViewById(R.id.newItemName);
+    	EditText newItemDorm = (EditText) findViewById(R.id.newItemDorm);
+    	EditText newItemEqid = (EditText) findViewById(R.id.newItemEqid);
+    	EditText newItemPrice = (EditText) findViewById(R.id.newItemPrice);
+    	
+    	currentEquip.name(newItemName.getText().toString())
+    				.location(new location(newItemDorm.getText().toString()))
+    				.price(Integer.parseInt(newItemPrice.getText().toString()));
+    	
+    	try {
+    		equipment newEquip = currentUser.newEquipment(currentEquip);
+			if( newEquip != null ){
+
+	    		Builder alertDialog = new Builder(CRMS.this) ;
+	     	    alertDialog.setMessage("新增成功").show();
+				newItemEqid.setText(newEquip.id());
+				
+			}
+			currentEquip = null;
+			
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	
+    }
+    public void newEqBack(View cvView){
     	setContentView(R.layout.menu);
     }
     /*remove*/
-    public void gorm(View cvView){
+    public void goRm(View cvView){
     	setContentView(R.layout.remove);
     }
-    public void rmback(View cvView){
+    public void rmBack(View cvView){
     	setContentView(R.layout.menu);
     }
-    public void gotomain(View cvView){
+    public void logout(View cvView){
     	setContentView(R.layout.main);
+    }
+    /*?????*/
+    public void qbout(View cvView){
+    	setContentView(R.layout.qbout);
     }
     
 }

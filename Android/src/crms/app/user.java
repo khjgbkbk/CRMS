@@ -2,16 +2,22 @@ package crms.app;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpParams;
+import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -60,7 +66,7 @@ public class user {
 		JSONObject json = new JSONObject();
 		json.put("name",equip.name());
 		json.put("dorm",equip.location());
-		json.put("id",equip.id());
+		//json.put("id",equip.id());
 		json.put("price",equip.price());
 		HttpPost httpRequest = new HttpPost(_DefaultServer.URLs + "/equipment/");
 		/* µo¥XHTTP request */
@@ -69,14 +75,16 @@ public class user {
 		HttpClient.getCredentialsProvider().setCredentials(
 				_DefaultServer._authScope,
 				getUsernamePasswordCredentials());
-		HttpParams params =new BasicHttpParams();
-		params.setParameter("data", json.toString());
-		httpRequest.setParams(params);
+		  List <NameValuePair> params = new ArrayList <NameValuePair>();
+		  //Add Post Data
+		params.add(new BasicNameValuePair("data",json.toString()));
+		UrlEncodedFormEntity urf = new UrlEncodedFormEntity(params,HTTP.UTF_8);
+		httpRequest.setEntity(urf);
 		HttpResponse httpResponse = HttpClient.execute(httpRequest);
 
 		/* ­Yª¬ºA½X¬°200 ok */
 		if (httpResponse.getStatusLine().getStatusCode() == 200) {
-			
+			//TODO Parse ID
 			return equip;
 
 		} else if (httpResponse.getStatusLine().getStatusCode() == 401) {

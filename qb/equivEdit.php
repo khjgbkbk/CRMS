@@ -1,9 +1,4 @@
-<?php
-ob_start();
-session_start();
-if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
-{
-?>
+
 <script type="text/javascript">
 	function send()
 	{
@@ -18,7 +13,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			return;
 		}
 		$.ajax({
-			url: 'addequivto.php',
+			url: 'eEditTo.php',
 			type: 'POST',
 			data: {
 				addEquivName: 	$("input[name='Equivname']").attr('value'),
@@ -35,12 +30,6 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 				case "success":
 					alert('Successed !!');
 					document.location.href = "./";
-					break;
-				case "fail":
-					alert('Failed !!');
-					$('div#ctr tbody input[type="text"]').each(function{
-						$(this).attr({value:''});
-					});
 					break;
 				default:
 					$('div.message').html(result);
@@ -69,40 +58,32 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	});
 </script>
 
-新增器材
+
+修改器材資訊
 <br><br>
-<div align="center" id="ctr">
+<div align="center">
 	<table style="border: 5px dotted rgb(109, 2, 107); " align="center" cellPadding="10" frame="border">
 	<tbody>
 	<tr>
 		<td>名稱:</td>
-		<td><input type="text" name="Equivname"></td>
+		<td><input type="text" name="Equivname" value="<?php echo $_POST['name'];?>"></td>
 	</tr>
 	<tr>
 		<td>位置:</td>
-		<td><input type="text" name="Equivplace"></td>
+		<td><input type="text" name="Equivplace" value="<?php echo $_POST['place'];?>"></td>
 	</tr>
 	<tr>
 		<td>編號:</td>
-		<td><input type="text" name="Equivid"></td>
+		<td><input type="text" name="Equivid" value="<?php echo $_POST['id'];?>"></td>
 	</tr>
 	<tr>
 		<td>價錢:</td>
-		<td><input type="text" name="Equivprice"></td>
+		<td><input type="text" name="Equivprice" value="<?php echo $_POST['price'];?>"></td>
 	</tr>
-	</tbody>
-	<tfoot>
 	<tr>
 		<td></td>
 		<td align="right"><input type="button" value="送出" id="Send"></td>
 	</tr>
-	</tfoot>
+	</tbody>
 	</table>
 </div>
-<div align="center" class="message">
-</div>
-<?php	
-}
-?>
-	
-

@@ -1,23 +1,16 @@
 <?php
-	if(!isset($_POST['addUsrID']) || $_POST['addUsrID']=="") 
+	include("../database/fRegister.php");
+	$addUsrID = htmlspecialchars ( $_POST['addUsrID'] );
+	$addUsrPW = htmlspecialchars ( $_POST['addUsrPW'] );
+	$addUsrID = mysql_real_escape_string ( $addUsrID );
+	$addUsrPW = mysql_real_escape_string ( $addUsrPW );
+	$return = funcRegister( array("username" => $addUsrID, "password" => md5($addUsrPW)) );
+	if($return["success"])
 	{
-		echo json_encode("nid");
-	} 
-	else if(!isset($_POST['addUsrPW']) || $_POST['addUsrPW']=="")
-	{
-		echo json_encode("npd");
+		echo json_encode("success");
 	}
 	else
 	{
-		include("../database/fRegister.php");
-		$return = funcRegister( array("username" => $_POST['addUsrID'], "password" => md5($_POST['addUsrPW'])) );
-		if($return["success"])
-		{
-			echo json_encode("success");
-		}
-		else
-		{
-			echo json_encode("fail");
-		}
+		echo json_encode("fail");
 	}
 ?>

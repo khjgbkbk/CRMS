@@ -2,10 +2,6 @@
 ob_start();
 session_start();
 
-
-
-
-
 if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 {
 	include("../database/fList.php");
@@ -42,7 +38,6 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 				success: function(result) {
 					switch (result) {
 					case "success":
-						$(this).parents("tr").remove();
 						break;
 					default:
 						alert(result);
@@ -50,6 +45,32 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 					}
 				},
 			});
+			$(this).parents("tr").remove();
+		});
+	}
+	function edit()
+	{
+		$('div#ctr tbody td input[id=edit]').click(function()
+		{
+			var cfm = confirm("確定要修改嗎?");
+			if( cfm == false )
+			{	
+				return;
+			}
+			var editname = $(this).parents("tr").find("td:eq(0)").html();
+			var editplace = $(this).parents("tr").find("td:eq(1)").html();
+			var editid = $(this).parents("tr").find("td:eq(2)").html();
+			var editprice = $(this).parents("tr").find("td:eq(3)").html();
+			var data = {
+				"name": editname,
+				"place": editplace,
+				"id": editid,
+				"price": editprice
+			};
+			var link = "equivEdit.php";
+			equiEdit(link, data);
+			return;
+			
 		});
 	}
 </script>
@@ -61,17 +82,23 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	$(document).ready(function () 
 	{
 		dele();
-		
-		$('#edit').click(function()
-		{
-			edit();
-		});
+		edit();
 	})
 </script>
 
+<!-- CSS -->
+<style type="text/css">
+	div#ctr table{
+		border: 5px dotted rgb(109, 2, 107);
+	}
+	div#ctr tbody td{
+		width:		100px;
+	}
+</style>
+
 <div align="center" id="ctr">
-	<table style="border: 3px dotted rgb(109, 2, 107);">
-	<tbody>
+	<table>
+	<thead>
 		<tr>
 			<td>名稱</td>
 			<td>位置</td>
@@ -81,6 +108,8 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			<td>編輯</td>
 			<td>刪除</td>
 		</tr>
+	</thead>
+	<tbody>
 <?php
 		for($i=0 ; $i<$row ; $i++)
 		{
@@ -90,9 +119,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			for($j=0 ; $j<$col ; $j++)
 			{
 ?>
-		<td>
-			<?php echo $data[$i][$j]; ?>
-		</td>	
+		<td><?php echo $data[$i][$j]; ?></td>	
 <?php
 			}
 ?>

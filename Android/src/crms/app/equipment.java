@@ -44,7 +44,9 @@ public class equipment {
 	}
 	public equipment date(Date d){_date=d;return this;}
 	
-	
+	public equipment(){
+		
+	}
 	
 	
 	public equipment(JSONObject jsonObject) throws JSONException, ParseException {

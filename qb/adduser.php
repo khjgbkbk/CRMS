@@ -31,7 +31,7 @@
 			type: 'POST',
 			data: {
 				addUsrID: $("input[name='addUsrid']").attr('value'),
-				addUsrPW: $("input[name='addUsrpwd']").attr('value'),
+				addUsrPW: $("input[name='addUsrpwd']").attr('value')
 			},
 			dataType: "json",
 			error: function(xhr) {
@@ -39,27 +39,21 @@
 			},
 			success: function(result) {
 				switch (result) {
-				case "nid":
-					$('div.message').html("Please enter a username");
-					break;
-				case "npd":
-					$('div.message').html("Please enter password !!");
-					break;
 				case "success":
 					alert('Successed !!');
 					document.location.href = "./";
 					break;
 				case "fail":
 					alert('Failed !!');
-					$('input[name="addUsrid"]').attr({value:''}); 
-					$('input[name="addUsrpwd"]').attr({value:''}); 
-					$('input[name="addCmUsrpwd"]').attr({value:''}); 
+					$('div#ctr tbody td input').each(function(){
+						$(this).attr({value:''});
+					});
 					break;
 				default:
 					$('div.message').html(result);
 					break;
 				}
-			},
+			}
 		});
 	}
 </script>
@@ -87,7 +81,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 {
 ?> 
 
-		<div align="center">
+		<div align="center" id="ctr">
 			新增使用者資料
 			<br><br>
 			<table style="border: 5px dotted rgb(109, 2, 107); " align="center" cellPadding="10" frame="border">
@@ -98,24 +92,26 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			</tr>
 			<tr>
 				<td>密碼:</td>
-				<td><input type="text" name="addUsrpwd"></td>
+				<td><input type="password" name="addUsrpwd"></td>
 			</tr>
 			<tr>
 				<td>確認密碼:</td>
-				<td><input type="text" name="addCmUsrpwd"></td>
+				<td><input type="password" name="addCmUsrpwd"></td>
 			</tr>
+			</tbody>
+			<tfoot>
 			<tr>
 				<td></td>
 				<td align="right"><input type="button" value="送出" id="Send"></td>
 			</tr>
-			</tbody>
+			</tfoot>
 			</table>
 		</div>
 		
 <?php	
 }
 ?>
-
+<br><br>
 <div align="center" class="message">
 
 </div>

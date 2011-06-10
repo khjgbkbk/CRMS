@@ -1,7 +1,9 @@
 <?php
-	ob_start();
-	session_start();
-?>
+ob_start();
+session_start();
+if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
+{
+?> 
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -12,31 +14,52 @@
 <script type="text/javascript">
 	function bindUlSec(){
 		$("ul#sec li a").click(function(event){
-				$("div#datamsg").html();
-				event.preventDefault();
-				var action = $(this).html();
-				var pageList = {
-						"[使用者列表]" 	: "userList.php",
-						"[新增使用者]" 	: "adduser.php",
-						"[更改資料]" 	: "userEdit.php",
-						"[器材列表]"   	: "equivList.php",
-						"[新增器材]"   	: "addequiv.php",
-						"[查詢器材]"	: "Notfound.php",
-				};
-				$.ajax({
-					url  : pageList[action],
-					statusCode : {
-						200 : function(res){
-								$("div#datamsg").html(res); vh
-							},
-						404 : 
-							function(res){
-								$("div#datamsg").html("Page Not Found");
-							}
-					}
-				});
+			$("div#datamsg").html();
+			event.preventDefault();
+			var action = $(this).html();
+			var pageList = {
+					"[使用者列表]" 	: "userList.php",
+					"[新增使用者]" 	: "adduser.php",
+					"[更改資料]" 	: "userEdit.php",
+					"[器材列表]"   	: "equivList.php",
+					"[新增器材]"   	: "addequiv.php",
+					"[查詢器材]"	: "equiQuery.php"
+			};
+			$.ajax({
+				url  : pageList[action],
+				statusCode : {
+					200 : function(res){
+							$("div#datamsg").html(res);
+						},
+					404 : 
+						function(res){
+							$("div#datamsg").html("Page Not Found");
+						}
+				}
 			});
+		});
 	
+	};
+	function equiEdit(link, ask){
+		$.ajax({
+			url  : link,
+			type: 'POST',
+			data: {
+				name: ask['name'],
+				place: ask['place'],
+				id: ask['id'],
+				price: ask['price']
+			},
+			statusCode : {
+				200 : function(res){
+						$("div#datamsg").html(res);
+					},
+				404 : 
+					function(res){
+						$("div#datamsg").html("Page Not Found");
+					}
+			}
+		});
 	};
 	$(document).ready(function(){
 		bindUlSec();
@@ -71,14 +94,12 @@
 	ul#sec li{
 		display:	inline;
 	}
+	
 </style>
+
 </head>
 
 <body bgcolor="#EBF5FF"  link="1C19FF" vlink="1C19FF">
-<?php
-if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
-{
-?> 
 		<div align="center">
 			<h1>CRMS::SERVER.Main</h1>
 		</div>

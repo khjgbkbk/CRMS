@@ -7,17 +7,17 @@
         <TextView android:layout_width="wrap_content" android:id="@+id/textView4" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:text="CRMS!" android:textSize="30dip"></TextView>
         <TableRow android:id="@+id/tableRow1" android:layout_width="wrap_content" android:layout_height="wrap_content">
             <TextView android:layout_width="wrap_content" android:id="@+id/textView1" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:text="User ID:" android:layout_weight="1" android:textSize="25dip"></TextView>
-            <EditText android:layout_height="60dip" android:layout_weight="10" android:id="@+id/uid"></EditText>
+            <EditText android:layout_height="60dip" android:layout_weight="10" android:id="@+id/uid" android:text="@string/admin"></EditText>
         </TableRow>
         <TableRow android:id="@+id/tableRow2" android:layout_width="wrap_content" android:layout_height="wrap_content">
             <TextView android:layout_width="wrap_content" android:id="@+id/textView3" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:text="Password:" android:layout_weight="1" android:textSize="25dip"></TextView>
-            <EditText android:layout_width="wrap_content" android:inputType="textPassword" android:layout_height="60dip" android:layout_weight="10" android:id="@+id/pw">
+            <EditText android:layout_width="wrap_content" android:inputType="textPassword" android:layout_height="60dip" android:layout_weight="10" android:id="@+id/pw" android:text="@string/admin">
                 <requestFocus></requestFocus>
             </EditText>
         </TableRow>
         <LinearLayout android:id="@+id/linearLayout1" android:layout_height="wrap_content" android:layout_width="wrap_content" android:orientation="vertical">
             <TableRow android:id="@+id/tableRow3" android:layout_height="wrap_content" android:layout_width="fill_parent">
-                <Button android:id="@+id/button1" android:layout_height="wrap_content" android:text="Sign" android:layout_weight="1" android:textSize="25dip" android:onClick="usersign"></Button>
+                <Button android:id="@+id/button1" android:layout_height="wrap_content" android:text="Sign" android:layout_weight="1" android:textSize="25dip" android:onClick="sign"></Button>
                 <Button android:id="@+id/button2" android:layout_height="wrap_content" android:layout_weight="1" android:textSize="25dip" android:onClick="login" android:text="Login"></Button>
             </TableRow>
         </LinearLayout>

@@ -70,17 +70,24 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	})
 </script>
 
-
+<!-- CSS -->
+<style type="text/css">
+	table#data td{
+		width:		100px;
+		
+	}
+</style>
 
 <div align="center">
-	<table id="data" style="border: 3px dotted rgb(109, 2, 107);">
-	<tbody>
+	<table id="data" style="border: 5px dotted rgb(109, 2, 107);">
+	<thead>
 		<tr>
 			<td>使用者編號</td>
 			<td>使用者名稱</td>
 			<td>權限</td>
 			<td>刪除</td>
 		</tr>
+	<tbody>
 <?php
 		for($i=0 ; $i<$row ; $i++)
 		{
@@ -92,12 +99,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 				if( $j != 2 )
 				{
 ?>
-		<td>
-			<?php 
-				
-					echo $data[$i][$j]; 
-			?>
-		</td>	
+		<td><?php echo $data[$i][$j]; ?></td>	
 <?php
 				}
 			}
