@@ -149,12 +149,6 @@ public class CRMS extends Activity {
     		Builder alertDialog = new Builder(CRMS.this) ;
      	    alertDialog.setMessage("JSON解析錯誤").show();
 			e.printStackTrace();
-		} catch (org.apache.http.ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
     }
     /*Sign*/
