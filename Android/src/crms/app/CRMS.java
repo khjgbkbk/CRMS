@@ -360,8 +360,15 @@ public class CRMS extends Activity {
     	Spinner spinnerList = (Spinner) findViewById(R.id.spinner1);
 		ListView lvList = (ListView) findViewById(R.id.listView1);
 		equipment [] eqList = currentUser.getEquipmentList((location)spinnerList.getSelectedItem());
-		ArrayAdapter<equipment> adapter = new ArrayAdapter<equipment>(this,android.R.layout.simple_list_item_1,eqList);
-			
+		int eqLength = eqList.length;
+		String str[] =new String[eqLength];
+		for(int i=0;i<eqLength;i++){
+			str[i] = eqList[i].name();			
+		}
+		
+		//ArrayAdapter<equipment> adapter = new ArrayAdapter<equipment>(this,android.R.layout.simple_list_item_1,eqList);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,str);
+		
 		lvList.setAdapter(adapter);	
     	
     }
