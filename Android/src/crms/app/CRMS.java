@@ -137,10 +137,12 @@ public class CRMS extends Activity {
 			if(currentUser.login(currentServer))
 				setContentView(R.layout.menu);
 			else{
-				uidin.setText("fail!");
+				uidin.setText("");
 				passwdin.setText("");
 				currentUser = null;
-				setContentView(R.layout.qbout);
+				Builder alertDialog = new Builder(CRMS.this) ;
+	     	    alertDialog.setMessage("fail!").show();
+	     	   
 			}
 		} catch (ClientProtocolException e) {
 
