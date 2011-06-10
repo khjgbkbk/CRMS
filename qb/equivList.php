@@ -92,7 +92,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 						break;
 					default:
 						$.each(result,function(i,v){
-							$('div#ctr tbody').append('<tr><td>'+v["id"]+'</td><td>'+v["name"]+'</td><td>'+v["building"]+'</td><td>'+v["price"]+'</td><td>'+v["place"]+'</td><td id="btn"><input type="button" id="edit" value="編輯"></td><td id="btn"><input type="button" id="dele" value="刪除"></td></tr>');
+							$('div#ctr tbody').append('<tr><td>'+v["id"]+'</td><td>'+v["name"]+'</td><td>'+v["building"]+'</td><td>'+v["price"]+'</td><td>'+v["date"]+'</td><td id="btn"><input type="button" id="edit" value="編輯"></td><td id="btn"><input type="button" id="dele" value="刪除"></td></tr>');
 						});
 						break;
 						

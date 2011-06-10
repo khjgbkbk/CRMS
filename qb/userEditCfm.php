@@ -4,7 +4,7 @@
 	$newPwd = mysql_real_escape_string ($_POST['newPwd']);
 
 	include('../database/fUserEdit.php');
-	$re = funcUserEdit( array( "username" => $userid, "password" => md5($newPwd) ) );
+	$re = funcUserEdit( array( "username" => $userid, "password" => $newPwd) );
 	if( $re["success"] )
 	{
 		echo json_encode('success');

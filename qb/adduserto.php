@@ -4,7 +4,7 @@
 	$addUsrID = mysql_real_escape_string ( $_POST['addUsrID'] );
 	$addUsrPW = mysql_real_escape_string ( $_POST['addUsrPW'] );
 	
-	$return = funcRegister( array("username" => $addUsrID, "password" => md5($addUsrPW)) );
+	$return = funcRegister( array("username" => $addUsrID, "password" => $addUsrPW) );
 	if($return["success"])
 	{
 		echo json_encode("success");
