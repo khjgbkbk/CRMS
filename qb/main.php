@@ -3,7 +3,7 @@ ob_start();
 session_start();
 if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 {
-?> 
+?>
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
