@@ -1,12 +1,8 @@
 <?php
 	include("../database/fNew.php");
-	$addEquivName 	= htmlspecialchars ($_POST['addEquivName'] );
-	$addEquivPlace	= htmlspecialchars ($_POST['addEquivPlace']);
-	$addEquivPrice	= htmlspecialchars ($_POST['addEquivPrice']);
-	
-	$addEquivName 	= mysql_real_escape_string ($addEquivName );
-	$addEquivPlace	= mysql_real_escape_string ($addEquivPlace);
-	$addEquivPrice	= mysql_real_escape_string ($addEquivPrice);
+	$addEquivName 	= mysql_real_escape_string ($_POST['addEquivName'] );
+	$addEquivPlace	= mysql_real_escape_string ($_POST['addEquivPlace']);
+	$addEquivPrice	= mysql_real_escape_string ($_POST['addEquivPrice']);
 	
 	$return = funcNew( array("name" => $addEquivName, "dorm" => $addEquivPlace, "id" => "", "price" => $addEquivPrice) );
 	if($return["success"])

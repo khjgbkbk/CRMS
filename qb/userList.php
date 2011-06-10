@@ -102,7 +102,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 				if( $j != 2 )
 				{
 ?>
-		<td><?php echo $data[$i][$j]; ?></td>	
+		<td><?php echo htmlspecialchars( $data[$i][$j] ); ?></td>	
 <?php
 				}
 			}

@@ -119,11 +119,11 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		{
 ?>
 	<tr id="<?php echo $i; ?>" >
-		<td><?php echo $data[$i]['name']; ?></td>
-		<td><?php echo $data[$i]['dorm']; ?></td>
-		<td><?php echo $data[$i]['id']; ?></td>
-		<td><?php echo $data[$i]['price']; ?></td>
-		<td><?php echo $data[$i]['date']; ?></td>
+		<td><?php echo htmlspecialchars ($data[$i]['name']	); ?></td>
+		<td><?php echo htmlspecialchars ($data[$i]['dorm']	); ?></td>
+		<td><?php echo htmlspecialchars ($data[$i]['id']	); ?></td>
+		<td><?php echo htmlspecialchars ($data[$i]['price']	); ?></td>
+		<td><?php echo htmlspecialchars ($data[$i]['date']	); ?></td>
 		<td><input type="button" id="edit" value="編輯"></td>
 		<td><input type="button" id="dele" value="刪除"></td>
 	</tr>
