@@ -8,6 +8,7 @@ import org.json.JSONException;
 
 import android.app.Activity;
 import android.app.AlertDialog.Builder;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -195,6 +196,13 @@ public class CRMS extends Activity {
     	
     	
     	
+    }
+    public void queryQR(View cvView){
+    	Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+        intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
+        startActivityForResult(intent, 0);
+
+        
     }
     public void queryBack(View cvView){
     	setContentView(R.layout.menu);
