@@ -141,7 +141,7 @@ public class CRMS extends Activity {
 				passwdin.setText("");
 				currentUser = null;
 				Builder alertDialog = new Builder(CRMS.this) ;
-	     	    alertDialog.setMessage("fail!").show();
+	     	    alertDialog.setMessage("帳號密碼錯誤").show();
 	     	   
 			}
 		} catch (ClientProtocolException e) {
