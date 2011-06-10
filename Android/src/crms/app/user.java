@@ -189,7 +189,7 @@ public class user {
 		}
 	}
 	
- 	public boolean login(server s) throws ClientProtocolException, IOException {
+ 	public boolean login(server s) throws ClientProtocolException, IOException, org.apache.http.ParseException, JSONException {
 		HttpGet httpRequest = new HttpGet(s.URLs);
 		/* 發出HTTP request */
 		/* 取得HTTP response */
@@ -203,6 +203,7 @@ public class user {
 		if (httpResponse.getStatusLine().getStatusCode() == 200) {
 			//登入成功
 			_DefaultServer = s;
+			_locationList = getLocationList();
 			_isLogined = true;
 
 		} else if (httpResponse.getStatusLine().getStatusCode() == 401) {
