@@ -30,10 +30,10 @@ public final class R {
         public static final int editText3=0x7f050010;
         public static final int editText4=0x7f050015;
         public static final int eqDorm=0x7f050011;
-        public static final int expandableListView1=0x7f05001a;
         public static final int imageButton1=0x7f050020;
         public static final int imageView1=0x7f050028;
         public static final int linearLayout1=0x7f050001;
+        public static final int listView1=0x7f05001a;
         public static final int newItemDorm=0x7f050025;
         public static final int newItemEqid=0x7f050022;
         public static final int newItemName=0x7f050023;

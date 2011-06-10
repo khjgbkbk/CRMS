@@ -11,7 +11,7 @@
 					<Spinner android:id="@+id/spinner1" android:layout_width="wrap_content" android:layout_height="60dip"></Spinner>
 				</TableRow>
 				<TableRow android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/tableRow2">
-					<ExpandableListView android:layout_width="fill_parent" android:id="@+id/expandableListView1" android:layout_height="wrap_content"></ExpandableListView>
+					<ListView android:id="@+id/listView1" android:layout_height="wrap_content" android:layout_width="fill_parent"></ListView>
 				</TableRow>
 				<TableRow android:id="@+id/tableRow3" android:layout_height="wrap_content" android:layout_width="fill_parent">
 					<Button android:textSize="25dip" android:layout_weight="1" android:id="@+id/button1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="listBack" android:text="Back"></Button>
