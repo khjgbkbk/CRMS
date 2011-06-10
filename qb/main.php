@@ -108,7 +108,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			<table style="position:absolute; right:13px; top:13px; z-index:0; overflow:hidden; border: 3px dotted rgb(109, 2, 107);">
 				<tbody>
 				<td>
-					&nbsp&nbsp Welcome <?php echo $_SESSION["loginid"]; ?> &nbsp&nbsp
+					&nbsp&nbsp Welcome <?php echo htmlspecialchars($_SESSION["loginid"]); ?> &nbsp&nbsp
 				</td>
 				<td>
 					&nbsp&nbsp<a STYLE="text-decoration: none" href='./logout.php'>Log out</a>&nbsp&nbsp
