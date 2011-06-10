@@ -201,22 +201,7 @@ public class CRMS extends Activity {
     	Intent intent = new Intent("com.google.zxing.client.android.SCAN");
         intent.setPackage("com.google.zxing.client.android");
         intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
-        startActivityForResult(intent, 1);
-
-        EditText eqId = (EditText) findViewById(R.id.queEqid);
-        @Override
-    	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-    		// TODO Auto-generated method stub
-    		super.onActivityResult(requestCode, resultCode, data);
-     
-    		if (requestCode == 1) {	//startActivityForResult回傳值
-    			if (resultCode == RESULT_OK) {
-    				String contents = data.getStringExtra("SCAN_RESULT");	//取得QR Code內容
-    				eqId.setText(contents);
-    			}
-    		}
-    	}
-        
+        startActivityForResult(intent, 1); 
     }
     public void queryBack(View cvView){
     	setContentView(R.layout.menu);
@@ -284,7 +269,14 @@ public class CRMS extends Activity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
-		super.onActivityResult(requestCode, resultCode, data);
+		super.onActivityResult(requestCode, resultCode, data);super.onActivityResult(requestCode, resultCode, data);
+		EditText eqId = (EditText) findViewById(R.id.queEqid);
+		if (requestCode == 1) {	//startActivityForResult回傳值
+			if (resultCode == RESULT_OK) {
+				String contents = data.getStringExtra("SCAN_RESULT");	//取得QR Code內容
+				eqId.setText(contents);
+			}
+		}
 	}
     
 }
