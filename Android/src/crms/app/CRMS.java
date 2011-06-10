@@ -2,10 +2,13 @@ package crms.app;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.http.client.ClientProtocolException;
 import org.json.JSONException;
 
+import android.R.string;
 import android.app.Activity;
 import android.app.AlertDialog.Builder;
 import android.content.Intent;
@@ -13,7 +16,9 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 public class CRMS extends Activity {
     /** Called when the activity is first created. */
@@ -208,11 +213,19 @@ public class CRMS extends Activity {
     /*new item*/
     public void goNew(View cvView){
     	setContentView(R.layout.newitem);
+    	Spinner spinner_d = (Spinner) findViewById(R.id.newItemDorm);
+    	List<String> list = new ArrayList<String>();
+    	int tmp = 
+    	location [] tmpLList = currentUser.getLocationList();
+    	
+    	ArrayAdapter<string> adapter = new ArrayAdapter<string>(this,android.R.layout.simple_spinner_item,currentUser);
+    	adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    	spinner_d.setAdapter(adapter);
     }
     public void newSubmit(View cvView){
     	equipment currentEquip = new equipment();
     	EditText newItemName = (EditText) findViewById(R.id.newItemName);
-    	//EditText newItemDorm = (EditText) findViewById(R.id.newItemDorm);
+    	EditText newItemDorm = (EditText) findViewById(R.id.newItemDorm);
     	EditText newItemEqid = (EditText) findViewById(R.id.newItemEqid);
     	EditText newItemPrice = (EditText) findViewById(R.id.newItemPrice);
     	
