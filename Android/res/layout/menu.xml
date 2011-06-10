@@ -32,6 +32,9 @@
 						android:textSize="25dip" android:layout_weight="1" android:id="@+id/button3"
 						android:onClick="goRm" android:layout_width="wrap_content"></Button>
 				</TableRow>
+				<TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/tableRow6">
+					<Button android:onClick="goList" android:text="List" android:id="@+id/button5" android:layout_height="wrap_content" android:layout_width="fill_parent" android:textSize="25dip" android:layout_weight="1"></Button>
+				</TableRow>
 				<TableRow android:layout_width="wrap_content"
 					android:layout_height="wrap_content" android:id="@+id/tableRow4">
 					<Button android:text="Logout" android:linksClickable="true"
