@@ -1,5 +1,4 @@
 <?php
-			$sql = "select * from ".$db_equip." left join ".$db_building." on ".$db_equip.".dorm=".$db_building.".index where dorm = '{$ask['dorm']}' order by {$ask['sort']}";
 	function funcQuery($ask){
 		include("mysql_connect.php");
 
