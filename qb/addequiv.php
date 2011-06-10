@@ -12,6 +12,11 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			alert('請輸入器材名稱!');
 			return;
 		}
+		if( $("select[name='Equivplace']").attr('value') == "-1" )
+		{
+			alert('請選擇器材位置!');
+			return;
+		}
 		$.ajax({
 			url: 'addequivto.php',
 			type: 'POST',
@@ -68,6 +73,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		<td>位置:</td>
 		<td>
 		<select type="text" name="Equivplace">
+		<option value="-1">請選擇</option>
 <?php 		
 		include('../database/fBuilding.php');
 		$location = funcBuilding(NULL);
