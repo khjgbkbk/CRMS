@@ -71,7 +71,19 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	</tr>
 	<tr>
 		<td>位置:</td>
-		<td><input type="text" name="Equivplace"></td>
+		<td><select type="text" name="Equivplace">
+<?php 		
+		include('../database/fBuilding.php');
+		$location = funcBuilding(NULL);
+		foreach( $location['data'] as $key )
+		{
+?>
+			<option value="<?php echo $key['index']; ?>"><?php echo $key['building']; ?></option>
+<?php
+		}
+?>
+	</select>
+	</td>
 	</tr>
 	<tr>
 		<td>價錢:</td>
