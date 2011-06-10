@@ -105,7 +105,11 @@ public class CRMS extends Activity {
         //向左
         //  Builder alertDialog = new Builder(CRMS.this) ;
         //   alertDialog.setMessage("TEST").show();
-    		setContentView(R.layout.menu);
+    		Spinner spinner_d = (Spinner) findViewById(R.id.newItemDorm);
+        	long tmp = spinner_d.getSelectedItemId();
+          Builder alertDialog = new Builder(CRMS.this) ;
+               alertDialog.setMessage(Long.toString(tmp)).show();
+    		///	setContentView(R.layout.menu);
             return (true);
         }
         if (keyCode == KeyEvent.KEYCODE_MENU) {
@@ -230,16 +234,8 @@ public class CRMS extends Activity {
     	setContentView(R.layout.newitem);
     	/*設定spinner*/
     	Spinner spinner_d = (Spinner) findViewById(R.id.newItemDorm);
-    	List<String> list = new ArrayList<String>();
-    	location[] tmpLList;
 		try {
-			tmpLList = currentUser.getLocationList();
-		
-    	int tmp = tmpLList.length;
-    	for(int i=0;i<tmp;++i){
-    		list.add(tmpLList[i].toString());
-    	}
-    	ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,list);
+    	ArrayAdapter<location> adapter = new ArrayAdapter<location>(this,android.R.layout.simple_spinner_item,currentUser.getLocationList());
     	adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
     	spinner_d.setAdapter(adapter);
     	//spinner_d.getSelectedItemId()
