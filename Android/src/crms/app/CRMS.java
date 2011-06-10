@@ -101,8 +101,8 @@ public class CRMS extends Activity {
     public boolean onKeyDown(int keyCode, KeyEvent msg) {
            if (keyCode == KeyEvent.KEYCODE_BACK) {
                //向左
-        	   Builder alertDialog = new Builder(CRMS.this) ;
-        	   alertDialog.setMessage("TEST").show();
+        	 //  Builder alertDialog = new Builder(CRMS.this) ;
+        	//   alertDialog.setMessage("TEST").show();
            	setContentView(R.layout.menu);
                   return (true);
               }
