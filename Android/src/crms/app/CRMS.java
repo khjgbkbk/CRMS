@@ -366,8 +366,8 @@ public class CRMS extends Activity {
 			str[i] = eqList[i].name();			
 		}
 		
-		//ArrayAdapter<equipment> adapter = new ArrayAdapter<equipment>(this,android.R.layout.simple_list_item_1,eqList);
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,str);
+		ArrayAdapter<equipment> adapter = new ArrayAdapter<equipment>(this,android.R.layout.simple_list_item_1,eqList);
+		//ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,str);
 		
 		lvList.setAdapter(adapter);	
     	
