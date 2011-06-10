@@ -10,7 +10,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	{
 		if( $("input[name='Equivid']").attr('value') == "" )
 		{
-			alert('請輸入編號!');
+			$('div#message').html('請輸入編號!');
 			return;
 		}
 		$.ajax({
