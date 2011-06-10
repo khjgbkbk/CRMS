@@ -106,9 +106,9 @@ public class CRMS extends Activity {
         //  Builder alertDialog = new Builder(CRMS.this) ;
         //   alertDialog.setMessage("TEST").show();
     		Spinner spinner_d = (Spinner) findViewById(R.id.newItemDorm);
-        	long tmp = spinner_d.getSelectedItemId();
+        	location tmp = (location) spinner_d.getSelectedItem();
           Builder alertDialog = new Builder(CRMS.this) ;
-               alertDialog.setMessage(Long.toString(tmp)).show();
+               alertDialog.setMessage(tmp.toString()).show();
     		///	setContentView(R.layout.menu);
             return (true);
         }
