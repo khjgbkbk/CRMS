@@ -67,6 +67,38 @@ public class user {
 			}
 	}
 
+	public equipment [] getEquipmentList(location local) throws org.apache.http.ParseException, IOException, JSONException, ParseException{
+		equipment [] ans = null;
+		HttpGet httpRequest 
+		= new HttpGet(_DefaultServer.URLs + "/location/" + local._id);
+		//HttpClient.getCredentialsProvider().setCredentials(
+		//		_DefaultServer._authScope,
+		//		getUsernamePasswordCredentials());
+		HttpResponse httpResponse = HttpClient.execute(httpRequest);
+		
+
+		/* 若狀態碼為200 ok */
+		if (httpResponse.getStatusLine().getStatusCode() == 200) {
+			/* 取出回應字串 */
+			String strResult = EntityUtils.toString(httpResponse.getEntity());
+
+			JSONArray ja = new JSONArray(strResult);
+			int tmpLength =ja.length();
+			ans = new equipment[tmpLength];
+			for(int i=0;i<tmpLength;i++){
+				ans[i] = new equipment(ja.getJSONObject(i));
+			}
+			
+			return ans;
+	      //  return new equipment(new JSONObject(strResult));
+		} else if (httpResponse.getStatusLine().getStatusCode() == 401) {
+			return null;
+		}else{
+			return null;
+		}
+		
+	}
+	
 	public equipment newEquipment(equipment equip) throws JSONException, ClientProtocolException, IOException{
 		if(equip == null){
 			return null;
