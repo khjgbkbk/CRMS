@@ -48,8 +48,9 @@
 					</TableRow>
 					<TableRow android:id="@+id/tableRow8"
 						android:layout_width="wrap_content" android:layout_height="wrap_content">
-						<EditText android:layout_weight="20" android:id="@+id/newItemDorm"
-							android:layout_height="60dip"></EditText>
+						<Spinner android:layout_width="fill_parent" android:id="@+id/newItemDorm" android:layout_height="70dip">
+						
+						</Spinner>
 					</TableRow>
 					<TableRow android:id="@+id/tableRow9"
 						android:layout_width="fill_parent" android:layout_height="fill_parent">
