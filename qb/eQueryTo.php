@@ -9,7 +9,6 @@
 	}
 	else
 	{
-		$data = $return['data'];
 		echo json_encode($return['data']);
 		exit;
 	}

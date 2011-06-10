@@ -22,7 +22,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			{	
 				return;
 			}
-			var id = $(this).parents("tr").find("td:eq(2)").html();
+			var id = $(this).parents("tr").find("td:eq(0)").html();
 			$.ajax({
 				url: 'delequiv.php',
 				type: 'POST',
@@ -71,6 +71,36 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			
 		});
 	}
+	function select()
+	{
+		$('select#place').change(function(){
+			var value = $(this).val();
+			$('div#ctr tbody').html('');
+			$.ajax({
+				url: 'equivListBy.php',
+				type: 'POST',
+				data: {
+					place: value,
+				},
+				dataType: "json",
+				error: function(xhr) {
+					alert('Ajax request failure');
+				},
+				success: function(result) {
+					switch (result) {
+					case "fail":
+						break;
+					default:
+						$.each(result,function(i,v){
+							$('div#ctr tbody').append('<tr><td>'+v["id"]+'</td><td>'+v["name"]+'</td><td>'+v["building"]+'</td><td>'+v["price"]+'</td><td>'+v["place"]+'</td><td id="btn"><input type="button" id="edit" value="編輯"></td><td id="btn"><input type="button" id="dele" value="刪除"></td></tr>');
+						});
+						break;
+						
+					}
+				}
+			});
+		});
+	}
 </script>
 
 
@@ -81,6 +111,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	{
 		dele();
 		edit();
+		select();
 	})
 </script>
 
@@ -103,8 +134,24 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		width:		10px;
 	}
 </style>
+
+<div align="center" id="hd">
 器材列表
+<select type="text" id="place">
+<option value="-1">全部</option>
+<?php 		
+		include('../database/fBuilding.php');
+		$location = funcBuilding(NULL);
+		foreach( $location['data'] as $key )
+		{
+?>
+			<option value="<?php echo $key['index']; ?>"><?php echo $key['building']; ?></option>
+<?php
+		}
+?>
+</select>
 <br><br>
+</div>
 <div align="center" id="ctr">
 	<table>
 	<thead>
