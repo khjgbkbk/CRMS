@@ -173,20 +173,6 @@ public class CRMS extends Activity {
 
     	setContentView(R.layout.equipment);
     	
-    	/*設定spinner
-    	Spinner spinner_d = (Spinner) findViewById(R.id.eqDorm);
-    	List<String> list = new ArrayList<String>();
-    	location[] tmpLList;
-		tmpLList = currentUser.getLocationList();
-		
-    	int tmp = tmpLList.length;
-    	for(int i=0;i<tmp;++i){
-    		list.add(tmpLList[i].toString());
-    	}
-    	ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,list);
-    	adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-    	spinner_d.setAdapter(adapter);
-    	*/
 		EditText eT1 = (EditText) findViewById(R.id.editText1);
     	try {
     		eT1.setText("IN");
