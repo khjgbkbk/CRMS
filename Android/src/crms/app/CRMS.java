@@ -167,6 +167,8 @@ public class CRMS extends Activity {
     	EditText uidin = (EditText) findViewById(R.id.queEqid);
 
     	setContentView(R.layout.equipment);
+    	
+    	
 		EditText eT1 = (EditText) findViewById(R.id.editText1);
     	try {
     		eT1.setText("IN");
@@ -242,7 +244,7 @@ public class CRMS extends Activity {
     	ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,list);
     	adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
     	spinner_d.setAdapter(adapter);
-    	//spinner_d.getSelectedItemId()
+    	//spinner_d.getSelectedItemId();
     	
 		} catch (org.apache.http.ParseException e) {
 			// TODO Auto-generated catch block
