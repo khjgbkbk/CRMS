@@ -23,8 +23,8 @@ public final class R {
         public static final int button1=0x7f050017;
         public static final int button2=0x7f050018;
         public static final int button3=0x7f05001d;
-        public static final int button4=0x7f05001e;
-        public static final int button5=0x7f05001f;
+        public static final int button4=0x7f05001f;
+        public static final int button5=0x7f05001e;
         public static final int editText1=0x7f050008;
         public static final int editText2=0x7f05000c;
         public static final int editText3=0x7f050010;
