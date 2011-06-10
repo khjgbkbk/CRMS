@@ -56,7 +56,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 				return;
 			}
 			var editname = $(this).parents("tr").find("td:eq(1)").html();
-			var editplace = $(this).parents("tr").find("td:eq(2)").html();
+			var editplace = $(this).parents("tr").find("td:eq(5)").html();
 			var editid = $(this).parents("tr").find("td:eq(0)").html();
 			var editprice = $(this).parents("tr").find("td:eq(3)").html();
 			var data = {
@@ -133,6 +133,9 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	div#ctr tbody td#btn{
 		width:		10px;
 	}
+	td.hid{
+		display: 	none;
+	}
 </style>
 
 <div align="center" id="hd">
@@ -161,6 +164,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			<td>位置</td>
 			<td>價錢</td>
 			<td>加入時間</td>
+			<td class="hid">00</td>
 			<td id="btn">編輯</td>
 			<td id="btn">刪除</td>
 		</tr>
@@ -177,6 +181,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		<td><?php echo htmlspecialchars ($data[$i]['building']	); ?></td>
 		<td><?php echo htmlspecialchars ($data[$i]['price']	); ?></td>
 		<td><?php echo htmlspecialchars ($data[$i]['date']	); ?></td>
+		<td class="hid"><?php echo htmlspecialchars ($data[$i]['dorm']	); ?></td>
 		<td id="btn"><input type="button" id="edit" value="編輯"></td>
 		<td id="btn"><input type="button" id="dele" value="刪除"></td>
 	</tr>
