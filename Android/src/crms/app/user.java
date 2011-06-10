@@ -34,6 +34,7 @@ public class user {
 	server _DefaultServer;
 	Boolean _isLogined = false;
 	DefaultHttpClient HttpClient = new DefaultHttpClient();
+	location [] _locationList;
 	
 	public user() {
 	}
@@ -170,14 +171,20 @@ public class user {
 		return null;
 	}
 	
+	public location [] getLocationList(){
+		
+		
+		
+		return _locationList;
+	}
+	
  	public boolean login(server s) throws ClientProtocolException, IOException {
 		HttpGet httpRequest = new HttpGet(s.URLs);
 		/* 發出HTTP request */
 		/* 取得HTTP response */
-		DefaultHttpClient HttpClient = new DefaultHttpClient();
-		HttpClient.getCredentialsProvider().setCredentials(
-				s._authScope,
-				getUsernamePasswordCredentials());
+	//	HttpClient.getCredentialsProvider().setCredentials(
+	//			s._authScope,
+	//			getUsernamePasswordCredentials());
 		addAuth(HttpClient);
 		HttpResponse httpResponse = HttpClient.execute(httpRequest);
 
@@ -247,8 +254,8 @@ public class user {
 		public void process(HttpRequest request, HttpContext context)
 				throws HttpException, IOException {
 			// TODO Auto-generated method stub
-			String username = "philipz";
-			String password = "25587911";
+			String username = "admin";
+			String password = "admin";
 			UsernamePasswordCredentials ucreds = new UsernamePasswordCredentials(
 			username, password);
 			request.addHeader(new BasicScheme().authenticate(ucreds,
