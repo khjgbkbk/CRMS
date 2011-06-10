@@ -246,20 +246,19 @@ public class user {
 	}
 
 	
-	private static DefaultHttpClient addAuth(DefaultHttpClient httpclient){
+	private DefaultHttpClient addAuth(DefaultHttpClient httpclient){
 		HttpRequestInterceptor preemptiveAuth = new HttpRequestInterceptor() {
-
 
 		@Override
 		public void process(HttpRequest request, HttpContext context)
 				throws HttpException, IOException {
 			// TODO Auto-generated method stub
-			String username = "admin";
-			String password = "admin";
+
+			String username = _Username;
+			String password = _Password;
 			UsernamePasswordCredentials ucreds = new UsernamePasswordCredentials(
 			username, password);
-			request.addHeader(new BasicScheme().authenticate(ucreds,
-			request));
+			request.addHeader(new BasicScheme().authenticate(ucreds,request));
 		}
 
 		};
