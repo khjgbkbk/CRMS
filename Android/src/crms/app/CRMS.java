@@ -2,10 +2,13 @@ package crms.app;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.http.client.ClientProtocolException;
 import org.json.JSONException;
 
+import android.R.string;
 import android.app.Activity;
 import android.app.AlertDialog.Builder;
 import android.content.Intent;
@@ -13,7 +16,9 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 public class CRMS extends Activity {
     /** Called when the activity is first created. */
@@ -144,6 +149,12 @@ public class CRMS extends Activity {
     		Builder alertDialog = new Builder(CRMS.this) ;
      	    alertDialog.setMessage("JSON解析錯誤").show();
 			e.printStackTrace();
+		} catch (org.apache.http.ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
     }
     /*Sign*/
@@ -223,11 +234,34 @@ public class CRMS extends Activity {
     /*new item*/
     public void goNew(View cvView){
     	setContentView(R.layout.newitem);
+    	Spinner spinner_d = (Spinner) findViewById(R.id.newItemDorm);
+    	List<String> list = new ArrayList<String>();
+    	location[] tmpLList;
+		try {
+			tmpLList = currentUser.getLocationList();
+		
+    	int tmp = tmpLList.length;
+    	for(int i=0;i<tmp;++i){
+    		list.add(tmpLList[i].toString());
+    	}
+    	ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,list);
+    	adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    	spinner_d.setAdapter(adapter);
+		} catch (org.apache.http.ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
     public void newSubmit(View cvView){
     	equipment currentEquip = new equipment();
     	EditText newItemName = (EditText) findViewById(R.id.newItemName);
-    	//EditText newItemDorm = (EditText) findViewById(R.id.newItemDorm);
+    	EditText newItemDorm = (EditText) findViewById(R.id.newItemDorm);
     	EditText newItemEqid = (EditText) findViewById(R.id.newItemEqid);
     	EditText newItemPrice = (EditText) findViewById(R.id.newItemPrice);
     	
