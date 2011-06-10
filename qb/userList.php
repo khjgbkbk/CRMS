@@ -76,6 +76,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	}
 	table#data td{
 		width:		100px;
+		text-align:	center;
 	}
 	table#data td#btn{
 		width:		10px;
@@ -91,6 +92,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			<td>使用者名稱</td>
 			<td id="btn">刪除</td>
 		</tr>
+	</thead>
 	<tbody>
 <?php
 		for($i=0 ; $i<$row ; $i++)
