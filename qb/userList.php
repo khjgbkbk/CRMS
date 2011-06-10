@@ -5,7 +5,7 @@ session_start();
 if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 {
 	include("../database/fUsers.php");
-	$re = funcUsers(NULL);
+	$re = funcUsers(array("sort" => 'no'));
 	if( $re["success"] == true )
 	{
 		$data = $re["data"];

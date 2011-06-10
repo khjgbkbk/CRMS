@@ -5,7 +5,7 @@ session_start();
 if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 {
 	include("../database/fList.php");
-	$re = funcList(NULL);
+	$re = funcList(array("sort" => 'id'));
 	if( $re["success"] == true )
 	{
 		$data = $re["data"];
