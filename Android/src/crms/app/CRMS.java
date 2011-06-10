@@ -134,6 +134,7 @@ public class CRMS extends Activity {
 				uidin.setText("fail!");
 				passwdin.setText("");
 				currentUser = null;
+				setContentView(R.layout.qbout);
 			}
 		} catch (ClientProtocolException e) {
 
