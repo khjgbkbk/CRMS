@@ -13,19 +13,13 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			$('div.message').html('請輸入器材名稱!');
 			return;
 		}
-		if( $("input[name='Equivplace']").attr('value') == "" )
-		{
-			$('div.message').html('請輸入器材所在位置!');
-			return;
-		}
 		$.ajax({
 			url: 'eEditTo.php',
 			type: 'POST',
 			data: {
 				addEquivName: 	$("input[name='Equivname']").attr('value'),
-				addEquivPlace: 	$("input[name='Equivplace']").attr('value'),
-				addEquivId: 	$("input[name='Equivid']").attr('value'),
-				addEquivPrice: 	$("input[name='Equivprice']").attr('value'),
+				addEquivPlace: 	$("select[name='Equivplace']").attr('value'),
+				addEquivPrice: 	$("input[name='Equivprice']").attr('value')
 			},
 			dataType: "json",
 			error: function(xhr) {
@@ -68,7 +62,29 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	</tr>
 	<tr>
 		<td>位置:</td>
-		<td><input type="text" name="Equivplace" value="<?php echo $_POST['place'];?>"></td>
+		<td>
+		<select type="text" name="Equivplace">
+<?php 		
+		include('../database/fBuilding.php');
+		$location = funcBuilding(NULL);
+		foreach( $location['data'] as $key )
+		{
+			if($_POST['place']==$key['index'])
+			{
+?>
+				<option selected value="<?php echo $key['index']; ?>"><?php echo $key['building']; ?></option>
+<?php
+			}
+			else
+			{
+?>
+				<option value="<?php echo $key['index']; ?>"><?php echo $key['building']; ?></option>
+<?php	
+			}
+		}
+?>
+		</select>
+		</td>
 	</tr>
 	<tr>
 		<td>編號:</td>

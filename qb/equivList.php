@@ -29,7 +29,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 				url: 'delequiv.php',
 				type: 'POST',
 				data: {
-					ID: id,
+					ID: id
 				},
 				dataType: "json",
 				error: function(xhr) {

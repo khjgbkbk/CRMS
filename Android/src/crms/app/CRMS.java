@@ -266,7 +266,7 @@ public class CRMS extends Activity {
     public void qbout(View cvView){
     	setContentView(R.layout.qbout);
     }
-    /*QRcode scan*/
+    /*Zxing QRcode scan*/
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub

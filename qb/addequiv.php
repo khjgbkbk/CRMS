@@ -12,17 +12,12 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			alert('請輸入器材名稱!');
 			return;
 		}
-		if( $("input[name='Equivplace']").attr('value') == "" )
-		{
-			alert('請輸入器材所在位置!');
-			return;
-		}
 		$.ajax({
 			url: 'addequivto.php',
 			type: 'POST',
 			data: {
 				addEquivName: 	$("input[name='Equivname']").attr('value'),
-				addEquivPlace: 	$("input[name='Equivplace']").attr('value'),
+				addEquivPlace: 	$("select[name='Equivplace']").attr('value'),
 				addEquivPrice: 	$("input[name='Equivprice']").attr('value')
 			},
 			dataType: "json",
@@ -71,7 +66,20 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	</tr>
 	<tr>
 		<td>位置:</td>
-		<td><input type="text" name="Equivplace"></td>
+		<td>
+		<select type="text" name="Equivplace">
+<?php 		
+		include('../database/fBuilding.php');
+		$location = funcBuilding(NULL);
+		foreach( $location['data'] as $key )
+		{
+?>
+			<option value="<?php echo $key['index']; ?>"><?php echo $key['building']; ?></option>
+<?php
+		}
+?>
+		</select>
+		</td>
 	</tr>
 	<tr>
 		<td>價錢:</td>

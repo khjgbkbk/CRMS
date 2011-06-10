@@ -3,7 +3,7 @@
 		include("mysql_connect.php");
 
 		if(!isset($ask['sort'])) $ask['sort'] = "building";
-		$sql = "select * from ".$db_building." order by '{$ask['sort']}'";
+		$sql = "select * from ".$db_building." order by ".$ask['sort'];
 		$result = mysql_query($sql) or die(mysql_error());
 		while($row = mysql_fetch_assoc($result)){
 			$data[] = $row;
