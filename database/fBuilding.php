@@ -12,10 +12,10 @@
 		while($row = mysql_fetch_row($result)){
 			$data[] = $row;
 		}
-		if( $row_size == 0 ){
-			return array("success" => false, "status" => "nothing found on database");
-		}else{
-			return array("success" => true, "data" => $data);
-		}
+	//	if( count($data) == 0 ){
+	//		return array("success" => false, "status" => "nothing found on database");
+	//	}else{
+		return array("success" => true, "data" => $data);
+	//	}
 	}
 ?>
