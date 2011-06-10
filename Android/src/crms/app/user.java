@@ -24,6 +24,7 @@ import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -160,11 +161,32 @@ public class user {
 		return null;
 	}
 	
-	public location [] getLocationList(){
+	public location [] getLocationList() throws JSONException, org.apache.http.ParseException, IOException{
+		HttpGet httpRequest 
+		= new HttpGet(_DefaultServer.URLs + "/location");
+		//HttpClient.getCredentialsProvider().setCredentials(
+		//		_DefaultServer._authScope,
+		//		getUsernamePasswordCredentials());
+		HttpResponse httpResponse = HttpClient.execute(httpRequest);
 		
-		
-		
-		return _locationList;
+
+		/* 若狀態碼為200 ok */
+		if (httpResponse.getStatusLine().getStatusCode() == 200) {
+			/* 取出回應字串 */
+			String strResult = EntityUtils.toString(httpResponse.getEntity());
+			
+			JSONArray res = new JSONArray(strResult);
+			int locationLength = res.length();
+			_locationList = new location[locationLength];
+			for(int i=0;i<locationLength; ++i){
+				_locationList[i] = new location(res.getJSONObject(i));
+			}
+	        return _locationList;
+		} else if (httpResponse.getStatusLine().getStatusCode() == 401) {
+			return null;
+		}else{
+			return null;
+		}
 	}
 	
  	public boolean login(server s) throws ClientProtocolException, IOException {
