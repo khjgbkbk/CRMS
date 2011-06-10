@@ -4,9 +4,9 @@
 		include("mysql_connect.php");
 
 		if(!isset($ask['sort'])) $ask['sort'] = "building";
-
 		$sql = "select * from ".$db_building." order by '{$ask['sort']}'";
-		$result = mysql_query($sql) or die(mysql_error());
+	print_r( $sql);
+	$result = mysql_query($sql) or die(mysql_error());
 		//$row_size = 0;
 
 		while($row = mysql_fetch_row($result)){
