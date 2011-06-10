@@ -9,8 +9,6 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	if( $re["success"] == true )
 	{
 		$data = $re["data"];
-		$row = $re["row_size"];
-		$col = $re["column_size"];
 ?>
 
 <!-- Functions -->
@@ -116,18 +114,16 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	</thead>
 	<tbody>
 <?php
+		$row = count($data);
 		for($i=0 ; $i<$row ; $i++)
 		{
 ?>
 	<tr id="<?php echo $i; ?>" >
-<?php
-			for($j=0 ; $j<$col ; $j++)
-			{
-?>
-		<td><?php echo $data[$i][$j]; ?></td>	
-<?php
-			}
-?>
+		<td><?php echo $data[$i]['name']; ?></td>
+		<td><?php echo $data[$i]['dorm']; ?></td>
+		<td><?php echo $data[$i]['id']; ?></td>
+		<td><?php echo $data[$i]['price']; ?></td>
+		<td><?php echo $data[$i]['date']; ?></td>
 		<td><input type="button" id="edit" value="編輯"></td>
 		<td><input type="button" id="dele" value="刪除"></td>
 	</tr>

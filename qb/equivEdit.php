@@ -17,9 +17,10 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			url: 'eEditTo.php',
 			type: 'POST',
 			data: {
-				addEquivName: 	$("input[name='Equivname']").attr('value'),
-				addEquivPlace: 	$("select[name='Equivplace']").attr('value'),
-				addEquivPrice: 	$("input[name='Equivprice']").attr('value')
+				EquivName: 		$("input[name='Equivname']").attr('value'),
+				EquivPlace: 	$("select[name='Equivplace']").attr('value'),
+				EquivId: 		$("input[name='Equivid']").attr('value'),
+				EquivPrice: 	$("input[name='Equivprice']").attr('value')
 			},
 			dataType: "json",
 			error: function(xhr) {
@@ -28,14 +29,14 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			success: function(result) {
 				switch (result) {
 				case "success":
-					alert('Successed !!');
+					alert('修改成功 !');
 					document.location.href = "./";
 					break;
 				default:
 					$('div.message').html(result);
 					break;
 				}
-			},
+			}
 		});
 	}
 </script>
@@ -101,7 +102,10 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	</tbody>
 	</table>
 </div>
+<br><br>
+<div class="message" align="center">
 
+</div>
 <?php	
 }
 ?>
