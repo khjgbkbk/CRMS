@@ -67,6 +67,13 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 
 <!-- CSS -->
 <style type="text/css">
+	table#data
+	{
+		padding-top:   	9px; 
+		padding-right:  9px; 
+		padding-bottom: 9px; 
+		padding-left:   9px;
+	}
 	table#data td{
 		width:		100px;
 		
