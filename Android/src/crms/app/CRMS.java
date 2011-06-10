@@ -164,13 +164,7 @@ public class CRMS extends Activity {
 			e.printStackTrace();
 		}
     }
-    /*Sign*/
-    public void sign(View cvView){
-    	setContentView(R.layout.newid);
-    }
-    public void newID_Cancel(View cvView){
-    	setContentView(R.layout.main);
-    }
+    
     /*query*/
     public void goQuery(View cvView){
     	setContentView(R.layout.query);
@@ -348,7 +342,7 @@ public class CRMS extends Activity {
 				queryEqId.setText(contents);
 			}
 		}
-		/*remove QR scan*/
+		/* remove QR scan */
 		else if (requestCode == 2) {	
 			if (resultCode == RESULT_OK) {
 				String contents = data.getStringExtra("SCAN_RESULT");	//取得QR Code內容
