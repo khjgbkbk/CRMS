@@ -62,11 +62,6 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	$(document).ready(function () 
 	{
 		dele();
-		
-		$('#edit').click(function()
-		{
-			edit();
-		});
 	})
 </script>
 

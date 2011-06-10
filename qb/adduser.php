@@ -59,6 +59,17 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	}
 </script>
 
+<script type="text/javascript">
+	var KEY_ENTER = 13;
+	$(document).ready(function () 
+	{
+		$('#Send').click(function()
+		{
+			send();
+		});
+	});
+</script>
+
 <div align="center" id="ctr">
 	新增使用者資料
 	<br><br>

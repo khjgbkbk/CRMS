@@ -84,24 +84,6 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	});
 </script>
 
-<script type="text/javascript">
-	var KEY_ENTER = 13;
-	$(document).ready(function () 
-	{
-		$('#Send').click(function()
-		{
-			send();
-		});
-	})
-	$(document).keydown(function(event){ 
-		//如果按 enter
-		if(event.keyCode == KEY_ENTER)
-		{
-			send();
-		}
-	});
-</script>
-
 <!-- CSS -->
 <style type="text/css">
 	ul#fir li{

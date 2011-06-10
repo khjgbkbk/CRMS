@@ -50,6 +50,16 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	}
 </script>
 
+<script type="text/javascript">
+	$(document).ready(function () 
+	{
+		$('#Send').click(function()
+		{
+			send();
+		});
+	});
+</script>
+
 新增器材
 <br><br>
 <div align="center" id="ctr">
