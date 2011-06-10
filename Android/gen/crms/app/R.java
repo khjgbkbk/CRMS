@@ -28,6 +28,7 @@ public final class R {
         public static final int editText2=0x7f05000c;
         public static final int editText3=0x7f050010;
         public static final int editText4=0x7f050015;
+        public static final int eqDorm=0x7f050011;
         public static final int imageButton1=0x7f05001d;
         public static final int imageView1=0x7f050025;
         public static final int linearLayout1=0x7f050001;
@@ -39,7 +40,6 @@ public final class R {
         public static final int queEqid=0x7f050026;
         public static final int rmEqId=0x7f050027;
         public static final int scrollView1=0x7f050000;
-        public static final int spinner1=0x7f050011;
         public static final int tableLayout1=0x7f050002;
         public static final int tableLayout2=0x7f05001e;
         public static final int tableRow1=0x7f050003;

@@ -52,7 +52,7 @@
 					<EditText android:textSize="25dip" android:id="@+id/editText3"
 						android:layout_width="fill_parent" android:layout_weight="1"
 						android:layout_height="60dip"></EditText>
-					<Spinner android:id="@+id/spinner1" android:layout_width="wrap_content" android:layout_height="60dip"></Spinner>
+					<Spinner android:layout_width="wrap_content" android:layout_height="60dip" android:id="@+id/eqDorm"></Spinner>
 				</TableRow>
 				<TableRow android:id="@+id/tableRow8" android:layout_width="wrap_content"
 					android:layout_height="wrap_content">
