@@ -46,6 +46,17 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	}
 </script>
 
+<script type="text/javascript">
+	var KEY_ENTER = 13;
+	$(document).ready(function () 
+	{
+		$('#Send').click(function()
+		{
+			send();
+		});
+	});
+</script>
+
 修改器材資訊
 <br><br>
 <div align="center">
