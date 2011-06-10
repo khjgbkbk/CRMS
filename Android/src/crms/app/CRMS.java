@@ -2,13 +2,9 @@ package crms.app;
 
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.http.client.ClientProtocolException;
 import org.json.JSONException;
-
-import android.R.string;
 import android.app.Activity;
 import android.app.AlertDialog.Builder;
 import android.content.Intent;
@@ -16,8 +12,10 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 
 public class CRMS extends Activity {
@@ -273,12 +271,12 @@ public class CRMS extends Activity {
     public void newSubmit(View cvView){
     	equipment currentEquip = new equipment();
     	EditText newItemName = (EditText) findViewById(R.id.newItemName);
-    	EditText newItemDorm = (EditText) findViewById(R.id.newItemDorm);
+    	Spinner newItemDorm = (Spinner) findViewById(R.id.newItemDorm);
     	EditText newItemEqid = (EditText) findViewById(R.id.newItemEqid);
     	EditText newItemPrice = (EditText) findViewById(R.id.newItemPrice);
     	
     	currentEquip.name(newItemName.getText().toString())
-    				.location(new location(newItemDorm.getText().toString()))
+    				.location((location)newItemDorm.getSelectedItem())
     				.price(Integer.parseInt(newItemPrice.getText().toString()));
     	
     	try {
@@ -327,9 +325,56 @@ public class CRMS extends Activity {
     public void qbout(View cvView){
     	setContentView(R.layout.qbout);
     }
+    /*listing*/
+    public void goList(View cvView){
+    	setContentView(R.layout.list);
+    	
+    	Spinner spinnerList = (Spinner) findViewById(R.id.spinner1);
+		try {
+			ArrayAdapter<location> adapter = new ArrayAdapter<location>(this,android.R.layout.simple_spinner_item,currentUser.getLocationList());
+			adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+			
+			spinnerList.setAdapter(adapter);
+			//spinner_d.getSelectedItemId();
+			spinnerList.setOnItemSelectedListener(spinnerListener);
+			
+			//監聽下拉式選單 是否被選擇
+			
+    	
+		} catch (org.apache.http.ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    public void listBack(View cvView){
+    	setContentView(R.layout.menu);
+    }
+
+    public void onListSpinnerSelected() throws org.apache.http.ParseException, IOException, JSONException, ParseException{
+    	Spinner spinnerList = (Spinner) findViewById(R.id.spinner1);
+		ListView lvList = (ListView) findViewById(R.id.listView1);
+		equipment [] eqList = currentUser.getEquipmentList((location)spinnerList.getSelectedItem());
+		int eqLength = eqList.length;
+		String str[] =new String[eqLength];
+		for(int i=0;i<eqLength;i++){
+			str[i] = eqList[i].name();			
+		}
+		
+		//ArrayAdapter<equipment> adapter = new ArrayAdapter<equipment>(this,android.R.layout.simple_list_item_1,eqList);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,str);
+		
+		lvList.setAdapter(adapter);	
+    	
+    }
     /*Zxing QRcode scan*/
 	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+ 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);super.onActivityResult(requestCode, resultCode, data);
 		/*startActivityForResult回傳值1*/
@@ -353,4 +398,34 @@ public class CRMS extends Activity {
 		}
 	}
     
+	private Spinner.OnItemSelectedListener spinnerListener= new Spinner.OnItemSelectedListener()
+	{
+	//如果被選擇
+	public void onItemSelected(AdapterView<?>adapterView, View v, int position, long id)
+	{
+		try {
+			onListSpinnerSelected();
+		} catch (org.apache.http.ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			
+		
+	}
+
+	//若是沒有選擇任何項目
+	public void onNothingSelected(AdapterView<?>adapterView)
+	{
+	}
+	};
+	
 }
