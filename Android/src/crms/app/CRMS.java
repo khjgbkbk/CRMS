@@ -212,7 +212,7 @@ public class CRMS extends Activity {
     public void newSubmit(View cvView){
     	equipment currentEquip = new equipment();
     	EditText newItemName = (EditText) findViewById(R.id.newItemName);
-    	EditText newItemDorm = (EditText) findViewById(R.id.newItemDorm);
+    	//EditText newItemDorm = (EditText) findViewById(R.id.newItemDorm);
     	EditText newItemEqid = (EditText) findViewById(R.id.newItemEqid);
     	EditText newItemPrice = (EditText) findViewById(R.id.newItemPrice);
     	
