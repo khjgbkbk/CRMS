@@ -1,7 +1,7 @@
 <?php
 	include("../database/fEdit.php");
 	
-	$EquivName 	= mysql_real_escape_string ( $_POST['EquivName']	);
+	$EquivName 	= mysql_real_escape_string ( $_POST['EquivName']);
 	$EquivPlace = mysql_real_escape_string ( $_POST['EquivPlace']);
 	$EquivId	= mysql_real_escape_string ( $_POST['EquivId']);
 	$EquivPrice = mysql_real_escape_string ( $_POST['EquivPrice']);
