@@ -59,6 +59,7 @@ public class equipment {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		//¶i¦æÂà´«
 		_date = sdf.parse(dateString);
+		_price = jsonObject.getInt("price");
 	}
 
 }

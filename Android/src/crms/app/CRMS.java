@@ -127,10 +127,22 @@ public class CRMS extends Activity {
 				currentUser = null;
 			}
 		} catch (ClientProtocolException e) {
-			uidin.setText("網路連線錯誤");
+
+    		Builder alertDialog = new Builder(CRMS.this) ;
+     	    alertDialog.setMessage("網路連線錯誤").show();
 			e.printStackTrace();
 		} catch (IOException e) {
-			uidin.setText("IO錯誤");
+
+    		Builder alertDialog = new Builder(CRMS.this) ;
+     	    alertDialog.setMessage("IO錯誤").show();
+			e.printStackTrace();
+		} catch (org.apache.http.ParseException e) {
+    		Builder alertDialog = new Builder(CRMS.this) ;
+     	    alertDialog.setMessage("封包解析錯誤").show();
+			e.printStackTrace();
+		} catch (JSONException e) {
+    		Builder alertDialog = new Builder(CRMS.this) ;
+     	    alertDialog.setMessage("JSON解析錯誤").show();
 			e.printStackTrace();
 		}
     }
@@ -158,7 +170,10 @@ public class CRMS extends Activity {
 				EditText eT2 = (EditText) findViewById(R.id.editText2);
 				EditText eT3 = (EditText) findViewById(R.id.editText3);
 				EditText eT4 = (EditText) findViewById(R.id.editText4);
-				eT1.setText(currentEquip.name());
+				eT1.setText(currentEquip.id());
+				eT2.setText(currentEquip.name());
+				eT3.setText(currentEquip.location().toString());
+				eT4.setText(Integer.toString(currentEquip.price()));
 				
 			}else{
 				//EditText eT1 = (EditText) findViewById(R.id.editText1);
