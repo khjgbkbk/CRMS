@@ -8,18 +8,12 @@
                 <Spinner android:layout_width="wrap_content" android:id="@+id/spinner1" android:layout_height="60dip"></Spinner>
             </TableRow>
             <TableRow android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/tableRow2">
-                <ListView android:layout_width="fill_parent" android:id="@+id/listView1" android:layout_height="wrap_content"></ListView>
-            </TableRow>
-            <TableRow android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/tableRow3">
-                <Button android:onClick="listBack" android:text="Back" android:id="@+id/button1" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textSize="25dip" android:layout_weight="1"></Button>
+                <LinearLayout android:id="@+id/linearLayout1" android:orientation="vertical" android:layout_height="wrap_content" android:layout_width="fill_parent" android:layout_weight="1">
+                    <ListView android:layout_width="fill_parent" android:id="@+id/listView1" android:layout_height="wrap_content" android:layout_weight="1"></ListView>
+                    <Button android:onClick="listBack" android:text="Back" android:id="@+id/button1" android:layout_height="wrap_content" android:textSize="25dip" android:layout_width="fill_parent"></Button>
+                </LinearLayout>
             </TableRow>
         </TableLayout>
     </RelativeLayout>
-	<ScrollView android:id="@+id/scrollView1"
-		android:layout_height="fill_parent" android:layout_width="fill_parent">
-		<LinearLayout android:id="@+id/linearLayout1"
-			android:layout_width="fill_parent" android:layout_height="fill_parent">
-		</LinearLayout>
-	</ScrollView>
 
 </LinearLayout>
