@@ -9,12 +9,12 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	{
 		if( $("input[name='Equivname']").attr('value') == "" )
 		{
-			$('div.message').html('請輸入器材名稱!');
+			alert('請輸入器材名稱!');
 			return;
 		}
 		if( $("input[name='Equivplace']").attr('value') == "" )
 		{
-			$('div.message').html('請輸入器材所在位置!');
+			alert('請輸入器材所在位置!');
 			return;
 		}
 		$.ajax({
@@ -23,8 +23,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			data: {
 				addEquivName: 	$("input[name='Equivname']").attr('value'),
 				addEquivPlace: 	$("input[name='Equivplace']").attr('value'),
-				addEquivId: 	$("input[name='Equivid']").attr('value'),
-				addEquivPrice: 	$("input[name='Equivprice']").attr('value'),
+				addEquivPrice: 	$("input[name='Equivprice']").attr('value')
 			},
 			dataType: "json",
 			error: function(xhr) {
@@ -38,7 +37,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 					break;
 				case "fail":
 					alert('Failed !!');
-					$('div#ctr tbody input[type="text"]').each(function{
+					$('div#ctr tbody input[type="text"]').each(function(){
 						$(this).attr({value:''});
 					});
 					break;
@@ -46,20 +45,20 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 					$('div.message').html(result);
 					break;
 				}
-			},
+			}
 		});
 	}
 </script>
 
 <script type="text/javascript">
 	var KEY_ENTER = 13;
-	$(document).ready(function () 
+	$(document).ready(function() 
 	{
 		$('#Send').click(function()
 		{
 			send();
 		});
-	})
+	});
 	$(document).keydown(function(event){ 
 		//如果按 enter
 		if(event.keyCode == KEY_ENTER)
@@ -81,10 +80,6 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	<tr>
 		<td>位置:</td>
 		<td><input type="text" name="Equivplace"></td>
-	</tr>
-	<tr>
-		<td>編號:</td>
-		<td><input type="text" name="Equivid"></td>
 	</tr>
 	<tr>
 		<td>價錢:</td>
