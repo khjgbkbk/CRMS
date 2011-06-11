@@ -252,15 +252,13 @@ public class CRMS extends Activity {
     /*new item*/
     public void goNew(View cvView){
     	setContentView(R.layout.newitem);
+    	
     	/*設定spinner*/
     	Spinner spinner_d = (Spinner) findViewById(R.id.newItemDorm);
 		try {
-    	ArrayAdapter<location> adapter = new ArrayAdapter<location>(this,android.R.layout.simple_spinner_item,currentUser.getLocationList());
-    	adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-    	spinner_d.setAdapter(adapter);
-    	//spinner_d.getSelectedItemId();
-
-    	
+	    	ArrayAdapter<location> adapter = new ArrayAdapter<location>(this,android.R.layout.simple_spinner_item,currentUser.getLocationList());
+	    	adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+	    	spinner_d.setAdapter(adapter);
 		} catch (org.apache.http.ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
