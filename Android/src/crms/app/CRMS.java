@@ -170,34 +170,48 @@ public class CRMS extends Activity {
     public void queryEnter(View cvView){
 
     	EditText uidin = (EditText) findViewById(R.id.queEqid);
-
-    	setContentView(R.layout.equipment);
     	
-    	/*設定spinner
-    	Spinner spinner_d = (Spinner) findViewById(R.id.eqDorm);
-    	List<String> list = new ArrayList<String>();
-    	location[] tmpLList;
-		tmpLList = currentUser.getLocationList();
+    	/*Set spinner*/
+    	setContentView(R.layout.equipment);
+    	Spinner spinnerDormList = (Spinner) findViewById(R.id.eqDorm);
+		ArrayAdapter<location> adapter;
+		try {
+			adapter = new ArrayAdapter<location>(this,android.R.layout.simple_spinner_item,currentUser.getLocationList());
+			adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+			spinnerDormList.setAdapter(adapter);
+		} catch (org.apache.http.ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (JSONException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
-    	int tmp = tmpLList.length;
-    	for(int i=0;i<tmp;++i){
-    		list.add(tmpLList[i].toString());
-    	}
-    	ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,list);
-    	adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-    	spinner_d.setAdapter(adapter);
-    	*/
-		EditText eT1 = (EditText) findViewById(R.id.editText1);
+    	
+		EditText eT1 = (EditText) findViewById(R.id.editText1);  //id
     	try {
     		eT1.setText("IN");
 			equipment currentEquip = currentUser.getEquipment(uidin.getText().toString());
 			if(currentEquip != null){
-				EditText eT2 = (EditText) findViewById(R.id.editText2);
-				EditText eT3 = (EditText) findViewById(R.id.editText3);
-				EditText eT4 = (EditText) findViewById(R.id.editText4);
+				EditText eT2 = (EditText) findViewById(R.id.editText2);	//name
+				//EditText eT3 = (EditText) findViewById(R.id.editText3);	//dorm
+				EditText eT4 = (EditText) findViewById(R.id.editText4);	//price
 				eT1.setText(currentEquip.id());
 				eT2.setText(currentEquip.name());
-				eT3.setText(currentEquip.location().toString());
+				//eT3.setText(currentEquip.location().toString());
+				location [] tmpLocal = currentUser.getLocationList();
+				int tmpLength = tmpLocal.length;
+				int spinnerNum = 0;
+				for(int i = 0;i<tmpLength;i++){
+					if (currentEquip.location()._id == tmpLocal[i]._id){
+						spinnerNum = i;
+						break;
+					}
+				}
+				spinnerDormList.setSelection(spinnerNum);
 				eT4.setText(Integer.toString(currentEquip.price()));
 				
 			}else{
@@ -242,21 +256,55 @@ public class CRMS extends Activity {
     	setContentView(R.layout.menu);
     }
     /*equipment*/
+    public void equipEdit(View cvView){
+
+    	EditText uidin = (EditText) findViewById(R.id.editText1);
+    	
+    	EditText editItemName = (EditText) findViewById(R.id.editText2);
+    	Spinner editItemDorm = (Spinner) findViewById(R.id.eqDorm);
+    	//EditText editItemEqid = (EditText) findViewById(R.id.editText1);
+    	EditText editItemPrice = (EditText) findViewById(R.id.editText4);
+    	
+    	
+    	
+    	try {
+    		equipment currentEquip = currentUser.getEquipment(uidin.getText().toString());
+    		currentEquip.name(editItemName.getText().toString())
+				.location((location)editItemDorm.getSelectedItem())
+				.price(Integer.parseInt(editItemPrice.getText().toString()));
+    		
+			if( currentEquip != null ){
+	    		Builder alertDialog = new Builder(CRMS.this) ;
+	     	    alertDialog.setMessage("修改成功").show();
+			}
+			
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
     public void equipExit(View cvView){
     	setContentView(R.layout.menu);
     }
     /*new item*/
     public void goNew(View cvView){
     	setContentView(R.layout.newitem);
+    	
     	/*設定spinner*/
     	Spinner spinner_d = (Spinner) findViewById(R.id.newItemDorm);
 		try {
-    	ArrayAdapter<location> adapter = new ArrayAdapter<location>(this,android.R.layout.simple_spinner_item,currentUser.getLocationList());
-    	adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-    	spinner_d.setAdapter(adapter);
-    	//spinner_d.getSelectedItemId();
-
-    	
+	    	ArrayAdapter<location> adapter = new ArrayAdapter<location>(this,android.R.layout.simple_spinner_item,currentUser.getLocationList());
+	    	adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+	    	spinner_d.setAdapter(adapter);
 		} catch (org.apache.http.ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -286,7 +334,6 @@ public class CRMS extends Activity {
 	    		Builder alertDialog = new Builder(CRMS.this) ;
 	     	    alertDialog.setMessage("新增成功").show();
 				newItemEqid.setText(newEquip.id());
-				
 			}
 			currentEquip = null;
 			
@@ -366,8 +413,8 @@ public class CRMS extends Activity {
 			str[i] = eqList[i].name();			
 		}
 		
-		//ArrayAdapter<equipment> adapter = new ArrayAdapter<equipment>(this,android.R.layout.simple_list_item_1,eqList);
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,str);
+		ArrayAdapter<equipment> adapter = new ArrayAdapter<equipment>(this,android.R.layout.simple_list_item_1,eqList);
+		//ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,str);
 		
 		lvList.setAdapter(adapter);	
     	

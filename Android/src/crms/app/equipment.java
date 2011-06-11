@@ -54,7 +54,7 @@ public class equipment {
 		//try{
 		_id = jsonObject.getString("id");
 		_name = jsonObject.getString("name");
-		_Location = new location(jsonObject.getString("dorm"));
+		_Location = new location(jsonObject);
 		String dateString = jsonObject.getString("date");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		//¶i¦æÂà´«
