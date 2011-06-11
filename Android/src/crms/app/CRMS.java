@@ -256,6 +256,9 @@ public class CRMS extends Activity {
     	setContentView(R.layout.menu);
     }
     /*equipment*/
+    public void equipEdit(View cvView){
+    	
+    }
     public void equipExit(View cvView){
     	setContentView(R.layout.menu);
     }
