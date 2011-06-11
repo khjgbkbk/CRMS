@@ -202,6 +202,8 @@ public class CRMS extends Activity {
 				eT1.setText(currentEquip.id());
 				eT2.setText(currentEquip.name());
 				eT3.setText(currentEquip.location().toString());
+				
+				//spinnerDormList.setSelection();
 				eT4.setText(Integer.toString(currentEquip.price()));
 				
 			}else{
