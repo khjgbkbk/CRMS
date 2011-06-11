@@ -170,8 +170,26 @@ public class CRMS extends Activity {
     public void queryEnter(View cvView){
 
     	EditText uidin = (EditText) findViewById(R.id.queEqid);
-
+    	
+    	/*Set spinner*/
     	setContentView(R.layout.equipment);
+    	Spinner spinnerDormList = (Spinner) findViewById(R.id.eqDorm);
+		ArrayAdapter<location> adapter;
+		try {
+			adapter = new ArrayAdapter<location>(this,android.R.layout.simple_spinner_item,currentUser.getLocationList());
+			adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+			spinnerDormList.setAdapter(adapter);
+		} catch (org.apache.http.ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (JSONException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
     	
 		EditText eT1 = (EditText) findViewById(R.id.editText1);
     	try {
