@@ -191,14 +191,14 @@ public class CRMS extends Activity {
 		}
 		
     	
-		EditText eT1 = (EditText) findViewById(R.id.editText1);
+		EditText eT1 = (EditText) findViewById(R.id.editText1);  //id
     	try {
     		eT1.setText("IN");
 			equipment currentEquip = currentUser.getEquipment(uidin.getText().toString());
 			if(currentEquip != null){
-				EditText eT2 = (EditText) findViewById(R.id.editText2);
-				EditText eT3 = (EditText) findViewById(R.id.editText3);
-				EditText eT4 = (EditText) findViewById(R.id.editText4);
+				EditText eT2 = (EditText) findViewById(R.id.editText2);	//name
+				EditText eT3 = (EditText) findViewById(R.id.editText3);	//dorm
+				EditText eT4 = (EditText) findViewById(R.id.editText4);	//price
 				eT1.setText(currentEquip.id());
 				eT2.setText(currentEquip.name());
 				eT3.setText(currentEquip.location().toString());
