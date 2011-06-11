@@ -202,8 +202,16 @@ public class CRMS extends Activity {
 				eT1.setText(currentEquip.id());
 				eT2.setText(currentEquip.name());
 				eT3.setText(currentEquip.location().toString());
-				
-				//spinnerDormList.setSelection();
+				location [] tmpLocal = currentUser.getLocationList();
+				int tmpLength = tmpLocal.length;
+				int spinnerNum = 0;
+				for(int i = 0;i<tmpLength;i++){
+					if (currentEquip.location()._id == tmpLocal[i]._id){
+						spinnerNum = i;
+						break;
+					}
+				}
+				spinnerDormList.setSelection(spinnerNum);
 				eT4.setText(Integer.toString(currentEquip.price()));
 				
 			}else{
