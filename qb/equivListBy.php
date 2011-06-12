@@ -7,6 +7,7 @@
 		$re = funcList( array("dorm" => $place) );
 	if($re["success"])
 	{
+		//$re["data"]["name"] = htmlspecialchars($re["data"]["name"]);
 		echo json_encode($re["data"]);
 		exit;
 	}

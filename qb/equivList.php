@@ -13,6 +13,10 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 
 <!-- Functions -->
 <script type="text/javascript">
+	function htmlspecialchars(string)  
+	{
+		return $('<span>').text(string).html();
+	}
 	function dele()
 	{
 		$('div#ctr tbody td input[id=dele]').click(function()
@@ -92,7 +96,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 						break;
 					default:
 						$.each(result,function(i,v){
-							$('div#ctr tbody').append('<tr><td>'+v["id"]+'</td><td>'+v["name"]+'</td><td>'+v["building"]+'</td><td>'+v["price"]+'</td><td>'+v["date"]+'</td><td class="hid"><td class="hid">'+v["dorm"]+'</td><td id="btn"><input type="button" id="edit" value="編輯"></td><td id="btn"><input type="button" id="dele" value="刪除"></td></tr>');
+							$('div#ctr tbody').append('<tr><td>'+v["id"]+'</td><td>'+htmlspecialchars(v["name"])+'</td><td>'+v["building"]+'</td><td>'+v["price"]+'</td><td>'+v["date"]+'</td><td class="hid">'+v["dorm"]+'</td><td id="btn"><input type="button" id="edit" value="編輯"></td><td id="btn"><input type="button" id="dele" value="刪除"></td></tr>');
 						});
 						dele();
 						edit();
