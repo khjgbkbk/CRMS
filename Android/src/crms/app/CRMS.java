@@ -362,6 +362,7 @@ public class CRMS extends Activity {
 			currentUser.deleteEquipment(rmEqId.getText().toString());
 			Builder alertDialog = new Builder(CRMS.this) ;
      	    alertDialog.setMessage("刪除成功").show();
+     	    rmEqId.setText("");
 		} catch (ClientProtocolException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
