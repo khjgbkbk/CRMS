@@ -1,0 +1,37 @@
+作業系統：
+ubuntu
+
+編輯器：
+VIM
+NotePad++
+eclipse
+
+版本控制：
+git
+gitHub
+
+安卓：
+android 
+ZXing
+adt
+
+網頁技術：
+jQuery
+css
+javascript
+php
+google API
+ajax
+REST
+
+資料庫與伺服器：
+mySQL
+json
+apache
+
+測試工具：
+wireshark
+firebug
+
+瀏覽器:
+safari, firefox, opera, chrome
