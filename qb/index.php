@@ -255,6 +255,8 @@
 	</div>
 	<br>
 	<div align="center" class="message">
+	</div>
+	<div class="s">
 		<form style="display:none"	method="post" name="kakusu" action="main.php">
 				<input type="hidden" name="Uid" value="">
 				<input type="hidden" name="Upd" value="">
