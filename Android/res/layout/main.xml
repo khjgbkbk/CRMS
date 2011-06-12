@@ -15,7 +15,7 @@
 				android:layout_height="wrap_content" android:text="User ID:"
 				android:layout_weight="1" android:textSize="25dip"></TextView>
 			<EditText android:layout_height="60dip"
-				android:layout_weight="10" android:id="@+id/uid" android:text="@string/admin"></EditText>
+				android:layout_weight="10" android:id="@+id/uid2" android:text="@string/admin"></EditText>
 		</TableRow>
 		<TableRow android:id="@+id/tableRow2" android:layout_width="wrap_content"
 			android:layout_height="wrap_content">
