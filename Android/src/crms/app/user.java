@@ -16,6 +16,7 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpPut;
 import org.apache.http.impl.auth.BasicScheme;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
@@ -159,22 +160,50 @@ public class user {
 		
 		
 	}
-	
+	public boolean deleteEquipment(String id) throws ClientProtocolException, IOException{
+		HttpDelete httpRequest = new HttpDelete(_DefaultServer.URLs + "/equipment/" + id);
+		/* 發出HTTP request */
+		/* 取得HTTP response */
+		HttpResponse httpResponse = HttpClient.execute(httpRequest);
+
+		/* 若狀態碼為200 ok */
+		if (httpResponse.getStatusLine().getStatusCode() == 200) {
+			//刪除成功
+			return true;
+
+		} else if (httpResponse.getStatusLine().getStatusCode() == 401) {
+			/* 取出回應字串 */
+			// String strResult =
+			// EntityUtils.toString(httpResponse.getEntity(),"BIG5");
+			// 回傳回應字串
+			_isLogined = false;
+			return false;
+		}
+		
+		
+		return false;
+		
+		
+	}
 	public equipment putEquipment(equipment equip) throws JSONException, ClientProtocolException, IOException{
 		if(equip == null){
 			return null;
 		}
 		JSONObject json = new JSONObject();
 		json.put("name",equip.name());
-		json.put("dorm",equip.location());
+		json.put("dorm",equip.location()._id);
 		json.put("id",equip.id());
 		json.put("price",equip.price());
-		HttpPost httpRequest = new HttpPost(_DefaultServer.URLs + "/equipment/");
+		HttpPost httpRequest = new HttpPost(_DefaultServer.URLs + "/putEquipment/" + equip.id());
 		/* 發出HTTP request */
 		/* 取得HTTP response */
-		HttpParams params =new BasicHttpParams();
-		params.setParameter("data", json.toString());
-		httpRequest.setParams(params);
+		
+		 List <NameValuePair> params = new ArrayList <NameValuePair>();
+		  //Add Post Data
+		params.add(new BasicNameValuePair("data",json.toString()));
+		UrlEncodedFormEntity urf = new UrlEncodedFormEntity(params,HTTP.UTF_8);
+		httpRequest.setEntity(urf);
+		
 		HttpResponse httpResponse = HttpClient.execute(httpRequest);
 
 		/* 若狀態碼為200 ok */
