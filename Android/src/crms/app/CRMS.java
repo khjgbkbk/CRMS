@@ -257,7 +257,40 @@ public class CRMS extends Activity {
     }
     /*equipment*/
     public void equipEdit(View cvView){
+    	
+    	equipment currentEquip = new equipment();
+    	
+    	
+    	EditText editItemName = (EditText) findViewById(R.id.editText2);
+    	Spinner editItemDorm = (Spinner) findViewById(R.id.eqDorm);
+    	EditText editItemEqid = (EditText) findViewById(R.id.editText1);
+    	EditText editItemPrice = (EditText) findViewById(R.id.editText4);
+    	currentEquip.id(editItemEqid.getText().toString())
+    				.name(editItemName.getText().toString())
+    				.location((location)editItemDorm.getSelectedItem())
+    				.price(Integer.parseInt(editItemPrice.getText().toString()));
+    	
+    	try {
+    		equipment newEquip = currentUser.putEquipment(currentEquip);
+			if( newEquip != null ){
 
+	    		Builder alertDialog = new Builder(CRMS.this) ;
+	     	    alertDialog.setMessage("修改成功").show();
+			}
+			currentEquip = null;
+			
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+/*
     	EditText uidin = (EditText) findViewById(R.id.editText1);
     	
     	EditText editItemName = (EditText) findViewById(R.id.editText2);
@@ -265,14 +298,14 @@ public class CRMS extends Activity {
     	//EditText editItemEqid = (EditText) findViewById(R.id.editText1);
     	EditText editItemPrice = (EditText) findViewById(R.id.editText4);
     	
-    	
+    	//
     	
     	try {
     		equipment currentEquip = currentUser.getEquipment(uidin.getText().toString());
     		currentEquip.name(editItemName.getText().toString())
 				.location((location)editItemDorm.getSelectedItem())
 				.price(Integer.parseInt(editItemPrice.getText().toString()));
-    		
+    		currentEquip = currentUser.putEquipment(currentEquip);
 			if( currentEquip != null ){
 	    		Builder alertDialog = new Builder(CRMS.this) ;
 	     	    alertDialog.setMessage("修改成功").show();
@@ -290,7 +323,7 @@ public class CRMS extends Activity {
 		} catch (Throwable e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
     }
     public void equipExit(View cvView){
     	setContentView(R.layout.menu);
@@ -356,6 +389,21 @@ public class CRMS extends Activity {
     /*remove*/
     public void goRm(View cvView){
     	setContentView(R.layout.remove);
+    }
+    public void rm(View cvView){
+    	EditText rmEqId = (EditText) findViewById(R.id.rmEqId);
+    	try {
+			currentUser.deleteEquipment(rmEqId.getText().toString());
+			Builder alertDialog = new Builder(CRMS.this) ;
+     	    alertDialog.setMessage("刪除成功").show();
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
     }
     public void rmBack(View cvView){
     	setContentView(R.layout.menu);
