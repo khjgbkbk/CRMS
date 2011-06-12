@@ -1,7 +1,7 @@
 <?php
 	$userid = $_POST['userid'];
 	
-	$newPwd = mysql_real_escape_string ($_POST['newPwd']);
+	$newPwd = $_POST['newPwd'];
 
 	include('../database/fUserEdit.php');
 	$re = funcUserEdit( array( "username" => $userid, "password" => $newPwd) );
