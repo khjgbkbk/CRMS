@@ -75,11 +75,15 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		padding-left:   9px;
 	}
 	table#data td{
-		width:		100px;
+		width:		159px;
 		text-align:	center;
 	}
 	table#data td#btn{
-		width:		10px;
+		width:		50px;
+		display: none;
+	}
+	table#data td#i{
+		width:	50px;
 	}
 </style>
 使用者列表
@@ -88,7 +92,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	<table id="data" style="border: 5px dotted rgb(109, 2, 107);">
 	<thead>
 		<tr>
-			<td>使用者編號</td>
+			<td id="i">編號</td>
 			<td>使用者名稱</td>
 			<td id="btn">刪除</td>
 		</tr>
@@ -98,15 +102,15 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		for($i=0 ; $i<$row ; $i++)
 		{
 ?>
-	<tr id="<?php echo $i; ?>" >
+	<tr>
 <?php
-			for($j=0 ; $j<$col ; $j++)
+			
+			echo "<td id='i'>".htmlspecialchars( $data[$i][0] )."</td>"; 
+			for($j=1 ; $j<$col ; $j++)
 			{
 				if( $j!=2 && $j!=3 )
 				{
-?>
-		<td><?php echo htmlspecialchars( $data[$i][$j] ); ?></td>	
-<?php
+					echo "<td>".htmlspecialchars( $data[$i][$j] )."</td>"; 
 				}
 			}
 ?>

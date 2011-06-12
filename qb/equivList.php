@@ -130,7 +130,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		text-align:	center;
 	}
 	div#ctr tbody td{
-		width:		100px;
+		width:		159px;
 	}
 	div#ctr tbody td#btn{
 		width:		10px;
