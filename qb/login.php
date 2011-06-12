@@ -12,20 +12,23 @@
 	else
 	{
 		include("../database/fLogin.php");
-		$UsrID = htmlspecialchars($_POST['UsrID']);
-		$UsrPW = htmlspecialchars($_POST['UsrPW']);
-		$UsrID = mysql_real_escape_string($UsrID);
-		$UsrPW = mysql_real_escape_string($UsrPW);
+		$UsrID = mysql_real_escape_string($_POST['UsrID']);
+		$UsrPW = mysql_real_escape_string($_POST['UsrPW']);
 		$return = funcLogin(array("username" => $UsrID,"password" =>  $UsrPW));
 		if($return['success'])
 		{
 			echo json_encode("success");
 			$_SESSION["loginid"] = $_POST['UsrID'];
 			$_SESSION["loginpwd"] = $_POST['UsrPW'];
+			exit;
 		}
 		else
 		{
-			echo json_encode("noaccess");
+			if($return['status'] == "nosuchaccount")
+				echo json_encode("noaccess");
+			else
+				echo json_encode($return['status']);
+			exit;
 		}
 	}
 ?>

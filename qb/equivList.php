@@ -57,6 +57,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			}
 			var editname = $(this).parents("tr").find("td:eq(1)").html();
 			var editplace = $(this).parents("tr").find("td:eq(5)").html();
+			alert(editplace);
 			var editid = $(this).parents("tr").find("td:eq(0)").html();
 			var editprice = $(this).parents("tr").find("td:eq(3)").html();
 			var data = {
@@ -92,7 +93,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 						break;
 					default:
 						$.each(result,function(i,v){
-							$('div#ctr tbody').append('<tr><td>'+v["id"]+'</td><td>'+v["name"]+'</td><td>'+v["building"]+'</td><td>'+v["price"]+'</td><td>'+v["date"]+'</td><td class="hid"><td class="hid">'+v["dorm"]+'</td><td id="btn"><input type="button" id="edit" value="編輯"></td><td id="btn"><input type="button" id="dele" value="刪除"></td></tr>');
+							$('div#ctr tbody').append('<tr><td>'+v["id"]+'</td><td>'+v["name"]+'</td><td>'+v["building"]+'</td><td>'+v["price"]+'</td><td>'+v["date"]+'</td><td class="hid">'+v["dorm"]+'</td><td id="btn"><input type="button" id="edit" value="編輯"></td><td id="btn"><input type="button" id="dele" value="刪除"></td></tr>');
 						});
 						dele();
 						edit();
