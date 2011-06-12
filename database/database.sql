@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 10, 2011 at 07:33 PM
+-- Generation Time: Jun 12, 2011 at 10:40 PM
 -- Server version: 5.1.54
 -- PHP Version: 5.3.5-1ubuntu7.2
 
@@ -25,7 +25,6 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Table structure for table `buildings`
 --
 
-DROP TABLE IF EXISTS `buildings`;
 CREATE TABLE IF NOT EXISTS `buildings` (
   `index` int(11) NOT NULL AUTO_INCREMENT,
   `building` varchar(15) NOT NULL,
@@ -58,12 +57,11 @@ INSERT INTO `buildings` (`index`, `building`, `desc`) VALUES
 -- Table structure for table `equipment`
 --
 
-DROP TABLE IF EXISTS `equipment`;
 CREATE TABLE IF NOT EXISTS `equipment` (
   `name` varchar(40) NOT NULL,
   `dorm` int(15) NOT NULL,
   `id` varchar(40) NOT NULL,
-  `price` int(11) NOT NULL,
+  `price` int(11) unsigned NOT NULL,
   `date` date NOT NULL,
   UNIQUE KEY `id` (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -74,9 +72,18 @@ CREATE TABLE IF NOT EXISTS `equipment` (
 
 INSERT INTO `equipment` (`name`, `dorm`, `id`, `price`, `date`) VALUES
 ('router', 1, '1234567890987654321', 123456789, '2012-12-31'),
-('switch', 1, 'wtf', 1234567, '1750-06-01'),
-('switch', 1, '1307692932', 1234567, '2011-06-10'),
-('switch', 3, '1307694086', 1234567, '2011-06-10');
+('switch', 3, '11061010552', 1234567, '2011-06-10'),
+('switch', 3, '11061010550', 1234567, '2011-06-10'),
+('switch', 3, '11061010548', 1234567, '2011-06-10'),
+('switch', 3, '11061010545', 1234567, '2011-06-10'),
+('switch', 3, '11061010126', 1234567, '2011-06-10'),
+('switch', 3, '11061133952', 1234567, '2011-06-11'),
+('switch', 3, '11061133950', 1234567, '2011-06-11'),
+('switch', 3, '11061133942', 1234567, '2011-06-11'),
+('switch', 3, '11061133939', 1234567, '2011-06-11'),
+('switch', 3, '11061010725', 1234567, '2011-06-10'),
+('switch', 3, '11061010662', 1234567, '2011-06-10'),
+('switch', 3, '11061010663', 1234567, '2011-06-10');
 
 -- --------------------------------------------------------
 
@@ -84,7 +91,6 @@ INSERT INTO `equipment` (`name`, `dorm`, `id`, `price`, `date`) VALUES
 -- Table structure for table `shadow`
 --
 
-DROP TABLE IF EXISTS `shadow`;
 CREATE TABLE IF NOT EXISTS `shadow` (
   `no` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
