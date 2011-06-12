@@ -26,7 +26,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			{	
 				return;
 			}
-			var id = $(this).parents("tr").find("td:eq(0)").html();
+			var id = $(this).parents("tr").find("td:eq(1)").html();
 			$.ajax({
 				url: 'delequiv.php',
 				type: 'POST',
@@ -59,10 +59,10 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			{	
 				return;
 			}
-			var editname = $(this).parents("tr").find("td:eq(1)").html();
-			var editplace = $(this).parents("tr").find("td:eq(5)").html();
-			var editid = $(this).parents("tr").find("td:eq(0)").html();
-			var editprice = $(this).parents("tr").find("td:eq(3)").html();
+			var editname = $(this).parents("tr").find("td:eq(2)").html();
+			var editplace = $(this).parents("tr").find("td:eq(6)").html();
+			var editid = $(this).parents("tr").find("td:eq(1)").html();
+			var editprice = $(this).parents("tr").find("td:eq(4)").html();
 			var data = {
 				"name": editname,
 				"place": editplace,
