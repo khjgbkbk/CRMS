@@ -90,6 +90,24 @@ switch($_SERVER['REQUEST_METHOD']){
                                 echo json_encode($res);
                         }
                         exit;
+
+                case "putEquipment" :
+			  include("../database/fEdit.php");
+                        if(!isset($_POST['data'])){
+                                print_r($_POST);
+                                header("HTTP/1.1 400 Bad Request");
+                                exit;
+                        }
+                        $res = funcEdit(json_decode($_POST['data'],true));
+
+                        if($res['success'] == false){
+                                header("HTTP/1.1 404 Not Found");
+                        }else{
+                                header("HTTP/1.1 200 OK");
+                                echo json_encode($res);
+                        }
+                        exit;
+
 		case "user" :
 			include("../database/fRegister.php");
                         if(!isset($_POST['data'])){
@@ -108,6 +126,7 @@ switch($_SERVER['REQUEST_METHOD']){
                 }else{
                         header("HTTP/1.1 400 Bad Request");
                 }
+	exit;
 	case 'DELETE':
 		if(isset($argv[1])){
                 switch($argv[1]){
@@ -126,8 +145,8 @@ switch($_SERVER['REQUEST_METHOD']){
                         }
                         exit;
                 case "user" :
-			 header("HTTP/1.1 501 Not Implemented");
-        exit;
+			header("HTTP/1.1 501 Not Implemented");
+        	exit;
                         include("../database/fRegister.php");
                         if(!isset($_POST['data'])){
                                 header("HTTP/1.1 400 Bad Request");
@@ -146,7 +165,47 @@ switch($_SERVER['REQUEST_METHOD']){
                         header("HTTP/1.1 400 Bad Request");
                 }
 
-	
+	 case 'PUT':
+                if(isset($argv[1])){
+                switch($argv[1]){
+                case "equipment" :
+                        include("../database/fEdit.php");
+                        if(!isset($_POST['data'])){
+				print_r($_POST);
+                                header("HTTP/1.1 400 Bad Request");
+                                exit;
+                        }
+                        $res = funcEdit(json_decode($_POST['data'],true));
+
+                        if($res['success'] == false){
+                                header("HTTP/1.1 404 Not Found");
+                        }else{
+                                header("HTTP/1.1 200 OK");
+                                echo json_encode($res);
+                        }
+                        exit;
+                case "user" :
+               header("HTTP/1.1 501 Not Implemented");
+        exit;       
+
+	         include("../database/fRegister.php");
+                        if(!isset($_POST['data'])){
+                                header("HTTP/1.1 400 Bad Request");
+                                exit;
+                        }
+                        $res = funcRegister(json_decode($_POST['data'],true));
+                        if($res['success'] == false){
+                                header("HTTP/1.1 404 Not Found");
+                        }else{
+                                header("HTTP/1.1 200 OK");
+                                echo json_encode($res["data"]);
+                        }
+                        exit;
+                }
+                }else{
+                        header("HTTP/1.1 400 Bad Request");
+                }
+	exit;
 	default:
 	header("HTTP/1.1 501 Not Implemented");
 	exit;
