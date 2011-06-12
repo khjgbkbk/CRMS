@@ -320,7 +320,7 @@ public class CRMS extends Activity {
     	equipment currentEquip = new equipment();
     	EditText newItemName = (EditText) findViewById(R.id.newItemName);
     	Spinner newItemDorm = (Spinner) findViewById(R.id.newItemDorm);
-    	EditText newItemEqid = (EditText) findViewById(R.id.newItemEqid);
+    	//EditText newItemEqid = (EditText) findViewById(R.id.newItemEqid);
     	EditText newItemPrice = (EditText) findViewById(R.id.newItemPrice);
     	
     	currentEquip.name(newItemName.getText().toString())
@@ -333,7 +333,7 @@ public class CRMS extends Activity {
 
 	    		Builder alertDialog = new Builder(CRMS.this) ;
 	     	    alertDialog.setMessage("新增成功").show();
-				newItemEqid.setText(newEquip.id());
+				//newItemEqid.setText(newEquip.id());
 			}
 			currentEquip = null;
 			
