@@ -57,7 +57,6 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			}
 			var editname = $(this).parents("tr").find("td:eq(1)").html();
 			var editplace = $(this).parents("tr").find("td:eq(5)").html();
-			alert(editplace);
 			var editid = $(this).parents("tr").find("td:eq(0)").html();
 			var editprice = $(this).parents("tr").find("td:eq(3)").html();
 			var data = {
