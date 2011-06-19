@@ -26,7 +26,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			{	
 				return;
 			}
-			var id = $(this).parents("tr").find("td:eq(0)").html();
+			var id = $(this).parents("tr").find("td:eq(1)").html();
 			$.ajax({
 				url: 'delequiv.php',
 				type: 'POST',
@@ -59,10 +59,10 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 			{	
 				return;
 			}
-			var editname = $(this).parents("tr").find("td:eq(1)").html();
-			var editplace = $(this).parents("tr").find("td:eq(5)").html();
-			var editid = $(this).parents("tr").find("td:eq(0)").html();
-			var editprice = $(this).parents("tr").find("td:eq(3)").html();
+			var editname = $(this).parents("tr").find("td:eq(2)").html();
+			var editplace = $(this).parents("tr").find("td:eq(6)").html();
+			var editid = $(this).parents("tr").find("td:eq(1)").html();
+			var editprice = $(this).parents("tr").find("td:eq(4)").html();
 			var data = {
 				"name": editname,
 				"place": editplace,
@@ -96,7 +96,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 						break;
 					default:
 						$.each(result,function(i,v){
-							$('div#ctr tbody').append('<tr><td>'+v["id"]+'</td><td>'+htmlspecialchars(v["name"])+'</td><td>'+v["building"]+'</td><td>'+v["price"]+'</td><td>'+v["date"]+'</td><td class="hid">'+v["dorm"]+'</td><td id="btn"><input type="button" id="edit" value="編輯"></td><td id="btn"><input type="button" id="dele" value="刪除"></td></tr>');
+							$('div#ctr tbody').append('<tr><td><img src="http://chart.googleapis.com/chart?chs=300x300&cht=qr&chl='+v["id"]+'&choe=UTF-8&chld=h"/></td><td>'+v["id"]+'</td><td>'+htmlspecialchars(v["name"])+'</td><td>'+v["building"]+'</td><td>'+v["price"]+'</td><td>'+v["date"]+'</td><td class="hid">'+v["dorm"]+'</td><td id="btn"><input type="button" id="edit" value="編輯"></td><td id="btn"><input type="button" id="dele" value="刪除"></td></tr>');
 						});
 						dele();
 						edit();
@@ -133,6 +133,12 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	div#ctr td{
 		text-align:	center;
 	}
+	div#ctr td img{
+		height:60px;
+	}
+	div#ctr td img:hover{
+		height:300px;
+	}
 	div#ctr tbody td{
 		width:		159px;
 	}
@@ -165,6 +171,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 	<table>
 	<thead>
 		<tr>
+			<td>QRcode</td>
 			<td>編號</td>
 			<td>名稱</td>
 			<td>位置</td>
@@ -182,6 +189,7 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 		{
 ?>
 	<tr id="<?php echo $i; ?>" >
+		<td><img src="http://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=<?php echo htmlspecialchars ($data[$i]['id']	); ?>&choe=UTF-8&chld=h"/></td>
 		<td><?php echo htmlspecialchars ($data[$i]['id']	); ?></td>
 		<td><?php echo htmlspecialchars ($data[$i]['name']	); ?></td>
 		<td><?php echo htmlspecialchars ($data[$i]['building']	); ?></td>

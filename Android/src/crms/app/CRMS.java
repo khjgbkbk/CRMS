@@ -108,7 +108,7 @@ public class CRMS extends Activity {
         //	location tmp = (location) spinner_d.getSelectedItem();
         //  Builder alertDialog = new Builder(CRMS.this) ;
         //       alertDialog.setMessage(tmp.toString()).show();
-    		if(currentUser.isLogined()){
+    		if(currentUser != null && currentUser.isLogined()){
     			setContentView(R.layout.menu);
     		}else{
     			setContentView(R.layout.main);
@@ -322,7 +322,7 @@ public class CRMS extends Activity {
     	equipment currentEquip = new equipment();
     	EditText newItemName = (EditText) findViewById(R.id.newItemName);
     	Spinner newItemDorm = (Spinner) findViewById(R.id.newItemDorm);
-    	EditText newItemEqid = (EditText) findViewById(R.id.newItemEqid);
+    	//EditText newItemEqid = (EditText) findViewById(R.id.newItemEqid);
     	EditText newItemPrice = (EditText) findViewById(R.id.newItemPrice);
     	
     	currentEquip.name(newItemName.getText().toString())
@@ -335,7 +335,7 @@ public class CRMS extends Activity {
 
 	    		Builder alertDialog = new Builder(CRMS.this) ;
 	     	    alertDialog.setMessage("新增成功").show();
-				newItemEqid.setText(newEquip.id());
+				//newItemEqid.setText(newEquip.id());
 			}
 			currentEquip = null;
 			
@@ -384,6 +384,8 @@ public class CRMS extends Activity {
         startActivityForResult(intent, 2);
     }
     public void logout(View cvView){
+    	currentUser._isLogined = false;
+    	currentUser = null;
     	setContentView(R.layout.main);
     }
     /*?????*/

@@ -19,16 +19,9 @@
 					</TableRow>
 					<TableRow android:id="@+id/tableRow4"
 						android:layout_width="fill_parent" android:layout_height="fill_parent">
-						<TextView android:id="@+id/textView2"
-							android:layout_width="fill_parent" android:text="Equipment ID:"
-							android:layout_weight="1" android:textSize="25dip"></TextView>
 					</TableRow>
 					<TableRow android:id="@+id/tableRow2"
 						android:layout_width="wrap_content" android:layout_height="wrap_content">
-						<EditText android:layout_weight="20" android:visibility="visible"
-							android:id="@+id/newItemEqid" android:layout_height="60dip">
-							<requestFocus></requestFocus>
-						</EditText>
 					</TableRow>
 					<TableRow android:id="@+id/tableRow5"
 						android:layout_width="fill_parent" android:layout_height="fill_parent">

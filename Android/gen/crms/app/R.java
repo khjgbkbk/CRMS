@@ -18,8 +18,8 @@ public final class R {
         public static final int qb=0x7f020004;
     }
     public static final class id {
-        public static final int TextView02=0x7f050024;
-        public static final int TextView03=0x7f050026;
+        public static final int TextView02=0x7f050023;
+        public static final int TextView03=0x7f050025;
         public static final int button1=0x7f050016;
         public static final int button2=0x7f050017;
         public static final int button3=0x7f05001d;
@@ -30,17 +30,16 @@ public final class R {
         public static final int editText4=0x7f050014;
         public static final int eqDorm=0x7f050010;
         public static final int imageButton1=0x7f050020;
-        public static final int imageView1=0x7f050028;
+        public static final int imageView1=0x7f050027;
         public static final int linearLayout1=0x7f050001;
         public static final int listView1=0x7f05001a;
-        public static final int newItemDorm=0x7f050025;
-        public static final int newItemEqid=0x7f050022;
-        public static final int newItemName=0x7f050023;
-        public static final int newItemPrice=0x7f050027;
+        public static final int newItemDorm=0x7f050024;
+        public static final int newItemName=0x7f050022;
+        public static final int newItemPrice=0x7f050026;
         public static final int pw=0x7f05001c;
-        public static final int queEqid=0x7f050029;
+        public static final int queEqid=0x7f050028;
         public static final int relativeLayout1=0x7f050018;
-        public static final int rmEqId=0x7f05002a;
+        public static final int rmEqId=0x7f050029;
         public static final int scrollView1=0x7f050000;
         public static final int spinner1=0x7f050019;
         public static final int tableLayout1=0x7f050002;
