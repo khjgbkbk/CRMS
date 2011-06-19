@@ -59,7 +59,7 @@ public final class R {
         public static final int textView3=0x7f05000a;
         public static final int textView4=0x7f05000e;
         public static final int textView5=0x7f050012;
-        public static final int uid=0x7f05001b;
+        public static final int uid2=0x7f05001b;
     }
     public static final class layout {
         public static final int equipment=0x7f030000;

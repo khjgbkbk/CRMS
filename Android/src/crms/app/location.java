@@ -10,6 +10,8 @@ public class location {
 	
 	
 	
+	
+	
 	public location(String string) {
 		_name = string;
 	}

@@ -127,7 +127,9 @@ public class CRMS extends Activity {
     }
     /*Login*/
     public void login(View cvView){
-    	EditText uidin = (EditText) findViewById(R.id.uid); 
+    	EditText uidin = (EditText) findViewById(R.id.uid2);
+    	
+    	
     	EditText passwdin = (EditText) findViewById(R.id.pw);
     	String inuid =  uidin.getText().toString();
     	String inpasswd =  passwdin.getText().toString();
