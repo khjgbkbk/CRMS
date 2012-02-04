@@ -27,7 +27,12 @@ if(!isset($_SERVER['PHP_AUTH_USER']) || !isset($_SERVER['PHP_AUTH_PW'])){
 	echo "you can't not pass2";
 	exit;
 }else{
-	include("../database/fLogin.php");
+	include("../database/config.inc.php");
+	if(isset($isCDPA) && $isCDPA){
+		include("../database/fCDPALogin.php");
+	}else{	
+		include("../database/fLogin.php");
+	}
 	$res = funcLogin(array("username" => $_SERVER['PHP_AUTH_USER'] , "password" => $_SERVER['PHP_AUTH_PW']));
 	if($res['success'] == false){
 		header('HTTP/1.1 401 Unauthorized');
