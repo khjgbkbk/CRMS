@@ -11,7 +11,7 @@
 	}
 	else
 	{
-		include("../datacase/config.inc.php");
+		include("../database/config.inc.php");
 		if(isset($isCDPA) && $isCDPA){
 			include("../database/fCDPALogin.php");
 		}else{	
