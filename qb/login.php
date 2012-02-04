@@ -11,7 +11,12 @@
 	}
 	else
 	{
-		include("../database/fLogin.php");
+		include("../datacase/config.inc.php");
+		if(isset($isCDPA) && $isCDPA){
+			include("../database/fCDPALogin.php");
+		}else{	
+			include("../database/fLogin.php");
+		}
 		$return = funcLogin(array("username" => $_POST['UsrID'],"password" =>  $_POST['UsrPW']));
 		if($return['success'])
 		{
