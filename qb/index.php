@@ -105,37 +105,23 @@
 	function send()
 	{
 		$.ajax({
-			url: 'login.php',
-			type: 'POST',
-			data: {
-				UsrID: $("input[name='Usrid']").attr('value'),
-				UsrPW: $("input[name='Usrpwd']").attr('value'),
-			},
-			dataType: "json",
-			error: function(xhr) {
-				alert('Ajax request failure');
-			},
-			success: function(result) {
-				switch (result) {
-				case "nid":
-					$('div.message').html("Please enter your username");
-					break;
-				case "npd":
-					$('div.message').html("Please enter your password");
-					break;
-				case "success":
+			url: 'androidMain.php',
+			type: 'GET',
+			username:$("input[name='Usrid']").attr('value'),
+			password:$("input[name='Usrpwd']").attr('value'),
+			statusCode:{
+				200:function(){
 					$("form[name=kakusu] input[name=Uid]").val( $("input[name='Usrid']").attr('value') ),
 					$("form[name=kakusu] input[name=Upd]").val( $("input[name='Usrpwd']").attr('value') ),
 					document.kakusu.submit();
 					break;
-				case "noaccess":
+				},
+				401:function(){
 					document.location.href = "notfound.php";
 					break;
-				default:
-					$('div.message').html(result);
-					break;
 				}
-			},
+			
+			}
 		});
 	}
 	function myrefresh()
