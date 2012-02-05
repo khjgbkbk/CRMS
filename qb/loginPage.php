@@ -28,7 +28,7 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="jquery-1.2.6.js"></script>
+<script type="text/javascript" src="jquery-1.6.1.min.js"></script>
 <!-- 偵測頁面大小 -->
 <script type="text/javascript">
 	var viewportwidth;
@@ -114,11 +114,11 @@
 					$("form[name=kakusu] input[name=Uid]").val( $("input[name='Usrid']").attr('value') ),
 					$("form[name=kakusu] input[name=Upd]").val( $("input[name='Usrpwd']").attr('value') ),
 					document.kakusu.submit();
-					break;
+					
 				},
 				401:function(){
 					document.location.href = "notfound.php";
-					break;
+					
 				}
 			
 			}
@@ -237,7 +237,7 @@
 	</table>
 	<br/>
 	<div align="center" style="font-size: 9pt; color: #3937FF;">
-		僕?契約??○○○○?????！
+		僕と契約して○○○○になってよ！
 	</div>
 	<br>
 	<div align="center" class="message">
