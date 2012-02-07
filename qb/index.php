@@ -39,7 +39,7 @@ if(!isset($_SERVER['PHP_AUTH_USER']) || !isset($_SERVER['PHP_AUTH_PW'])){
 		require("loginPage.php");
 		exit;
 	}else{
-		require("main.php");
+		require("inc/main.php");
 		exit;
 	}
 }
