@@ -125,7 +125,23 @@
 		
 		<div align=center>
 			<ul id="sec">
-				<?php include('inc/menuMag.php'); ?>
+				<?php
+				if(isset($_GET['m1'])){
+					switch($_GET['m1']){
+					case 'sys'
+						include('inc/menuSys.php');
+						break;
+					case 'mng':
+					default:
+						include('inc/menuMag.php'); 
+						break;
+					}					
+				}else{
+					include('inc/menuMag.php'); 
+				
+				}
+				
+				?>
 			</ul>
 		</div>
 		
