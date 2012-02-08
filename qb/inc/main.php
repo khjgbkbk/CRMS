@@ -105,7 +105,7 @@
 					&nbsp&nbsp Welcome
 				</td>
 				<td id="namae">
-					<?php echo htmlspecialchars($_SESSION["loginid"]); ?>&nbsp&nbsp
+					<?php echo htmlspecialchars($_SERVER['PHP_AUTH_USER']); ?>&nbsp&nbsp
 				</td>
 				<td>
 					&nbsp&nbsp<a STYLE="text-decoration: none" href='./logout.php'>Log out</a>&nbsp&nbsp
