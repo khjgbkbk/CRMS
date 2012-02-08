@@ -128,7 +128,7 @@
 				<?php
 				if(isset($_GET['m1'])){
 					switch($_GET['m1']){
-					case 'sys'
+					case 'sys':
 						include('inc/menuSys.php');
 						break;
 					case 'mng':
