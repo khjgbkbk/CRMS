@@ -118,8 +118,8 @@
 		
 		<div align=center>
 			<ul id="fir">
-				<li><a STYLE="text-decoration: none" id="mng" href="">[管理]</a></li>
-				<li><a STYLE="text-decoration: none" id="sys" href="">[系統]</a></li>
+				<li><a STYLE="text-decoration: none" id="mng" href="?m1=mng">[管理]</a></li>
+				<li><a STYLE="text-decoration: none" id="sys" href="?m1=sys">[系統]</a></li>
 			</ul>
 		</div>
 		
