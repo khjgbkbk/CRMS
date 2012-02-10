@@ -1,63 +1,7 @@
 <?php
 function showDataMsg(){
 ?>
-<script type="text/javascript">
-/*
-	function send()
-	{
-		if( $("input[name='Equivname']").attr('value') == "" )
-		{
-			alert('請輸入器材名稱!');
-			return;
-		}
-		if( $("select[name='Equivplace']").attr('value') == "-1" )
-		{
-			alert('請選擇器材位置!');
-			return;
-		}
-		$.ajax({
-			url: 'addequivto.php',
-			type: 'POST',
-			data: {
-				addEquivName: 	$("input[name='Equivname']").attr('value'),
-				addEquivPlace: 	$("select[name='Equivplace']").attr('value'),
-				addEquivPrice: 	$("input[name='Equivprice']").attr('value')
-			},
-			dataType: "json",
-			error: function(xhr) {
-				alert('Ajax request failure');
-			},
-			success: function(result) {
-				switch (result) {
-				case "success":
-					alert('新增成功 !');
-					document.location.href = "./";
-					break;
-				case "fail":
-					alert('新增失敗 !');
-					$('div#ctr tbody input[type="text"]').each(function(){
-						$(this).attr({value:''});
-					});
-					break;
-				default:
-					$('div.message').html(result);
-					break;
-				}
-			}
-		});
-	}*/
-</script>
-
-<script type="text/javascript">
-/*	$(document).ready(function () 
-	{
-		$('#Send').click(function()
-		{
-			send();
-		});
-	});
-	*/
-</script>
+<script type="text/javascript"><?php include('inc/js/addequiv.js');?></script>
 
 新增器材
 <br><br>
