@@ -186,7 +186,7 @@ function showDataMsg(){
 		{
 ?>
 	<tr id="<?php echo $i; ?>" >
-		<td><img src="http://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=<?php echo htmlspecialchars ($data[$i]['id']	); ?>&choe=UTF-8&chld=h"/></td>
+		<td><img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=<?php echo htmlspecialchars ($data[$i]['id']	); ?>&choe=UTF-8&chld=h"/></td>
 		<td><?php echo htmlspecialchars ($data[$i]['id']	); ?></td>
 		<td><?php echo htmlspecialchars ($data[$i]['name']	); ?></td>
 		<td><?php echo htmlspecialchars ($data[$i]['building']	); ?></td>
