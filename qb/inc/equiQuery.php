@@ -15,13 +15,11 @@ function showDataMsg(){
 	</tr>
 	<tr>
 		<td>或是掃描:</td>
-		<td><div style="width: 350px; height: 350px;" id="qrcodebox">
+		<td><div style="width: 150px; height: 150px;" id="qrcodebox">
 </div>
 <input type="button" value="Start" id="btn_start" /> 
 <input type="button" value="Stop" id="btn_stop" />
-<p>
-Last QRCode value: <span id="qrcode_result">none</span>
-</p></td>
+</td>
 	</tr>
 	<tr>
 		<td></td>

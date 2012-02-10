@@ -28,8 +28,9 @@ $(document).ready(function ()
 	});
 	$('#qrcodebox').WebcamQRCode({
 		onQRCodeDecode: function( p_data ){
-				$('#qrcode_result').html( p_data );
-		}
+				$("input[name='Equivid']").val( p_data);
+		},
+		webcamOnStart:false
 	});
 	
 	$('#btn_start').click(function(){
