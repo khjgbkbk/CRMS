@@ -71,7 +71,7 @@ function select()
 		var value = $(this).val();
 		$('div#ctr tbody').html('');
 		var url = 'androidMain.php/location/' + value;
-		if(value === -1){
+		if(value == -1){
 			url = 'androidMain.php/equipment/';
 		}
 		$.ajax({
