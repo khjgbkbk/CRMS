@@ -1,5 +1,5 @@
 <?php
-function showMainMenu(){
+function showDataMsg(){
 ?>
 
 <script type="text/javascript">

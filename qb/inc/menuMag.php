@@ -8,7 +8,7 @@ function showMainMenu(){
 }
 
 if(isset($_GET['m2'])){
-	switch($_GET['m1']){
+	switch($_GET['m2']){
 	case 'equiQuery':
 		include('inc/equiQuery.php');
 		break;	
