@@ -21,6 +21,7 @@ if(isset($_GET['m1'])){
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="jquery.json-2.2.min.js"></script>
 <title>CRMS</title>
 <link rel="shortcut icon" href="image/qb_ico.gif">
 <!-- Some function -->
