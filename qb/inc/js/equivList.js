@@ -81,9 +81,9 @@ function select()
 					});
 					dele();
 					edit();
-					}
 				}
 			}
+			
 		});
 	});
 }
