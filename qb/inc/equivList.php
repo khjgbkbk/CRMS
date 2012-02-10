@@ -9,7 +9,7 @@ function showDataMsg(){
 ?>
 
 <!-- Functions -->
-<script type="text/javascript"><?php include('inc/js/quivList.js');?></script>
+<script type="text/javascript"><?php include('inc/js/equivList.js');?></script>
 
 <!-- CSS -->
 <style type="text/css">
