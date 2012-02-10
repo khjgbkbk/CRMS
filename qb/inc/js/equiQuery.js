@@ -26,4 +26,17 @@ $(document).ready(function ()
 	{
 		send();
 	});
+	$('#qrcodebox').WebcamQRCode({
+		onQRCodeDecode: function( p_data ){
+				$('#qrcode_result').html( p_data );
+		}
+	});
+	
+	$('#btn_start').click(function(){
+		$('#qrcodebox').WebcamQRCode().start();
+	});
+	
+	$('#btn_stop').click(function(){
+		$('#qrcodebox').WebcamQRCode().stop();
+	});
 });
