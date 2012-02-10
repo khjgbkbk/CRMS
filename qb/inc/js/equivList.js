@@ -15,32 +15,13 @@ function dele()
 		$.ajax({
 			url:'androidMain.php/equipment/' + id,
 			type:'DELETE',
-			dataType:'json'
-		});
-		
-		
-		/*
-		$.ajax({
-			url: 'delequiv.php',
-			type: 'POST',
-			data: {
-				ID: id
-			},
-			dataType: "json",
-			error: function(xhr) {
-				alert('Ajax request failure');
-			},
-			success: function(result) {
-				switch (result) {
-				case "success":
-					break;
-				default:
-					alert(result);
-					break;
+			dataType:'json',
+			statusCode:{
+				200:function(){
+					$(this).parents("tr").remove();
 				}
-			},
-		});*/
-		$(this).parents("tr").remove();
+			}
+		});
 	});
 }
 function edit()
