@@ -1,6 +1,7 @@
 <?php
 function showMainMenu(){
 ?>
+<li><a STYLE="text-decoration: none" href="?m1=mng&m2=moveEquip">[搬移器材]</a></li>
 <li><a STYLE="text-decoration: none" href="?m1=mng&m2=equivList">[器材列表]</a></li>
 <li><a STYLE="text-decoration: none" href="?m1=mng&m2=addequiv">[新增器材]</a></li>
 <li><a STYLE="text-decoration: none" href="?m1=mng&m2=equiQuery">[查詢器材]</a></li>
