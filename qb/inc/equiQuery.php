@@ -15,7 +15,7 @@ function showDataMsg(){
 	</tr>
 	<tr>
 		<td>或是掃描:</td>
-		<td><div style="width: 150px; height: 150px;" id="qrcodebox">
+		<td><div style="width: 220px; height: 150px;" id="qrcodebox">
 </div>
 <input type="button" value="Start" id="btn_start" /> 
 <input type="button" value="Stop" id="btn_stop" />
