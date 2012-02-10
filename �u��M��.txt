@@ -23,6 +23,8 @@ php
 google API
 ajax
 REST
+jquery-webcamqrcode
+http://code.google.com/p/jquery-webcamqrcode/
 
 資料庫與伺服器：
 mySQL
