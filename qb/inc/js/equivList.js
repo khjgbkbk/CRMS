@@ -39,7 +39,7 @@ function edit()
 		var editprice = $(this).parents("tr").find("td:eq(4)").html();
 		var data = {
 			"name": editname,
-			"place": editplace,
+			"dorm": editplace,
 			"id": editid,
 			"price": editprice
 		};
