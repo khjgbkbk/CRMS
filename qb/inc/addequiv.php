@@ -1,4 +1,8 @@
+<?php
+function showDataMsg(){
+?>
 <script type="text/javascript">
+/*
 	function send()
 	{
 		if( $("input[name='Equivname']").attr('value') == "" )
@@ -41,17 +45,18 @@
 				}
 			}
 		});
-	}
+	}*/
 </script>
 
 <script type="text/javascript">
-	$(document).ready(function () 
+/*	$(document).ready(function () 
 	{
 		$('#Send').click(function()
 		{
 			send();
 		});
 	});
+	*/
 </script>
 
 新增器材
@@ -96,3 +101,6 @@
 </div>
 <div align="center" class="message">
 </div>
+<?php
+}
+?>

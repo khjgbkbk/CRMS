@@ -1,5 +1,9 @@
+<?php
+function showMainMenu(){
+?>
+
 <script type="text/javascript">
-	function send()
+	/*function send()
 	{
 		if( $("input[name='Equivid']").attr('value') == "" )
 		{
@@ -27,18 +31,18 @@
 				}
 			}
 		});
-	}
+	}*/
 </script>
 
 <script type="text/javascript">
-	var KEY_ENTER = 13;
+	/*var KEY_ENTER = 13;
 	$(document).ready(function () 
 	{
 		$('#Send').click(function()
 		{
 			send();
 		});
-	});
+	});*/
 </script>
 
 查詢器材
@@ -61,3 +65,6 @@
 <div align="center" id="message">
 
 </div>
+<?php
+}
+?>

@@ -151,23 +151,7 @@ if(isset($_GET['m1'])){
 		<br>
 		<br>
 		<div id="datamsg" align="center">
-			<?php
-			if(isset($_GET['m1'])){
-				switch($_GET['m1']){
-				case 'sys':
-					include('inc/menuMag.php'); 
-					break;
-				case 'mng':
-				default:
-					include('inc/menuMag.php'); 
-					break;
-				}					
-			}else{
-				include('inc/menuMag.php'); 
-			
-			}
-			
-			?>
+			<?php showDataMsg();?>
 		</div>
 </body>
 
