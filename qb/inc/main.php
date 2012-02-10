@@ -1,3 +1,22 @@
+<?php
+if(isset($_GET['m1'])){
+	switch($_GET['m1']){
+	case 'sys':
+		include('inc/menuSys.php');
+		break;
+	case 'mng':
+	default:
+		include('inc/menuMag.php'); 
+		break;
+	}					
+}else{
+	include('inc/menuMag.php'); 
+
+}
+
+
+
+?>
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -125,30 +144,30 @@
 		
 		<div align=center>
 			<ul id="sec">
-				<?php
-				if(isset($_GET['m1'])){
-					switch($_GET['m1']){
-					case 'sys':
-						include('inc/menuSys.php');
-						break;
-					case 'mng':
-					default:
-						include('inc/menuMag.php'); 
-						break;
-					}					
-				}else{
-					include('inc/menuMag.php'); 
-				
-				}
-				
-				?>
+				<?php showMainMenu();?>
 			</ul>
 		</div>
 		
 		<br>
 		<br>
 		<div id="datamsg" align="center">
+			<?php
+			if(isset($_GET['m1'])){
+				switch($_GET['m1']){
+				case 'sys':
+					include('inc/menuMag.php'); 
+					break;
+				case 'mng':
+				default:
+					include('inc/menuMag.php'); 
+					break;
+				}					
+			}else{
+				include('inc/menuMag.php'); 
 			
+			}
+			
+			?>
 		</div>
 </body>
 

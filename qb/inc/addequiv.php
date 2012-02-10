@@ -1,9 +1,3 @@
-<?php
-ob_start();
-session_start();
-if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
-{
-?>
 <script type="text/javascript">
 	function send()
 	{
@@ -102,8 +96,3 @@ if(isset($_SESSION["loginid"]) && isset($_SESSION["loginpwd"]))
 </div>
 <div align="center" class="message">
 </div>
-<?php	
-}
-?>
-	
-
