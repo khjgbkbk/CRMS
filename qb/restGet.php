@@ -2,6 +2,7 @@
 if(isset($argv[1])){
 	switch($argv[1]){
 		case "equipment" :
+			require('inc/getEquipment.php');
 			getEquipment($argv);
 			exit;
 		case "location" :

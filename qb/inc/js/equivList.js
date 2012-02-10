@@ -70,8 +70,12 @@ function select()
 	$('select#place').change(function(){
 		var value = $(this).val();
 		$('div#ctr tbody').html('');
+		var url = 'androidMain.php/location/' + value;
+		if(value === -1){
+			url = 'androidMain.php/equipment/';
+		}
 		$.ajax({
-			url: 'androidMain.php/location/' + value,
+			url: url,
 			type: 'GET',
 			dataType: "json",
 			statusCode:{
@@ -85,6 +89,7 @@ function select()
 			}
 			
 		});
+		
 	});
 }
 var KEY_ENTER = 13;
