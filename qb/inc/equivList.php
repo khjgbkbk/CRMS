@@ -93,7 +93,7 @@ function showDataMsg(){
 						break;
 					default:
 						$.each(result,function(i,v){
-							$('div#ctr tbody').append('<tr><td><img src="http://chart.googleapis.com/chart?chs=300x300&cht=qr&chl='+v["id"]+'&choe=UTF-8&chld=h"/></td><td>'+v["id"]+'</td><td>'+htmlspecialchars(v["name"])+'</td><td>'+v["building"]+'</td><td>'+v["price"]+'</td><td>'+v["date"]+'</td><td class="hid">'+v["dorm"]+'</td><td id="btn"><input type="button" id="edit" value="編輯"></td><td id="btn"><input type="button" id="dele" value="刪除"></td></tr>');
+							$('div#ctr tbody').append('<tr><td><img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl='+v["id"]+'&choe=UTF-8&chld=h"/></td><td>'+v["id"]+'</td><td>'+htmlspecialchars(v["name"])+'</td><td>'+v["building"]+'</td><td>'+v["price"]+'</td><td>'+v["date"]+'</td><td class="hid">'+v["dorm"]+'</td><td id="btn"><input type="button" id="edit" value="編輯"></td><td id="btn"><input type="button" id="dele" value="刪除"></td></tr>');
 						});
 						dele();
 						edit();
