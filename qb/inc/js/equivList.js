@@ -44,7 +44,23 @@ function edit()
 			"price": editprice
 		};
 		var link = "equivEdit.php";
-		equiEdit(link, data);
+		$.ajax({
+			url  : 'androidMain.php/equipment/',
+			type: 'PUT',
+			dataType : 'json',
+			data: {
+				data:$.toJSON(data)
+			},
+			statusCode : {
+				200 : function(res){
+						$("div#datamsg").html(res);
+					},
+				404 : 
+					function(res){
+						$("div#datamsg").html("Page Not Found");
+					}
+			}
+		});
 		return;
 		
 	});
