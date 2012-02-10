@@ -81,7 +81,6 @@ function select()
 					});
 					dele();
 					edit();
-					break;
 					}
 				}
 			}
