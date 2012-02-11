@@ -16,6 +16,9 @@ if(isset($_GET['m2'])){
 	case 'addequiv':
 		include('inc/addequiv.php');
 		break;
+	case 'moveEquip':
+		include('inc/moveEquip.php');
+		break;
 	case 'equivList':
 	default:
 		include('inc/equivList.php'); 
