@@ -5,6 +5,10 @@ if(isset($argv[1])){
 			require('inc/getEquipment.php');
 			getEquipment($argv);
 			exit;
+		case "equipQR" :
+			require('inc/getEquipQR.php');
+			getEquipQR($argv);
+			exit;
 		case "location" :
 			if(!isset($argv[2]) || $argv[2] == ""){
 				include("../database/fBuilding.php");
