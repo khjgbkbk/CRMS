@@ -30,7 +30,18 @@ function showDataMsg(){
 </div>
 <br><br>
 <div align="center" id="message">
+<?php
+if(isset($_GET['eqid'])){
+	require_once('../database/fQuery.php');
+	$res = funcQuery(array('id'=>$_GET['eqid']));
+	if($res['success'] == false){
+		echo 'Not Found';
+	}else{
+		print_r($res['data']);
+	}
+}
 
+?>
 </div>
 <?php
 }
