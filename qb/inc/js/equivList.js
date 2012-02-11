@@ -29,47 +29,6 @@ function dele()
 		});
 	});
 }
-function edit()
-{
-	$('div#ctr tbody td input[id=edit]').click(function()
-	{
-		var cfm = confirm("確定要修改嗎?");
-		if( cfm == false )
-		{	
-			return;
-		}
-		var editname = $(this).parents("tr").find("td:eq(2)").html();
-		var editplace = $(this).parents("tr").find("td:eq(6)").html();
-		var editid = $(this).parents("tr").find("td:eq(1)").html();
-		var editprice = $(this).parents("tr").find("td:eq(4)").html();
-		var data = {
-			"name": editname,
-			"dorm": editplace,
-			"id": editid,
-			"price": editprice
-		};
-		var link = "equivEdit.php";
-		$.ajax({
-			url  : 'androidMain.php/equipment/',
-			type: 'PUT',
-			dataType : 'json',
-			data: {
-				data:$.toJSON(data)
-			},
-			statusCode : {
-				200 : function(res){
-						$("div#datamsg").html(res);
-					},
-				404 : 
-					function(res){
-						$("div#datamsg").html("Page Not Found");
-					}
-			}
-		});
-		return;
-		
-	});
-}
 function select()
 {
 	$('select#place').change(function(){
@@ -92,7 +51,7 @@ function select()
 							'<td>'+v["price"]+'</td> '+
 							'<td>'+v["date"]+'</td>'+
 							'<td class="hid">'+v["dorm"]+'</td>' + 
-							'<td id="btn"><input type="button" id="edit" value="編輯"></td>' +
+							'<td id="btn"><a href="?m1=mng&m2=equiQuery&eqid='+ value +'"><input type="button" id="query" value="查詢"></a></td>' +
 							'<td id="btn"><input type="button" id="dele" value="刪除"></td>' +
 						'</tr>'
 						);
@@ -110,6 +69,5 @@ var KEY_ENTER = 13;
 $(document).ready(function () 
 {
 	dele();
-	edit();
 	select();
 })
