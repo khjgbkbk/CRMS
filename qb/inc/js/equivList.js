@@ -11,14 +11,19 @@ function dele()
 		{	
 			return;
 		}
-		var id = $(this).parents("tr").find("td:eq(1)").html();
+		var $tr = $(this).parents("tr");
+		var id = $tr.find("td:eq(1)").html();
+		
 		$.ajax({
 			url:'androidMain.php/equipment/' + id,
 			type:'DELETE',
 			dataType:'json',
 			statusCode:{
 				200:function(){
-					$(this).parents("tr").remove();
+					$tr.remove();
+				},
+				404:function(){
+					alert('Not Found');
 				}
 			}
 		});
