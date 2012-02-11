@@ -61,7 +61,7 @@ function showDataMsg(){
 	<table>
 	<thead>
 		<tr>
-			<td>QRcode</td>
+			<!--<td>QRcode</td>-->
 			<td>編號</td>
 			<td>名稱</td>
 			<td>位置</td>
@@ -82,7 +82,7 @@ function showDataMsg(){
 		
 ?>
 	<tr id="<?php echo $i; ?>" >
-		<td><img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&choe=UTF-8&chld=h&chl=<?php echo  urlencode($Code['data'])?>"/></td>
+		<!--<td><img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&choe=UTF-8&chld=h&chl=<?php echo  urlencode($Code['data'])?>"/></td>-->
 		<td><?php echo htmlspecialchars ($data[$i]['id']	); ?></td>
 		<td><?php echo htmlspecialchars ($data[$i]['name']	); ?></td>
 		<td><?php echo htmlspecialchars ($data[$i]['building']	); ?></td>
