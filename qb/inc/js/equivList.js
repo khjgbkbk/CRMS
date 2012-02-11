@@ -51,7 +51,7 @@ function select()
 							'<td>'+v["price"]+'</td> '+
 							'<td>'+v["date"]+'</td>'+
 							'<td class="hid">'+v["dorm"]+'</td>' + 
-							'<td id="btn"><a href="?m1=mng&m2=equiQuery&eqid='+ value +'"><input type="button" id="query" value="查詢"></a></td>' +
+							'<td id="btn"><a href="?m1=mng&m2=equiQuery&eqid='+ v['id'] +'"><input type="button" id="query" value="查詢"></a></td>' +
 							'<td id="btn"><input type="button" id="dele" value="刪除"></td>' +
 						'</tr>'
 						);
