@@ -5,7 +5,7 @@ function funcGetQRCode($ask){
 	if($res['success'] == false){
 		return array("success" => false);
 	}else{
-		$Code = funcMkQRCodeData($res);
+		$Code = funcMkQRCodeData($res['data']);
 		$uri = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&choe=UTF-8&chld=h&chl=' . urlencode($Code['data']);
 		return array("success" => true, "data" => $uri);
 	}
@@ -16,7 +16,7 @@ function funcMkQRCodeData($data){
 		'id'      => $data['id'],
 		'name'	  => $data['name']
 	);
-	return array('success' => true , 'data' => $json_encode(ret));
+	return array('success' => true , 'data' => json_encode($ret));
 }
 
 
