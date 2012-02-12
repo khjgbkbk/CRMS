@@ -1,7 +1,7 @@
 <?php
 function showDataMsg(){
 ?>
-<script type="text/javascript"  src="jquery.webcamqrcode.min.js"></script>
+<script type="text/javascript"  src="llqrcode.js"></script>
 <script type="text/javascript"><?php include('inc/js/equiQuery.js'); ?></script>
 
 查詢器材

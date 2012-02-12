@@ -47,6 +47,7 @@ function select()
 					$.each(result,function(i,v){
 						$('div#ctr tbody').append(
 						'<tr>' +
+							'<td>'+v["id"]+'</td>' +
 							'<td>'+v["building"]+'</td>' +
 							'<td>'+v["price"]+'</td> '+
 							'<td>'+v["date"]+'</td>'+
