@@ -80,7 +80,9 @@ function captureToCanvas() {
     flash = document.getElementById("embedflash");
     if(!flash)
         return;
-    flash.ccCapture();
+    if(typeof(flash.ccCapture) != 'function')
+		return;
+	flash.ccCapture();
 }
 
 function htmlEntities(str) {

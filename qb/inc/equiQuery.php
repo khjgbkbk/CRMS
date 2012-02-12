@@ -17,7 +17,7 @@ function showDataMsg(){
 		<td>或是掃描:</td>
 		<td>
 		<div id="outdiv"></div>
-		<canvas id="qr-canvas" width="800" height="600"></canvas>
+		<canvas id="qr-canvas" width="0" height="0"></canvas>
 <input type="button" value="Start" id="btn_start" /> 
 <input type="button" value="Stop" id="btn_stop" />
 </td>
