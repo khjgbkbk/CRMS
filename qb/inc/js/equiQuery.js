@@ -112,13 +112,6 @@ $(document).ready(function ()
 	{
 		send();
 	});
-	$('#qrcodebox').WebcamQRCode({
-		onQRCodeDecode: function( p_data ){
-				$("input[name='Equivid']").val( p_data);
-		},
-		webcamOnStart:false
-	});
-	
 	$('#btn_start').click(function(){
 		document.getElementById("result").innerHTML="- scanning -";
 		if(stype==1)
