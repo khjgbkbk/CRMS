@@ -11,13 +11,12 @@ function showDataMsg(){
 	<tbody>
 	<tr>
 		<td>請輸入編號:</td>
-		<td><input type="text" name="Equivid"></td>
+		<td><input id="Equivid" type="text" name="Equivid"></td>
 	</tr>
 	<tr>
 		<td>或是掃描:</td>
 		<td>
 		<div id="outdiv"></div>
-		<div id="result"></div>
 		<canvas id="qr-canvas" width="800" height="600"></canvas>
 <input type="button" value="Start" id="btn_start" /> 
 <input type="button" value="Stop" id="btn_stop" />

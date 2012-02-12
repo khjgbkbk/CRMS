@@ -93,9 +93,8 @@ function htmlEntities(str) {
 
 function read(a)
 {
-    var html="<br>";
-    html+="<b>"+htmlEntities(a)+"</b><br><br>";
-    document.getElementById("result").innerHTML=html;
+    $('#Equivid').val(a);
+	$("#outdiv").html("");
 }	
 
 function isCanvasSupported(){
@@ -113,21 +112,21 @@ $(document).ready(function ()
 		send();
 	});
 	$('#btn_start').click(function(){
-		document.getElementById("result").innerHTML="- scanning -";
+		if(isCanvasSupported() && window.File && window.FileReader)
+		{
+			initCanvas(320,240);
+		}	
 		if(stype==1)
 		{
 			qrcode.callback = read;
-			setTimeout(captureToCanvas, 500);    
+			setTimeout(captureToCanvas, 200);    
 			return;
 		}
-		document.getElementById("outdiv").innerHTML = camhtml;
+		$("#outdiv").html(camhtml);
 		stype=1;
-		setTimeout(captureToCanvas, 500);
+		setTimeout(captureToCanvas, 200);
 	});
 	
-		if(isCanvasSupported() && window.File && window.FileReader)
-	{
-		initCanvas(320,240);
-	}	
+		
 	
 });
