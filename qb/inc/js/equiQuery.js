@@ -97,6 +97,7 @@ function read(a)
 {
     $('#Equivid').val(a);
 	$("#outdiv").html("");
+	stype=0;
 }	
 
 function isCanvasSupported(){
@@ -120,10 +121,10 @@ $(document).ready(function ()
 		}	
 		if(stype==1)
 		{
-			qrcode.callback = read;
 			setTimeout(captureToCanvas, 200);    
 			return;
 		}
+		qrcode.callback = read;
 		$("#outdiv").html(camhtml);
 		stype=1;
 		setTimeout(captureToCanvas, 200);
