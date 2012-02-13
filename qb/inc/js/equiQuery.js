@@ -71,7 +71,7 @@ function passLine(stringPixels) {
         }
         catch(e){       
             console.log(e);
-            setTimeout(captureToCanvas, 500);
+            setTimeout(captureToCanvas, 150);
         };
     } 
 } 
