@@ -23,6 +23,7 @@ function send()
 var gCtx = null;
 var gCanvas = null;
 var imageData = null;
+var scanrate = 150;
 var c=0;
 var stype=0;
 
@@ -71,7 +72,7 @@ function passLine(stringPixels) {
         }
         catch(e){       
             console.log(e);
-            setTimeout(captureToCanvas, 150);
+            setTimeout(captureToCanvas, scanrate);
         };
     } 
 } 
@@ -129,7 +130,14 @@ $(document).ready(function ()
 		stype=1;
 		setTimeout(captureToCanvas, 200);
 	});
-	
+	$('span#lbl_scanrate').html(scanrate + 'ms / scan');
+	$('#btn_renewScanrate').click(function(){
+		scanrate = $('#inp_scanrate').val();
+		$('span#lbl_scanrate').html(scanrate + 'ms / scan');
+	});
+	$('#btn_stop').click(function(){
+		$("#outdiv").html("");
+	});
 		
 	
 });
