@@ -12,7 +12,7 @@ function dele()
 			return;
 		}
 		var $tr = $(this).parents("tr");
-		var id = $tr.find("td:eq(1)").html();
+		var id = $tr.find("td.eqid").html();
 		
 		$.ajax({
 			url:'androidMain.php/equipment/' + id,
@@ -48,6 +48,7 @@ function select()
 						$('div#ctr tbody').append(
 						'<tr>' +
 							'<td>'+v["id"]+'</td>' +
+							'<td>'+v["name"]+'</td>' +
 							'<td>'+v["building"]+'</td>' +
 							'<td>'+v["price"]+'</td> '+
 							'<td>'+v["date"]+'</td>'+
@@ -58,7 +59,6 @@ function select()
 						);
 					});
 					dele();
-					edit();
 				}
 			}
 			

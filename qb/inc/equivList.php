@@ -68,7 +68,7 @@ function showDataMsg(){
 			<td>價錢</td>
 			<td>加入時間</td>
 			<td class="hid">00</td>
-			<td id="btn">編輯</td>
+			<td id="btn">查詢</td>
 			<td id="btn">刪除</td>
 		</tr>
 	</thead>
@@ -83,13 +83,13 @@ function showDataMsg(){
 ?>
 	<tr id="<?php echo $i; ?>" >
 		<!--<td><img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&choe=UTF-8&chld=h&chl=<?php echo  urlencode($Code['data'])?>"/></td>-->
-		<td><?php echo htmlspecialchars ($data[$i]['id']	); ?></td>
+		<td class="eqid"><?php echo htmlspecialchars ($data[$i]['id']	); ?></td>
 		<td><?php echo htmlspecialchars ($data[$i]['name']	); ?></td>
 		<td><?php echo htmlspecialchars ($data[$i]['building']	); ?></td>
 		<td><?php echo htmlspecialchars ($data[$i]['price']	); ?></td>
 		<td><?php echo htmlspecialchars ($data[$i]['date']	); ?></td>
 		<td class="hid"><?php echo htmlspecialchars ($data[$i]['dorm']	); ?></td>
-		<td id="btn"><input type="button" id="edit" value="編輯"></td>
+		<td id="btn"><a href="?m1=mng&m2=equiQuery&eqid=<?php htmlspecialchars ($data[$i]['id']	);?>"><input type="button" id="query" value="查詢"></a></td>
 		<td id="btn"><input type="button" id="dele" value="刪除"></td>
 	</tr>
 <?php
