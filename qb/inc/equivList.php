@@ -89,7 +89,7 @@ function showDataMsg(){
 		<td><?php echo htmlspecialchars ($data[$i]['price']	); ?></td>
 		<td><?php echo htmlspecialchars ($data[$i]['date']	); ?></td>
 		<td class="hid"><?php echo htmlspecialchars ($data[$i]['dorm']	); ?></td>
-		<td id="btn"><a href="?m1=mng&m2=equiQuery&eqid=<?php htmlspecialchars ($data[$i]['id']	);?>"><input type="button" id="query" value="查詢"></a></td>
+		<td id="btn"><a href="?m1=mng&m2=equiQuery&eqid=<?php echo htmlspecialchars ($data[$i]['id']	);?>"><input type="button" id="query" value="查詢"></a></td>
 		<td id="btn"><input type="button" id="dele" value="刪除"></td>
 	</tr>
 <?php
