@@ -22,7 +22,7 @@ function showDataMsg(){
 				<input type="button" value="Start" id="btn_start" /> 
 				<input type="button" value="Stop" id="btn_stop" />
 				SCANRATE:<span id="lbl_scanrate"></span>
-				<input type="button" value="$lt;=" id="btn_renewScanrate"/>
+				<input type="button" value="&lt;=" id="btn_renewScanrate"/>
 				<input type="input" id="inp_scanrate"/>
 			</div>
 		</td>
