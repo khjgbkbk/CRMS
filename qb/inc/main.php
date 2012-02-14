@@ -80,7 +80,7 @@ if(isset($_GET['m1'])){
 		$('#btn_logout').click(function(){
 			$.ajax({url:'androidMain.php/logout'});
 			return false;
-		});
+		}).attr('href','');
 		
 
 	});
@@ -117,7 +117,7 @@ if(isset($_GET['m1'])){
 					<?php echo htmlspecialchars($_SERVER['PHP_AUTH_USER']); ?>&nbsp&nbsp
 				</td>
 				<td>
-					&nbsp&nbsp<a STYLE="text-decoration: none" id="btn_logout" href='./androidMain.php'>Log out</a>&nbsp&nbsp
+					&nbsp&nbsp<a STYLE="text-decoration: none" id="btn_logout" href='./androidMain.php/logout'>Log out</a>&nbsp&nbsp
 				</td>
 				</tbody>
 			</table>
