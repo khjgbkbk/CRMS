@@ -44,6 +44,33 @@ if(isset($_GET['eqid'])){
 		echo 'Not Found';
 	}else{
 		print_r($res['data']);
+?>
+		<div id="infoBox">
+		<table>
+		<tbody>
+			<tr>
+				<td>物品編號</td>
+				<td><?php echo $res['data']['id'];?></td>
+			</tr>
+			<tr>
+				<td>物品名稱</td>
+				<td><?php echo $res['data']['name']?></td>
+			</tr>
+			<tr>
+				<td colspan="2">其他</td>
+				<td colspan="2"><?php echo $res['data']['other'] ?></td>
+			</tr>
+		</tbody>	
+		</table>
+		
+		
+		
+		
+		</div>
+		
+		
+		
+<?php		
 	}
 }
 
