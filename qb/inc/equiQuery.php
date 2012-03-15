@@ -4,7 +4,7 @@ function showDataMsg(){
 <script type="text/javascript"  src="llqrcode.js"></script>
 <script type="text/javascript"><?php include('inc/js/equiQuery.js'); ?></script>
 <script type="text/javascript">
-	$(document).ready({
+	$(document).ready(function(){
 		<?php
 			if(isset($_GET['eqid'])){
 		?>		
