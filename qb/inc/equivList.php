@@ -64,6 +64,7 @@ function showDataMsg(){
 			<!--<td>QRcode</td>-->
 			<td>編號</td>
 			<td>名稱</td>
+			<td>型號</td>
 			<td>位置</td>
 			<td>價錢</td>
 			<td>加入時間</td>
@@ -85,6 +86,7 @@ function showDataMsg(){
 		<!--<td><img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&choe=UTF-8&chld=h&chl=<?php echo  urlencode($Code['data'])?>"/></td>-->
 		<td class="eqid"><?php echo htmlspecialchars ($data[$i]['id']	); ?></td>
 		<td><?php echo htmlspecialchars ($data[$i]['name']	); ?></td>
+		<td><?php echo htmlspecialchars ($data[$i]['model']	); ?></td>
 		<td><?php echo htmlspecialchars ($data[$i]['building']	); ?></td>
 		<td><?php echo htmlspecialchars ($data[$i]['price']	); ?></td>
 		<td><?php echo htmlspecialchars ($data[$i]['date']	); ?></td>

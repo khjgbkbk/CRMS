@@ -49,6 +49,7 @@ function select()
 						'<tr>' +
 							'<td>'+v["id"]+'</td>' +
 							'<td>'+v["name"]+'</td>' +
+							'<td>'+v["model"]+'</td>' +
 							'<td>'+v["building"]+'</td>' +
 							'<td>'+v["price"]+'</td> '+
 							'<td>'+v["date"]+'</td>'+
