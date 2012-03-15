@@ -8,8 +8,8 @@ function showDataMsg(){
 		<?php
 			if(isset($_GET['eqid'])){
 		?>		
-		//	$('#Equivid').val('<?php echo $_GET['eqid']?>');
-		//	$('#Send').click();
+			$('#Equivid').val('<?php echo $_GET['eqid']?>');
+			$('#Send').click();
 		<?php
 			}
 		?>
@@ -49,42 +49,42 @@ function showDataMsg(){
 <br><br>
 <div align="center" id="message">
 <?php
-if(isset($_GET['eqid'])){
-	require_once('../database/fQuery.php');
-	$res = funcQuery(array('id'=>$_GET['eqid']));
-	if($res['success'] == false){
-		echo 'Not Found';
-	}else{
-		print_r($res['data']);
+//if(isset($_GET['eqid'])){
+//	require_once('../database/fQuery.php');
+//	$res = funcQuery(array('id'=>$_GET['eqid']));
+//	if($res['success'] == false){
+//		echo 'Not Found';
+//	}else{
+//		print_r($res['data']);
 ?>
 		<div id="infoBox">
 		<table>
 		<tbody>
 			<tr>
 				<td>物品編號</td>
-				<td ><input id="itemId" readonly="disable" value=<?php echo $res['data']['id'];?>/></td>
+				<td ><input id="itemId" readonly="disable" value=""/></td>
 			</tr>
 			<tr>
 				<td>QRCODE</td>
-				<td><img id="qrcode" src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&choe=UTF-8&chld=h&chl=<?php echo  urlencode($res['data']['id'])?>"/></td>
+				<td><img id="qrcode" src=""/></td>
 			</tr>
 			<tr>
 				<td>物品名稱</td>
-				<td><input id="itemName" value=<?php echo $res['data']['name']?>/></td>
+				<td><input id="itemName" value=""/></td>
 			</tr>
 			<tr>
 				<td>位置</td>
-				<td><input id="building" <?php echo $res['data']['building']?>/></td>
+				<td><input id="building" value=""/></td>
 			</tr>
 			<tr>
 				<td>價錢</td>
-				<td><input id="price" <?php echo $res['data']['price']?>/></td>
+				<td><input id="price" value=""/></td>
 			</tr>
 			<tr>
 				<td colspan="2">其他</td>
 			</tr>
 			<tr>
-				<td colspan="2" id='other'><?php echo $res['data']['other'] ?></td>
+				<td colspan="2" id='other'></td>
 			</tr>
 		</tbody>	
 		</table>
@@ -97,8 +97,8 @@ if(isset($_GET['eqid'])){
 		
 		
 <?php		
-	}
-}
+//	}
+//}
 
 ?>
 </div>
