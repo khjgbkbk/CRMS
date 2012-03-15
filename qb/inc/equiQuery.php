@@ -3,7 +3,19 @@ function showDataMsg(){
 ?>
 <script type="text/javascript"  src="llqrcode.js"></script>
 <script type="text/javascript"><?php include('inc/js/equiQuery.js'); ?></script>
+<script type="text/javascript">
+	$(document).ready({
+		<?php
+			if(isset($_GET['eqid'])){
+		?>		
+			$('#Equivid').val('<?php echo $_GET['eqid']?>');
+			$('#Send').click();
+		<?php
+			}
+		?>
+	});
 
+</script>
 查詢器材
 <br><br>
 <div align="center">
