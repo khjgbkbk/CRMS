@@ -11,11 +11,11 @@ function send()
 		dataType: "json",
 		statusCode:{
 			200:function(result){
-				$('#itemId').html(result["id"]);
+				$('#itemId').val(result["id"]);
 				$('#qrcode').attr('src','https://chart.googleapis.com/chart?chs=300x300&cht=qr&choe=UTF-8&chld=h&chl=' + result["id"]);
-				$('#itemName').html(result["name"]);
-				$('#building').html(result["building"]);
-				$('#price').html(result["price"]);
+				$('#itemName').val(result["name"]);
+				$('#building').val(result["building"]);
+				$('#price').val(result["price"]);
 				$('#other').html(result["other"]);
 			
 			/*

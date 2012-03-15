@@ -62,7 +62,7 @@ if(isset($_GET['eqid'])){
 		<tbody>
 			<tr>
 				<td>物品編號</td>
-				<td id="itemId"><?php echo $res['data']['id'];?></td>
+				<td ><input id="itemId" readonly="disable" value=<?php echo $res['data']['id'];?>/></td>
 			</tr>
 			<tr>
 				<td>QRCODE</td>
@@ -70,15 +70,15 @@ if(isset($_GET['eqid'])){
 			</tr>
 			<tr>
 				<td>物品名稱</td>
-				<td id="itemName"><?php echo $res['data']['name']?></td>
+				<td><input id="itemName" value=<?php echo $res['data']['name']?>/></td>
 			</tr>
 			<tr>
 				<td>位置</td>
-				<td id="building"><?php echo $res['data']['building']?></td>
+				<td><input id="building" <?php echo $res['data']['building']?>/></td>
 			</tr>
 			<tr>
 				<td>價錢</td>
-				<td id="price"><?php echo $res['data']['price']?></td>
+				<td><input id="price" <?php echo $res['data']['price']?>/></td>
 			</tr>
 			<tr>
 				<td colspan="2">其他</td>
