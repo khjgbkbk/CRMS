@@ -8,8 +8,8 @@ function showDataMsg(){
 		<?php
 			if(isset($_GET['eqid'])){
 		?>		
-			$('#Equivid').val('<?php echo $_GET['eqid']?>');
-			$('#Send').click();
+		//	$('#Equivid').val('<?php echo $_GET['eqid']?>');
+		//	$('#Send').click();
 		<?php
 			}
 		?>
@@ -65,12 +65,18 @@ if(isset($_GET['eqid'])){
 				<td><?php echo $res['data']['id'];?></td>
 			</tr>
 			<tr>
+				<td>QRCODE</td>
+				<td><img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&choe=UTF-8&chld=h&chl=<?php echo  urlencode($res['data']['id'])?>"/></td>
+			</tr>
+			<tr>
 				<td>物品名稱</td>
 				<td><?php echo $res['data']['name']?></td>
 			</tr>
 			<tr>
 				<td colspan="2">其他</td>
-				<td colspan="2"><?php echo $res['data']['other'] ?></td>
+			</tr>
+			<tr>
+				<td colspan="2" id='other'><?php echo $res['data']['other'] ?></td>
 			</tr>
 		</tbody>	
 		</table>
